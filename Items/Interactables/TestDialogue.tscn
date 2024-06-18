@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhsxpyx0i287w"]
+
+[ext_resource type="Script" path="res://Items/Interactables/TestDialogue.gd" id="1_1ke4s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8rm6"]
+
+[node name="Node" type="StaticBody3D"]
+script = ExtResource("1_1ke4s")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.30659, 0, 0, 0, 1.30659, 0, 0, 0, 1.30659, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_n8rm6")

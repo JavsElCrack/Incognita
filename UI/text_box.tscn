@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://lh7lh0wobtoe"]
+
+[ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
+[ext_resource type="Texture2D" uid="uid://ojlmq5bhs8io" path="res://UI/UI_Images/textbox(1).png" id="2_lpiuf"]
+[ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
+[ext_resource type="AudioStream" uid="uid://ftevm1ti8fs7" path="res://Sound/vocales_javs/javs_e.wav" id="3_0lrul"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_kg0io"]
+[ext_resource type="AudioStream" uid="uid://dgny3k7xf67cy" path="res://Sound/vocales_javs/javs_i.wav" id="4_43dvh"]
+[ext_resource type="AudioStream" uid="uid://bgwmkd51lnr2a" path="res://Sound/vocales_javs/javs_o.wav" id="5_kgajb"]
+[ext_resource type="AudioStream" uid="uid://bcrd2vf1lde58" path="res://Sound/vocales_javs/javs_u.wav" id="6_2nw1j"]
+
+[node name="TextBox" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 0.076
+anchor_bottom = 0.129
+offset_right = -23.552
+offset_bottom = -17.592
+script = ExtResource("1_jbin6")
+audioclips = [ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_lpiuf")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_kg0io")
+horizontal_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://ccnudeloy7rru"]
+[gd_scene load_steps=8 format=3 uid="uid://ccnudeloy7rru"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
+[ext_resource type="PackedScene" uid="uid://dhsxpyx0i287w" path="res://Items/Interactables/TestDialogue.tscn" id="2_ose2j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hnajm"]
+sky_material = SubResource("ProceduralSkyMaterial_tlp5n")
+
+[sub_resource type="Environment" id="Environment_1mtnd"]
+background_mode = 2
+sky = SubResource("Sky_hnajm")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpak0"]
+albedo_color = Color(0.254902, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxslm"]
+albedo_color = Color(0.254902, 0, 1, 1)
+
+[node name="root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1mtnd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_5h7jb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.3572, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(34.5476, 0, 0, 0, 0.620259, 0, 0, 0, 34.5476, -2.82036, 1.87777, 1.14777)
+use_collision = true
+size = Vector3(1.75537, 1, 1.89111)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2.28037, 0, 0, 0, 2.28037, 0, 0, 0, 2.28037, -11.1403, 3.42398, -0.257504)
+use_collision = true
+material = SubResource("StandardMaterial3D_cpak0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(4.19712, 0, 0, 0, 4.19712, 0, 0, 0, 4.19712, -6.49139, 4.22744, -0.257504)
+use_collision = true
+material = SubResource("StandardMaterial3D_xxslm")
+
+[node name="CSGCylinder3D" parent="." instance=ExtResource("2_ose2j")]

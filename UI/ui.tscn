@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwb2hlbyscmti"]
+
+[ext_resource type="PackedScene" uid="uid://lh7lh0wobtoe" path="res://UI/text_box.tscn" id="1_tnrgs"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBox" type="Node2D" parent="."]
+
+[node name="TextBox" parent="." instance=ExtResource("1_tnrgs")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
