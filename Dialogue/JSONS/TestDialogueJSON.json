@@ -10,7 +10,7 @@
 		]
 	},
 	{
-		"commands_raw": "jajajaj tu si sabe",
+		"commands_raw": "jajajaj tu si sabe.\nQuieres saber keloke?\n?>  Si -> Diag Node\n?> No -> choice 2",
 		"gnode_name": "choice 1",
 		"id": 1,
 		"name": "choice 1",
@@ -30,7 +30,7 @@
 		]
 	},
 	{
-		"commands_raw": "",
+		"commands_raw": "Sheesh manito el secreto es creer en ti\nNo lo Olvides",
 		"gnode_name": "diag node",
 		"id": 3,
 		"name": "Diag Node",

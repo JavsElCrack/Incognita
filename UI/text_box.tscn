@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=17 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
@@ -8,7 +8,24 @@
 [ext_resource type="AudioStream" uid="uid://bgwmkd51lnr2a" path="res://Sound/vocales_javs/javs_o.wav" id="5_kgajb"]
 [ext_resource type="AudioStream" uid="uid://bcrd2vf1lde58" path="res://Sound/vocales_javs/javs_u.wav" id="6_2nw1j"]
 [ext_resource type="Texture2D" uid="uid://cvc1d4n7a8631" path="res://UI/UI_Images/textbox.png" id="7_ifbpy"]
+[ext_resource type="AudioStream" uid="uid://b4oyukxqmjtqx" path="res://Sound/vocales_ale_ogro/ogro_a.wav" id="7_pwme1"]
+[ext_resource type="AudioStream" uid="uid://bcgouuri1qvy3" path="res://Sound/vocales_ale_ogro/ogro_e.wav" id="8_lud13"]
+[ext_resource type="AudioStream" uid="uid://b2yqf2hriv8q3" path="res://Sound/vocales_ale_ogro/ogro_i.wav" id="9_2nx45"]
+[ext_resource type="StyleBox" uid="uid://qcqvaccobfe4" path="res://UI/button.tres" id="9_vtjcg"]
+[ext_resource type="AudioStream" uid="uid://27wsq6fbq4du" path="res://Sound/vocales_ale_ogro/ogro_o.wav" id="10_6tyq1"]
+[ext_resource type="AudioStream" uid="uid://csp6avyrd2g80" path="res://Sound/vocales_ale_ogro/ogro_u.wav" id="11_q27ex"]
 [ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="24_v0bt3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = -1
@@ -18,6 +35,7 @@ offset_right = -8.55199
 offset_bottom = -17.592
 script = ExtResource("1_jbin6")
 audioclipsjavs = [ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]
+audioclipsogro = [ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
@@ -57,9 +75,24 @@ alignment = 2
 layout_mode = 2
 alignment = 1
 
+[node name="Finish Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kg0io")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("9_vtjcg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rj52l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj52l")
+theme_override_styles/disabled = ExtResource("9_vtjcg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rj52l")
+text = "Stop Talking"
+
 [node name="EzDialogue" type="Node" parent="."]
 script = ExtResource("24_v0bt3")
 
 [connection signal="finished_displaying" from="." to="." method="_on_finished_displaying"]
 [connection signal="timeout" from="Control/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Finish Button" to="." method="_on_finish_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Finish Button" to="VBoxContainer/HBoxContainer/Finish Button" method="_on_pressed" flags=18]
 [connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
+[connection signal="end_of_dialogue_reached" from="EzDialogue" to="." method="_on_ez_dialogue_end_of_dialogue_reached"]

@@ -6,8 +6,6 @@ extends MarginContainer
 @onready var pitch = $Control/AudioStreamPlayer.pitch_scale
 @onready var buttonparent = $VBoxContainer/HBoxContainer
 @onready var choicebuttonscene = preload("res://UI/ChoiceButton.tscn")
-@onready var textbox = preload("res://UI/text_box.tscn")
-@onready var currentTextbox = $TextBox
 @onready var initialsize = size
 @export var audioclipsjavs = [] 
 @export var audioclipsogro = [] 
@@ -19,6 +17,7 @@ const MAX_WIDTH = 256
 const MIN_PITCH = 0.2
 const MAX_PITCH = 3
 var text = ""
+var islastdialogue = false
 var letter_index = 0
 var choice_buttons: Array[Button] = []
 
@@ -28,12 +27,16 @@ var punctuation_time = 0.2
 
 
 signal finished_displaying()
+signal dialogue_started()
+signal dialogue_ended()
+
 
 func _ready():
 	pass
 
 
 func display_text(text_to_display:String):
+	letter_index = 0
 	text = text_to_display
 	label.text = text_to_display
 	await  resized
@@ -52,10 +55,15 @@ func add_choice(choice_text : String):
 	button_obj.text = choice_text
 	choice_buttons.push_back(button_obj)
 	button_obj.choice_selected.connect(on_choice_selected)
+	return button_obj
 
 
 func clear_dialogue_box():
-	currentTextbox.queue_free()
+	for choice in choice_buttons:
+		choice.queue_free()
+	choice_buttons = []
+	
+
 
 func on_choice_selected(choice_index:int):
 	($EzDialogue as EzDialogue).next(choice_index)
@@ -67,6 +75,8 @@ func _display_letter():
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()
+		if islastdialogue == true:
+			finish_dialogue()
 		return
 	match  text[letter_index]:
 		"!",".",",","?":
@@ -88,13 +98,13 @@ func play_sound_hash(letter: String , audioclips):
 	if audiosource.playing == true && StopAudioSource ==  true:
 		audiosource.stop()
 	pitch = randf_range(MIN_PITCH,MAX_PITCH)
-	var hash = letter.sha256_buffer()
-	var index = hash[0] % audioclips.size()
+	var hashs = letter.sha256_buffer()
+	var index = hashs[0] % audioclips.size()
 	var max_Pitchint : int = MAX_PITCH * 100 
 	var min_Pitchint : int = MIN_PITCH * 100
 	
 	var pitchRange = max_Pitchint - min_Pitchint
-	pitch = ((hash[0]%pitchRange) + MIN_PITCH)/100
+	pitch = ((hashs[0]%pitchRange) + MIN_PITCH)/100
 	audiosource.stream = audioclips[index];
 	audiosource.play()
 
@@ -104,6 +114,9 @@ func _on_letter_display_timer_timeout():
 
 
 func _on_ez_dialogue_dialogue_generated(response : DialogueResponse):
+	dialogue_started.emit()
+	clear_dialogue_box()
+	$"VBoxContainer/HBoxContainer/Finish Button".visible = false
 	display_text(response.text)
 	for choice in response.choices:
 		add_choice(choice)
@@ -112,3 +125,19 @@ func _on_ez_dialogue_dialogue_generated(response : DialogueResponse):
 func _on_finished_displaying():
 	for choice in choice_buttons:
 		buttonparent.add_child(choice)
+
+
+func _on_ez_dialogue_end_of_dialogue_reached():
+	islastdialogue = true
+	
+
+func finish_dialogue():
+	$"VBoxContainer/HBoxContainer/Finish Button".visible = true
+
+
+func _on_finish_button_pressed():
+	visible = false
+	islastdialogue = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	clear_dialogue_box()
+	dialogue_ended.emit()

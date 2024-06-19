@@ -51,10 +51,8 @@ material = SubResource("StandardMaterial3D_xxslm")
 
 [node name="CSGCylinder3D" parent="." node_paths=PackedStringArray("textbox", "parent") instance=ExtResource("2_ose2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60767, 4.12943, 0)
-textbox = NodePath("../Player/Head/Camera3D/UI/TextBox")
+textbox = NodePath("../Player/Head/TextBox")
 dialogue_json = ExtResource("3_dhgrl")
 parent = NodePath("../Player/Head/Camera3D")
 
 [editable path="Player"]
-[editable path="Player/Head/Camera3D/UI"]
-[editable path="Player/Head/Camera3D/UI/TextBox"]

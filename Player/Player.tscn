@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_kygf7"]
 [ext_resource type="PackedScene" uid="uid://dxaghwiica4la" path="res://Interact/InteractRay.tscn" id="2_r1hne"]
-[ext_resource type="PackedScene" uid="uid://dwb2hlbyscmti" path="res://UI/ui.tscn" id="3_lwvm8"]
+[ext_resource type="PackedScene" uid="uid://lh7lh0wobtoe" path="res://UI/text_box.tscn" id="3_ywk3r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1c7cj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnx0h"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_kygf7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -22,6 +22,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606869, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="UI" parent="Head/Camera3D" instance=ExtResource("3_lwvm8")]
+[node name="RayCast3D" parent="Head" groups=["player"] instance=ExtResource("2_r1hne")]
 
-[node name="RayCast3D" parent="Head" instance=ExtResource("2_r1hne")]
+[node name="TextBox" parent="Head" instance=ExtResource("3_ywk3r")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="dialogue_ended" from="Head/TextBox" to="." method="_on_text_box_dialogue_ended"]
+[connection signal="dialogue_started" from="Head/TextBox" to="." method="_on_text_box_dialogue_started"]
