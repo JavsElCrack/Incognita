@@ -1,7 +1,7 @@
 extends CollisionObject3D
 class_name Interactable
 
-signal interacted(body)
+signal interacted(_body)
 @export var enabled := true
 @export var prompt_message = "Interact"
 @export var prompt_input = "interact"
@@ -17,7 +17,7 @@ func get_prompt():
 			break
 	return prompt_message + "\n[" + key_name + "]"
 
-func _interact(body):
+func interact(_body):
 	if not enabled:
 		return
-	interacted.emit(body)
+	interacted.emit(_body)

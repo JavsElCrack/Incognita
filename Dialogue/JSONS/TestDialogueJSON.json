@@ -1,0 +1,42 @@
+[
+	{
+		"commands_raw": "Keloke gallo lokazo, Hoy es un dia triste debido a que Don Pollo dijo mala noticia mi gente aaaaaaaaaaaaaaa\n?>  Si -> choice 1\n?> No -> choice 2\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			-660,
+			-640
+		]
+	},
+	{
+		"commands_raw": "jajajaj tu si sabe",
+		"gnode_name": "choice 1",
+		"id": 1,
+		"name": "choice 1",
+		"position": [
+			-420,
+			-680
+		]
+	},
+	{
+		"commands_raw": "no le sabe usted",
+		"gnode_name": "choice 2",
+		"id": 2,
+		"name": "choice 2",
+		"position": [
+			-380,
+			-480
+		]
+	},
+	{
+		"commands_raw": "",
+		"gnode_name": "diag node",
+		"id": 3,
+		"name": "Diag Node",
+		"position": [
+			-180,
+			-740
+		]
+	}
+]

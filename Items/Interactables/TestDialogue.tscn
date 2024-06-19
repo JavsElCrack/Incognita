@@ -6,9 +6,12 @@
 
 [node name="Node" type="StaticBody3D"]
 script = ExtResource("1_1ke4s")
+prompt_message = "Talk"
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1.30659, 0, 0, 0, 1.30659, 0, 0, 0, 1.30659, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_n8rm6")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

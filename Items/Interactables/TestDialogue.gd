@@ -2,8 +2,13 @@ extends Interactable
 
 
 
-@export var textboxscene = preload("res://UI/text_box.tscn")
+@export var textbox : MarginContainer
+@export var dialogue_json : JSON
+@export var parent : Camera3D
+@onready var state= {}
 
-func _on_interacted(body):
-	var textbox = textboxscene.instantiate()
-	textbox.display_text("Coito")
+func _on_interacted(_body):
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+
+	(textbox.get_child(4) as EzDialogue).start_dialogue(dialogue_json,state)
+	

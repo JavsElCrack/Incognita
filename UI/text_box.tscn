@@ -1,26 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=10 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
-[ext_resource type="Texture2D" uid="uid://ojlmq5bhs8io" path="res://UI/UI_Images/textbox(1).png" id="2_lpiuf"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
 [ext_resource type="AudioStream" uid="uid://ftevm1ti8fs7" path="res://Sound/vocales_javs/javs_e.wav" id="3_0lrul"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_kg0io"]
 [ext_resource type="AudioStream" uid="uid://dgny3k7xf67cy" path="res://Sound/vocales_javs/javs_i.wav" id="4_43dvh"]
 [ext_resource type="AudioStream" uid="uid://bgwmkd51lnr2a" path="res://Sound/vocales_javs/javs_o.wav" id="5_kgajb"]
 [ext_resource type="AudioStream" uid="uid://bcrd2vf1lde58" path="res://Sound/vocales_javs/javs_u.wav" id="6_2nw1j"]
+[ext_resource type="Texture2D" uid="uid://cvc1d4n7a8631" path="res://UI/UI_Images/textbox.png" id="7_ifbpy"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="24_v0bt3"]
 
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = -1
 anchor_right = 0.076
 anchor_bottom = 0.129
-offset_right = -23.552
+offset_right = -8.55199
 offset_bottom = -17.592
 script = ExtResource("1_jbin6")
-audioclips = [ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]
+audioclipsjavs = [ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="LetterDisplayTimer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_lpiuf")
+texture = ExtResource("7_ifbpy")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 20
@@ -39,9 +48,18 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_kg0io")
 horizontal_alignment = 1
 
-[node name="LetterDisplayTimer" type="Timer" parent="."]
-one_shot = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("24_v0bt3")
+
+[connection signal="finished_displaying" from="." to="." method="_on_finished_displaying"]
+[connection signal="timeout" from="Control/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]

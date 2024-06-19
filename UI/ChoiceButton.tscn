@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cikrssij8a3hu"]
+
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_p810v"]
+[ext_resource type="StyleBox" uid="uid://qcqvaccobfe4" path="res://UI/button.tres" id="2_km8kq"]
+[ext_resource type="Script" path="res://UI/ChoiceButton.gd" id="3_hxpev"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Button" type="Button"]
+theme_override_fonts/font = ExtResource("1_p810v")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("2_km8kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rj52l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj52l")
+theme_override_styles/disabled = ExtResource("2_km8kq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rj52l")
+text = "yes"
+script = ExtResource("3_hxpev")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
