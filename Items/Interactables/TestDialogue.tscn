@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhsxpyx0i287w"]
+[gd_scene load_steps=4 format=3 uid="uid://dhsxpyx0i287w"]
 
 [ext_resource type="Script" path="res://Items/Interactables/TestDialogue.gd" id="1_1ke4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pv4ac"]
+albedo_color = Color(1, 1, 0.52549, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8rm6"]
 
@@ -10,6 +13,7 @@ prompt_message = "Talk"
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1.30659, 0, 0, 0, 1.30659, 0, 0, 0, 1.30659, 0, 0, 0)
+material = SubResource("StandardMaterial3D_pv4ac")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_n8rm6")
