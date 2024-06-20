@@ -12,6 +12,7 @@ class_name Textbox extends MarginContainer
 @export var audioclipsogro : Array[AudioStreamWAV]
 @export var audioclipsma : Array[AudioStreamWAV]
 @export var audioclipsaletonota : Array[AudioStreamWAV]
+@export var audioclipspa : Array[AudioStreamWAV]
 
 var StopAudioSource = true
 const MAX_WIDTH = 256
@@ -75,6 +76,8 @@ func _display_letter():
 				play_sound_hash(text[letter_index], audioclipsogro)
 			3:
 				play_sound_hash(text[letter_index], audioclipsma)
+			4:
+				play_sound_hash(text[letter_index], audioclipspa)
 
 		
 		letter_index += 1

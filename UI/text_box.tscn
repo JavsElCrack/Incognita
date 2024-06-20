@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=32 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
@@ -24,7 +24,12 @@
 [ext_resource type="AudioStream" uid="uid://c3jui3r46vvbc" path="res://Sound/vocales_ma/ma_i.wav" id="19_tvuo1"]
 [ext_resource type="AudioStream" uid="uid://b4ynaxd6x225j" path="res://Sound/vocales_ma/ma_o.wav" id="20_48vvt"]
 [ext_resource type="AudioStream" uid="uid://dha8llvxcgmfa" path="res://Sound/vocales_ma/ma_u.wav" id="21_ppish"]
+[ext_resource type="AudioStream" uid="uid://c8jsv1rg7gr7y" path="res://Sound/vocales_pa/pa_a.wav" id="22_suag6"]
+[ext_resource type="AudioStream" uid="uid://cqy67kc3v2s1g" path="res://Sound/vocales_pa/pa_e.wav" id="23_j07h2"]
+[ext_resource type="AudioStream" uid="uid://bm34oxhm608xe" path="res://Sound/vocales_pa/pa_i.wav" id="24_pqql6"]
 [ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="24_v0bt3"]
+[ext_resource type="AudioStream" uid="uid://cx6l1epe88nsw" path="res://Sound/vocales_pa/pa_o.wav" id="25_ixosp"]
+[ext_resource type="AudioStream" uid="uid://dmpim0pgnbenf" path="res://Sound/vocales_pa/pa_u.wav" id="26_07bjt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
@@ -48,6 +53,7 @@ audioclipsjavs = Array[AudioStreamWAV]([ExtResource("2_ndum5"), ExtResource("3_0
 audioclipsogro = Array[AudioStreamWAV]([ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")])
 audioclipsma = Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")])
 audioclipsaletonota = Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")])
+audioclipspa = Array[AudioStreamWAV]([ExtResource("22_suag6"), ExtResource("23_j07h2"), ExtResource("24_pqql6"), ExtResource("25_ixosp"), ExtResource("26_07bjt")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2

@@ -57,13 +57,13 @@ use_collision = true
 material = SubResource("StandardMaterial3D_cpak0")
 
 [node name="Node" parent="." instance=ExtResource("4_mspnb")]
-transform = Transform3D(0.752989, 0, -0.658033, 0, 1, 0, 0.658033, 0, 0.752989, 7.41265, 3.90362, 1.88276)
+transform = Transform3D(-0.490174, 0, -0.871625, 0, 1, 0, 0.871625, 0, -0.490174, 7.41265, 3.90362, 1.03984)
 
 [node name="Node2" parent="." instance=ExtResource("4_mspnb")]
 transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069, 7.27869, 3.90362, -1.79069)
 
 [node name="Node3" parent="." instance=ExtResource("4_mspnb")]
-transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069, 7.27869, 3.90362, -1.79069)
+transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069, 7.27869, 3.90362, 2.35973)
 
 [node name="Node4" parent="." instance=ExtResource("4_mspnb")]
 transform = Transform3D(0.643336, 0, -0.765584, 0, 1, 0, 0.765584, 0, 0.643336, 7.27869, 3.90362, -0.07512)
