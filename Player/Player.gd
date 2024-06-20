@@ -7,14 +7,14 @@ const SENSITIVITY = 0.007
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
-var state = 	{"TestPickup": 0}
 var lockmovement = false
+var isinDialogue = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
-
+@onready var raycast = $Head/RayCast3D
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -63,6 +63,9 @@ func lockmovement_and_look(body :Object):
 	print("coito")
 	#$Head.look_at(body.position)
 	lockmovement = true
+	isinDialogue = true
+	raycast.isInDialogue = true
+	
 
 
 func _on_text_box_dialogue_started():
@@ -72,3 +75,5 @@ func _on_text_box_dialogue_started():
 
 func _on_text_box_dialogue_ended():
 	lockmovement = false
+	isinDialogue = false
+	raycast.isInDialogue = false

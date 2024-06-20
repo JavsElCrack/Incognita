@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=37 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
@@ -30,6 +30,11 @@
 [ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="24_v0bt3"]
 [ext_resource type="AudioStream" uid="uid://cx6l1epe88nsw" path="res://Sound/vocales_pa/pa_o.wav" id="25_ixosp"]
 [ext_resource type="AudioStream" uid="uid://dmpim0pgnbenf" path="res://Sound/vocales_pa/pa_u.wav" id="26_07bjt"]
+[ext_resource type="AudioStream" uid="uid://cmb7kaxt2gf6e" path="res://Sound/vocales_gabo/gabo_a.wav" id="27_q3biv"]
+[ext_resource type="AudioStream" uid="uid://c325udnrcgwkf" path="res://Sound/vocales_gabo/gabo_e.wav" id="28_dribo"]
+[ext_resource type="AudioStream" uid="uid://tl8memhqs2ra" path="res://Sound/vocales_gabo/gabo_i.wav" id="29_lgj7u"]
+[ext_resource type="AudioStream" uid="uid://dkem8hp0mxcy0" path="res://Sound/vocales_gabo/gabo_o.wav" id="30_vk1n0"]
+[ext_resource type="AudioStream" uid="uid://s8mgafujoobi" path="res://Sound/vocales_gabo/gabo_u.wav" id="31_ntp74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
@@ -54,6 +59,7 @@ audioclipsogro = Array[AudioStreamWAV]([ExtResource("7_pwme1"), ExtResource("8_l
 audioclipsma = Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")])
 audioclipsaletonota = Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")])
 audioclipspa = Array[AudioStreamWAV]([ExtResource("22_suag6"), ExtResource("23_j07h2"), ExtResource("24_pqql6"), ExtResource("25_ixosp"), ExtResource("26_07bjt")])
+audioclipsgabo = Array[AudioStreamWAV]([ExtResource("27_q3biv"), ExtResource("28_dribo"), ExtResource("29_lgj7u"), ExtResource("30_vk1n0"), ExtResource("31_ntp74")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
@@ -82,6 +88,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_kg0io")
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

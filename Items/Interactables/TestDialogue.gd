@@ -12,7 +12,7 @@ func _on_interacted(body):
 	textbox.visible = true
 	if body.is_in_group("player"):
 		(textbox as Textbox).voiceid = voiceID
-		(textbox.get_child(4) as EzDialogue).start_dialogue(dialogue_json,(body as Player).state)
+		(textbox.get_child(4) as EzDialogue).start_dialogue(dialogue_json,GameState.state)
 		(body as Player).lockmovement_and_look($".")
 		print("Dialogue Started")
 	

@@ -95,4 +95,11 @@ dialogue_json = ExtResource("3_t12u8")
 voiceID = 4
 lookatPos = NodePath("../NPC/LookAt")
 
+[node name="NPC6" parent="." node_paths=PackedStringArray("textbox", "lookatPos") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0374, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 5
+lookatPos = NodePath("../NPC/LookAt")
+
 [editable path="Player"]
