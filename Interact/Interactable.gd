@@ -5,7 +5,6 @@ signal interacted(_body)
 @export var enabled := true
 @export var prompt_message = "Interact"
 @export var prompt_input = "interact"
-# Called when the node enters the scene tree for the first time.
 
 func get_prompt():
 	if not enabled:
@@ -20,4 +19,5 @@ func get_prompt():
 func interact(_body):
 	if not enabled:
 		return
+	print("Interacting with", _body)
 	interacted.emit(_body)

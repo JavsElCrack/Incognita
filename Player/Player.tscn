@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmo4f5etms210"]
+[gd_scene load_steps=7 format=3 uid="uid://dmo4f5etms210"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_kygf7"]
 [ext_resource type="PackedScene" uid="uid://dxaghwiica4la" path="res://Interact/InteractRay.tscn" id="2_r1hne"]
 [ext_resource type="PackedScene" uid="uid://lh7lh0wobtoe" path="res://UI/text_box.tscn" id="3_ywk3r"]
+[ext_resource type="Texture2D" uid="uid://m2xhiiubvdbi" path="res://UI/UI_Images/crosshair.png" id="4_t4xpv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1c7cj"]
 
@@ -23,6 +24,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606869, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="RayCast3D" parent="Head" groups=["player"] instance=ExtResource("2_r1hne")]
+
+[node name="Crosshair" type="TextureRect" parent="Head"]
+z_index = -1
+offset_left = 566.0
+offset_top = 313.0
+offset_right = 666.0
+offset_bottom = 413.0
+scale = Vector2(0.203102, 0.203102)
+texture = ExtResource("4_t4xpv")
 
 [node name="TextBox" parent="Head" instance=ExtResource("3_ywk3r")]
 visible = false

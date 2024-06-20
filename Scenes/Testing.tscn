@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccnudeloy7rru"]
+[gd_scene load_steps=10 format=3 uid="uid://ccnudeloy7rru"]
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
 [ext_resource type="PackedScene" uid="uid://dhsxpyx0i287w" path="res://Items/Interactables/TestDialogue.tscn" id="2_ose2j"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/TestDialogueJSON.json" id="3_dhgrl"]
+[ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="4_mspnb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,11 +17,11 @@ background_mode = 2
 sky = SubResource("Sky_hnajm")
 tonemap_mode = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpak0"]
-albedo_color = Color(0.254902, 1, 1, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxslm"]
 albedo_color = Color(0.254902, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpak0"]
+albedo_color = Color(0.254902, 1, 1, 1)
 
 [node name="root" type="Node3D"]
 
@@ -39,11 +40,6 @@ transform = Transform3D(34.5476, 0, 0, 0, 0.620259, 0, 0, 0, 34.5476, -2.82036, 
 use_collision = true
 size = Vector3(1.75537, 1, 1.89111)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(2.28037, 0, 0, 0, 2.28037, 0, 0, 0, 2.28037, -11.1403, 3.42398, -0.257504)
-use_collision = true
-material = SubResource("StandardMaterial3D_cpak0")
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(4.19712, 0, 0, 0, 4.19712, 0, 0, 0, 4.19712, -6.49139, 4.22744, -0.257504)
 use_collision = true
@@ -54,5 +50,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60767, 4.12943, 0)
 textbox = NodePath("../Player/Head/TextBox")
 dialogue_json = ExtResource("3_dhgrl")
 parent = NodePath("../Player/Head/Camera3D")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2.28037, 0, 0, 0, 0.825539, 0, 0, 0, 6.07737, 7.42957, 3.12771, -0.257504)
+use_collision = true
+material = SubResource("StandardMaterial3D_cpak0")
+
+[node name="Node" parent="." instance=ExtResource("4_mspnb")]
+transform = Transform3D(0.752989, 0, -0.658033, 0, 1, 0, 0.658033, 0, 0.752989, 7.41265, 3.90362, 1.88276)
+
+[node name="Node2" parent="." instance=ExtResource("4_mspnb")]
+transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069, 7.27869, 3.90362, -1.79069)
+
+[node name="Node3" parent="." instance=ExtResource("4_mspnb")]
+transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069, 7.27869, 3.90362, -1.79069)
+
+[node name="Node4" parent="." instance=ExtResource("4_mspnb")]
+transform = Transform3D(0.643336, 0, -0.765584, 0, 1, 0, 0.765584, 0, 0.643336, 7.27869, 3.90362, -0.07512)
 
 [editable path="Player"]

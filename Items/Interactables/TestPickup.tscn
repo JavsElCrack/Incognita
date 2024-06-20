@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ts7p70ixs7sa"]
+
+[ext_resource type="Script" path="res://Items/Interactables/TestPickup.gd" id="1_y2sv7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3weqh"]
+size = Vector3(0.617782, 0.484636, 1.30021)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_styfq"]
+albedo_color = Color(1, 0.321569, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n1jfw"]
+material = SubResource("StandardMaterial3D_styfq")
+
+[node name="Node" type="StaticBody3D"]
+script = ExtResource("1_y2sv7")
+stateString = "TestPickup"
+prompt_message = "PickUp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3weqh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.584358, 0, 0, 0, 0.374507, 0, 0, 0, 1.36499, 0, 0, 0)
+mesh = SubResource("BoxMesh_n1jfw")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

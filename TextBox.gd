@@ -33,8 +33,7 @@ signal dialogue_started()
 signal dialogue_ended()
 
 func _ready():
-	timer.timeout.connect(_on_letter_display_timer_timeout)
-	finished_displaying.connect(_on_finished_displaying)
+	pass
 
 func display_text(text_to_display: String):
 	count += 1

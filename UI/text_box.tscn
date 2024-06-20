@@ -44,9 +44,9 @@ anchor_bottom = 0.129
 offset_right = -8.55199
 offset_bottom = -17.592
 script = ExtResource("1_jbin6")
-audioclipsjavs = [ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]
-audioclipsogro = [ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")]
-audioclipsma = [ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")]
+audioclipsjavs = Array[AudioStreamWAV]([ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")])
+audioclipsogro = Array[AudioStreamWAV]([ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")])
+audioclipsma = Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")])
 audioclipsaletonota = Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")])
 
 [node name="Control" type="Control" parent="."]

@@ -7,6 +7,7 @@ const SENSITIVITY = 0.007
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
+var state = 	{"TestPickup": 0}
 var lockmovement = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
