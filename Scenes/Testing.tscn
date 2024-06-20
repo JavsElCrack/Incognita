@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://ccnudeloy7rru"]
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
-[ext_resource type="PackedScene" uid="uid://dhsxpyx0i287w" path="res://Items/Interactables/TestDialogue.tscn" id="2_ose2j"]
-[ext_resource type="JSON" path="res://Dialogue/JSONS/Puñetas.json" id="3_xhew0"]
+[ext_resource type="JSON" path="res://Dialogue/JSONS/TestDialogueJSON.json" id="3_t12u8"]
 [ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="4_mspnb"]
+[ext_resource type="PackedScene" uid="uid://3rt8wqvh0f6i" path="res://NPC/NPC1.tscn" id="5_nq1g1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,12 +45,6 @@ transform = Transform3D(4.19712, 0, 0, 0, 4.19712, 0, 0, 0, 4.19712, -6.49139, 4
 use_collision = true
 material = SubResource("StandardMaterial3D_xxslm")
 
-[node name="Mierda con la que hablas" parent="." node_paths=PackedStringArray("textbox", "parent") instance=ExtResource("2_ose2j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60767, 4.12943, 0)
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("3_xhew0")
-parent = NodePath("../Player/Head/Camera3D")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(2.28037, 0, 0, 0, 0.825539, 0, 0, 0, 6.07737, 7.42957, 3.12771, -0.257504)
 use_collision = true
@@ -67,5 +61,38 @@ transform = Transform3D(-0.521069, 0, -0.853514, 0, 1, 0, 0.853514, 0, -0.521069
 
 [node name="Node4" parent="." instance=ExtResource("4_mspnb")]
 transform = Transform3D(0.643336, 0, -0.765584, 0, 1, 0, 0.765584, 0, 0.643336, 7.27869, 3.90362, -0.07512)
+
+[node name="NPC" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04363, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 0
+
+[node name="NPC2" parent="." node_paths=PackedStringArray("textbox", "lookatPos") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 1
+lookatPos = NodePath("../NPC/LookAt")
+
+[node name="NPC3" parent="." node_paths=PackedStringArray("textbox", "lookatPos") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52724, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 2
+lookatPos = NodePath("../NPC/LookAt")
+
+[node name="NPC4" parent="." node_paths=PackedStringArray("textbox", "lookatPos") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33907, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+lookatPos = NodePath("../NPC/LookAt")
+
+[node name="NPC5" parent="." node_paths=PackedStringArray("textbox", "lookatPos") instance=ExtResource("5_nq1g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02722, 2.1879, -4.56499)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 4
+lookatPos = NodePath("../NPC/LookAt")
 
 [editable path="Player"]

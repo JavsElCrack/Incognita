@@ -61,7 +61,7 @@ func _headbob(time) -> Vector3:
 
 func lockmovement_and_look(body :Object):
 	print("coito")
-	$Head.look_at(body.position)
+	#$Head.look_at(body.position)
 	lockmovement = true
 
 
