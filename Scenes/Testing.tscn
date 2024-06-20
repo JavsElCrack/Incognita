@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
 [ext_resource type="PackedScene" uid="uid://dhsxpyx0i287w" path="res://Items/Interactables/TestDialogue.tscn" id="2_ose2j"]
-[ext_resource type="JSON" path="res://Dialogue/JSONS/TestDialogueJSON.json" id="3_dhgrl"]
+[ext_resource type="JSON" path="res://Dialogue/JSONS/Puñetas.json" id="3_xhew0"]
 [ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="4_mspnb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
@@ -45,10 +45,10 @@ transform = Transform3D(4.19712, 0, 0, 0, 4.19712, 0, 0, 0, 4.19712, -6.49139, 4
 use_collision = true
 material = SubResource("StandardMaterial3D_xxslm")
 
-[node name="CSGCylinder3D" parent="." node_paths=PackedStringArray("textbox", "parent") instance=ExtResource("2_ose2j")]
+[node name="Mierda con la que hablas" parent="." node_paths=PackedStringArray("textbox", "parent") instance=ExtResource("2_ose2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60767, 4.12943, 0)
 textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("3_dhgrl")
+dialogue_json = ExtResource("3_xhew0")
 parent = NodePath("../Player/Head/Camera3D")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
