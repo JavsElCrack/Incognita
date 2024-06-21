@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="3_q7oe6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3weqh"]
-size = Vector3(0.617782, 0.484636, 1.30021)
+size = Vector3(0.617782, 2.64088, 1.30021)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37hva"]
 render_priority = 0

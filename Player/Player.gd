@@ -7,6 +7,7 @@ const SENSITIVITY = 0.007
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
+var initialHeadRot
 var lockmovement = false
 var isinDialogue = false
 
@@ -60,8 +61,10 @@ func _headbob(time) -> Vector3:
 	return pos
 
 func lockmovement_and_look(body :Object):
-	print("coito")
-	#$Head.look_at(body.position)
+	initialHeadRot = $Head/Camera3D.rotation
+	#$Head/Camera3D.look_at(body.position)
+	#$Head/Camera3D.rotate_object_local(Vector3(0,1,0), 3.14)
+	$Head/Camera3D.rotation.x = 0
 	lockmovement = true
 	isinDialogue = true
 	raycast.isInDialogue = true
@@ -76,4 +79,5 @@ func _on_text_box_dialogue_started():
 func _on_text_box_dialogue_ended():
 	lockmovement = false
 	isinDialogue = false
+	#$Head/Camera3D.rotation = initialHeadRot
 	raycast.isInDialogue = false

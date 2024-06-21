@@ -38,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00323892, -0.0361791, -0.6
 mesh = SubResource("QuadMesh_jnu8m")
 
 [node name="RayCast3D" parent="Head" groups=["player"] instance=ExtResource("2_r1hne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.398461)
 
 [node name="Crosshair" type="TextureRect" parent="Head"]
 z_index = -1

@@ -99,7 +99,7 @@ func _display_letter():
 	else:
 		finished_displaying.emit()
 
-func play_sound_random(letter, audioclips):
+func play_sound_random( audioclips):
 	if audiosource.playing == true and StopAudioSource == true:
 		audiosource.stop()
 	pitch = randf_range(MIN_PITCH, MAX_PITCH)
