@@ -6,29 +6,35 @@ const SPEED = 3.0
 @export var dialogue_json : JSON
 @export var voiceID : int
 @export_category("Navigation")
+@export var follow_target = false
 @export var lookatPos : Node3D
 @export var target : Node3D
 @onready var nav_agent = $NavigationAgent3D
 @onready var state= {}
 @onready var statemachine = $AnimationTree
+var isInDialogue = false
 func _ready():
 	connect("interacted",_on_interacted)
 
 func _physics_process(delta):
+	if follow_target:
+		update_target_location(target)
 	if npc.velocity == Vector3.ZERO:
 		statemachine.set("parameters/conditions/notwalk",true)
 		statemachine.set("parameters/conditions/walk",false)
 	else:
 		statemachine.set("parameters/conditions/notwalk",false)
 		statemachine.set("parameters/conditions/walk",true)
-	var current_location = global_transform.origin
-	var next_location = (nav_agent as NavigationAgent3D).get_next_path_position()
-	var new_velocity = (next_location - current_location).normalized() * SPEED
-	rotation.y = lerp_angle(rotation.y,atan2(-npc.velocity.x,-npc.velocity.z),delta*10)
-	npc.velocity = npc.velocity.move_toward(new_velocity,0.25)
+	if !isInDialogue:
+		var current_location = global_transform.origin
+		var next_location = (nav_agent as NavigationAgent3D).get_next_path_position()
+		var new_velocity = (next_location - current_location).normalized() * SPEED
+		rotation.y = lerp_angle(rotation.y,atan2(-npc.velocity.x,-npc.velocity.z),delta*10)
+		npc.velocity = npc.velocity.move_toward(new_velocity,0.25)
 	npc.move_and_slide()
 
 func _on_interacted(body):
+	isInDialogue = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	textbox.visible = true
 	if body.is_in_group("player"):
@@ -38,7 +44,6 @@ func _on_interacted(body):
 		var initialrot = self.rotation
 		var lookatRot
 		self.look_at(body.position)
-		self.rotate_object_local(Vector3(0,1,0), 3.14)
 		lookatRot = self.rotation
 		self.rotation = initialrot
 		self.rotation.y = lookatRot.y
