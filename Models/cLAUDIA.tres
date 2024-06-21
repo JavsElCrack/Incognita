@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cgba5n4ovue8b"]
+
+[ext_resource type="Texture2D" uid="uid://bs0rmj1q6vdad" path="res://Models/Claudia-99ad111c64fde57aadf4939ae2bc46be_Claudia_color.png" id="1_uklcm"]
+
+[resource]
+albedo_texture = ExtResource("1_uklcm")

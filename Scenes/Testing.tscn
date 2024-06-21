@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccnudeloy7rru"]
+[gd_scene load_steps=13 format=3 uid="uid://ccnudeloy7rru"]
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
 [ext_resource type="Script" path="res://Scenes/Testing.gd" id="1_tdrj7"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/TestDialogueJSON.json" id="3_t12u8"]
 [ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="4_mspnb"]
 [ext_resource type="PackedScene" uid="uid://3rt8wqvh0f6i" path="res://NPC/NPC1.tscn" id="5_nq1g1"]
+[ext_resource type="PackedScene" uid="uid://bxj42jeypgffr" path="res://NPC/NPC2.tscn" id="6_ywtpa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -82,26 +83,11 @@ voiceID = 0
 follow_target = true
 target = NodePath("../../Player")
 
-[node name="NPC2" parent="NavigationRegion3D" node_paths=PackedStringArray("textbox", "lookatPos", "target") instance=ExtResource("5_nq1g1")]
-transform = Transform3D(1, 0, 5.06639e-07, 0, 1, 0, -5.06639e-07, 0, 1, 2.79164, 2.1879, -4.56499)
-textbox = NodePath("../../Player/Head/TextBox")
-dialogue_json = ExtResource("3_t12u8")
-voiceID = 1
-lookatPos = NodePath("../NPC/LookAt")
-target = NodePath("../../Player")
-
 [node name="NPC3" parent="NavigationRegion3D" node_paths=PackedStringArray("textbox", "lookatPos", "target") instance=ExtResource("5_nq1g1")]
 transform = Transform3D(1, 0, 5.06639e-07, 0, 1, 0, -5.06639e-07, 0, 1, 1.52724, 2.1879, -4.56499)
 textbox = NodePath("../../Player/Head/TextBox")
 dialogue_json = ExtResource("3_t12u8")
 voiceID = 2
-lookatPos = NodePath("../NPC/LookAt")
-target = NodePath("../../Player")
-
-[node name="NPC4" parent="NavigationRegion3D" node_paths=PackedStringArray("textbox", "lookatPos", "target") instance=ExtResource("5_nq1g1")]
-transform = Transform3D(1, 0, 5.06639e-07, 0, 1, 0, -5.06639e-07, 0, 1, 0.339072, 2.1879, -4.56498)
-textbox = NodePath("../../Player/Head/TextBox")
-dialogue_json = ExtResource("3_t12u8")
 lookatPos = NodePath("../NPC/LookAt")
 target = NodePath("../../Player")
 
@@ -119,6 +105,23 @@ textbox = NodePath("../../Player/Head/TextBox")
 dialogue_json = ExtResource("3_t12u8")
 voiceID = 5
 lookatPos = NodePath("../NPC/LookAt")
+target = NodePath("../../Player")
+
+[node name="Claudia" parent="NavigationRegion3D" node_paths=PackedStringArray("textbox", "target") instance=ExtResource("6_ywtpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75689, 2.1879, -4.48732)
+textbox = NodePath("../../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 1
+follow_target = true
+target = NodePath("../../Player")
+
+[node name="Claudia2" parent="NavigationRegion3D" node_paths=PackedStringArray("textbox", "lookatPos", "target") instance=ExtResource("6_ywtpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0524793, 2.1879, -4.48732)
+textbox = NodePath("../../Player/Head/TextBox")
+dialogue_json = ExtResource("3_t12u8")
+voiceID = 3
+follow_target = true
+lookatPos = NodePath("../Claudia/LookAt")
 target = NodePath("../../Player")
 
 [editable path="Player"]

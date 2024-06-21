@@ -13,8 +13,12 @@ const SPEED = 3.0
 @onready var state= {}
 @onready var statemachine = $AnimationTree
 var isInDialogue = false
+
+
 func _ready():
 	connect("interacted",_on_interacted)
+	nav_agent.connect("target_reached",_on_navigation_agent_3d_target_reached)
+
 
 func _physics_process(delta):
 	if follow_target:
@@ -36,6 +40,8 @@ func _physics_process(delta):
 		statemachine.set("parameters/conditions/walk",false)
 	npc.move_and_slide()
 
+
+
 func _on_interacted(body):
 	isInDialogue = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
@@ -55,3 +61,7 @@ func _on_interacted(body):
 func update_target_location(target_location:Node3D):
 	(nav_agent as NavigationAgent3D).target_position = target_location.global_position
 	
+
+
+func _on_navigation_agent_3d_target_reached():
+	follow_target = false
