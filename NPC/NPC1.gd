@@ -23,6 +23,8 @@ func _ready():
 func _physics_process(delta):
 	if follow_target:
 		update_target_location(target)
+	else:
+		npc.velocity = Vector3.ZERO
 	if npc.velocity == Vector3.ZERO:
 		statemachine.set("parameters/conditions/notwalk",true)
 		statemachine.set("parameters/conditions/walk",false)
@@ -34,7 +36,8 @@ func _physics_process(delta):
 		var next_location = (nav_agent as NavigationAgent3D).get_next_path_position()
 		var new_velocity = (next_location - current_location).normalized() * SPEED
 		rotation.y = lerp_angle(rotation.y,atan2(-npc.velocity.x,-npc.velocity.z),delta*10)
-		npc.velocity = npc.velocity.move_toward(new_velocity,0.25)
+		if follow_target:
+			npc.velocity = npc.velocity.move_toward(new_velocity,0.25)
 	else:
 		statemachine.set("parameters/conditions/notwalk",true)
 		statemachine.set("parameters/conditions/walk",false)
@@ -65,3 +68,4 @@ func update_target_location(target_location:Node3D):
 
 func _on_navigation_agent_3d_target_reached():
 	follow_target = false
+	npc.velocity = Vector3.ZERO
