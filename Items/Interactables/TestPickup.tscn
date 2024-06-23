@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="3_q7oe6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3weqh"]
-size = Vector3(0.617782, 2.64088, 1.30021)
+size = Vector3(0.617782, 1.25631, 1.30021)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37hva"]
 render_priority = 0
@@ -45,6 +45,7 @@ stateString = "TestPickup"
 prompt_message = "PickUp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441468, 0)
 shape = SubResource("BoxShape3D_3weqh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

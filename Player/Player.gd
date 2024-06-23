@@ -3,7 +3,7 @@ class_name Player extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const SENSITIVITY = 0.007
+const SENSITIVITY = 0.003
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
@@ -23,7 +23,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion && !lockmovement:
 		head.rotate_y(-event.relative.x*SENSITIVITY)
 		camera.rotate_x(-event.relative.y*SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40),deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-70),deg_to_rad(70))
 
 func _physics_process(delta):
 	# Add the gravity.

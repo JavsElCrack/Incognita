@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=42 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
@@ -35,6 +35,11 @@
 [ext_resource type="AudioStream" uid="uid://tl8memhqs2ra" path="res://Sound/vocales_gabo/gabo_i.wav" id="29_lgj7u"]
 [ext_resource type="AudioStream" uid="uid://dkem8hp0mxcy0" path="res://Sound/vocales_gabo/gabo_o.wav" id="30_vk1n0"]
 [ext_resource type="AudioStream" uid="uid://s8mgafujoobi" path="res://Sound/vocales_gabo/gabo_u.wav" id="31_ntp74"]
+[ext_resource type="AudioStream" uid="uid://tnqoi5svo6ws" path="res://Sound/vocales_maria/maria_a.wav" id="32_kw1i3"]
+[ext_resource type="AudioStream" uid="uid://bec3cp1a30ocr" path="res://Sound/vocales_maria/maria_e.wav" id="33_g844q"]
+[ext_resource type="AudioStream" uid="uid://baonrck3un4up" path="res://Sound/vocales_maria/maria_i.wav" id="34_jvbri"]
+[ext_resource type="AudioStream" uid="uid://chpmk1t18rwvd" path="res://Sound/vocales_maria/maria_o.wav" id="35_8drnd"]
+[ext_resource type="AudioStream" uid="uid://c1dphn57bvcq0" path="res://Sound/vocales_maria/maria_u.wav" id="36_nii2m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
@@ -60,6 +65,7 @@ audioclipsma = Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7
 audioclipsaletonota = Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")])
 audioclipspa = Array[AudioStreamWAV]([ExtResource("22_suag6"), ExtResource("23_j07h2"), ExtResource("24_pqql6"), ExtResource("25_ixosp"), ExtResource("26_07bjt")])
 audioclipsgabo = Array[AudioStreamWAV]([ExtResource("27_q3biv"), ExtResource("28_dribo"), ExtResource("29_lgj7u"), ExtResource("30_vk1n0"), ExtResource("31_ntp74")])
+audioclipsmaria = Array[AudioStreamWAV]([ExtResource("32_kw1i3"), ExtResource("33_g844q"), ExtResource("34_jvbri"), ExtResource("35_8drnd"), ExtResource("36_nii2m")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
