@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://4nfuj22ecine"]
+
+[ext_resource type="ArrayMesh" uid="uid://co1drqduxwegw" path="res://Models/Mask.tres" id="1_y3yn3"]
+
+[node name="PivotPoint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94998, -0.0914992, 0.298606, 0.0399665, 0.983876, 0.174331, -0.309743, -0.153677, 0.938319, 0.111803, -1.66788, 0.111092)
+mesh = ExtResource("1_y3yn3")
+skeleton = NodePath("../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.525402)
+light_color = Color(0.823529, 0.870588, 0.878431, 1)
+light_energy = 0.416

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cio06nhtrxoas"]
+
+[ext_resource type="Script" path="res://Items/mirror.gd" id="1_nlgyw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pireb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oehdr"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_pireb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wcf3a"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_oehdr")
+
+[node name="Mirror" type="Node3D"]
+script = ExtResource("1_nlgyw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("QuadMesh_wcf3a")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]

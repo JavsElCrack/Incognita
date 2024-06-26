@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=3 uid="uid://v3d2krk6r6st"]
+
+[ext_resource type="Script" path="res://UI/mask_ui.gd" id="1_3teh7"]
+[ext_resource type="Texture2D" uid="uid://ccgsk2smyneye" path="res://UI/UI_Images/Mask Background.png" id="1_kqj8h"]
+[ext_resource type="Texture2D" uid="uid://dswapg4k2g4vl" path="res://UI/VieportTexture.tres" id="2_41pye"]
+[ext_resource type="ArrayMesh" uid="uid://co1drqduxwegw" path="res://Models/Mask.tres" id="2_b7461"]
+[ext_resource type="Texture2D" uid="uid://cvc1d4n7a8631" path="res://UI/UI_Images/textbox.png" id="3_auxou"]
+[ext_resource type="Script" path="res://UI/MaskTextBox.gd" id="3_qfsb0"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="4_8p7jy"]
+[ext_resource type="AudioStream" uid="uid://b4oyukxqmjtqx" path="res://Sound/vocales_ale_ogro/ogro_a.wav" id="4_40kip"]
+[ext_resource type="AudioStream" uid="uid://bcgouuri1qvy3" path="res://Sound/vocales_ale_ogro/ogro_e.wav" id="5_ndwpa"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="6_4npuc"]
+[ext_resource type="AudioStream" uid="uid://b2yqf2hriv8q3" path="res://Sound/vocales_ale_ogro/ogro_i.wav" id="6_yjhla"]
+[ext_resource type="AudioStream" uid="uid://27wsq6fbq4du" path="res://Sound/vocales_ale_ogro/ogro_o.wav" id="7_6jeln"]
+[ext_resource type="AudioStream" uid="uid://csp6avyrd2g80" path="res://Sound/vocales_ale_ogro/ogro_u.wav" id="8_0ocs2"]
+[ext_resource type="Script" path="res://UI/rotate_mask.gd" id="12_62av0"]
+
+[node name="MaskUi" type="Node3D"]
+script = ExtResource("1_3teh7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 355.0
+offset_bottom = 355.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 333.0
+texture = ExtResource("1_kqj8h")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/TextureRect"]
+position = Vector2(168, 159)
+scale = Vector2(0.548, 0.548)
+texture = ExtResource("2_41pye")
+
+[node name="TextBox" type="MarginContainer" parent="Control/TextureRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.076
+anchor_bottom = 0.129
+offset_left = 324.0
+offset_top = 142.0
+offset_right = 334.692
+offset_bottom = 141.443
+grow_vertical = 2
+script = ExtResource("3_qfsb0")
+audioclips = Array[AudioStreamWAV]([ExtResource("4_40kip"), ExtResource("5_ndwpa"), ExtResource("6_yjhla"), ExtResource("7_6jeln"), ExtResource("8_0ocs2")])
+
+[node name="Control" type="Control" parent="Control/TextureRect/TextBox"]
+layout_mode = 2
+
+[node name="LetterDisplayTimer" type="Timer" parent="Control/TextureRect/TextBox/Control"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/TextureRect/TextBox/Control"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/TextureRect/TextBox"]
+layout_mode = 2
+texture = ExtResource("3_auxou")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TextureRect/TextBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Control/TextureRect/TextBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8p7jy")
+theme_override_font_sizes/font_size = 30
+
+[node name="EzDialogue" type="Node" parent="Control/TextureRect/TextBox"]
+script = ExtResource("6_4npuc")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 241.82, 0)
+script = ExtResource("12_62av0")
+
+[node name="SubViewport" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+size = Vector2i(500, 500)
+
+[node name="PivotPoint" type="Node3D" parent="Node3D/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 241.82, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/SubViewport/PivotPoint"]
+transform = Transform3D(0.94998, -0.0914992, 0.298606, 0.0399665, 0.983876, 0.174331, -0.309743, -0.153677, 0.938319, 0.111803, -1.66788, 0.111092)
+mesh = ExtResource("2_b7461")
+skeleton = NodePath("../../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/SubViewport/PivotPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.525402)
+light_color = Color(0.823529, 0.870588, 0.878431, 1)
+light_energy = 0.416
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport"]
+transform = Transform3D(1, -6.70552e-08, -2.68221e-07, 6.70552e-08, 1, 2.38419e-07, 2.68221e-07, -2.38419e-07, 1, -5.43892e-07, 241.82, 0.206)
+current = true
+
+[connection signal="finished_displaying" from="Control/TextureRect/TextBox" to="Control/TextureRect/TextBox" method="_on_finished_displaying" flags=18]
+[connection signal="timeout" from="Control/TextureRect/TextBox/Control/LetterDisplayTimer" to="Control/TextureRect/TextBox" method="_on_letter_display_timer_timeout" flags=18]
+[connection signal="dialogue_generated" from="Control/TextureRect/TextBox/EzDialogue" to="Control/TextureRect/TextBox" method="_on_ez_dialogue_dialogue_generated" flags=18]
+[connection signal="end_of_dialogue_reached" from="Control/TextureRect/TextBox/EzDialogue" to="Control/TextureRect/TextBox" method="_on_ez_dialogue_end_of_dialogue_reached" flags=18]

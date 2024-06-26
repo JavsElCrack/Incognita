@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccnudeloy7rru"]
+[gd_scene load_steps=15 format=3 uid="uid://ccnudeloy7rru"]
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
 [ext_resource type="Script" path="res://Scenes/Testing.gd" id="1_tdrj7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3rt8wqvh0f6i" path="res://NPC/NPC1.tscn" id="5_nq1g1"]
 [ext_resource type="PackedScene" uid="uid://bxj42jeypgffr" path="res://NPC/NPC2.tscn" id="6_ywtpa"]
 [ext_resource type="PackedScene" uid="uid://bfsrx1d4fd7to" path="res://NPC/NPC3.tscn" id="7_b55ow"]
+[ext_resource type="PackedScene" uid="uid://cio06nhtrxoas" path="res://Items/mirror.tscn" id="8_whnsy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlp5n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,9 +43,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_5h7jb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23999, 0)
-
-[node name="Camera3D" parent="Player/Head" index="0"]
-current = true
 
 [node name="Node" parent="." instance=ExtResource("4_mspnb")]
 transform = Transform3D(-0.490174, 0, -0.871625, 0, 1, 0, 0.871625, 0, -0.490174, 7.41265, 2.99371, 1.03984)
@@ -169,4 +167,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1088, -18.9125, -1.4488)
 [node name="Node3D6" type="Node3D" parent="Target Locationns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9576, 0, 26.9164)
 
-[editable path="Player"]
+[node name="Mirror" parent="." instance=ExtResource("8_whnsy")]
+transform = Transform3D(-1.17657e-07, 0, -2.69168, 0, 2.69168, 0, 2.69168, 0, -1.17657e-07, -4.36731, 3.68023, 0.196327)

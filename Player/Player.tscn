@@ -1,23 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmo4f5etms210"]
+[gd_scene load_steps=8 format=3 uid="uid://dmo4f5etms210"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_kygf7"]
-[ext_resource type="Shader" path="res://Shaders/post_processing.gdshader" id="2_mjs5u"]
 [ext_resource type="PackedScene" uid="uid://dxaghwiica4la" path="res://Interact/InteractRay.tscn" id="2_r1hne"]
 [ext_resource type="PackedScene" uid="uid://lh7lh0wobtoe" path="res://UI/text_box.tscn" id="3_ywk3r"]
 [ext_resource type="Texture2D" uid="uid://m2xhiiubvdbi" path="res://UI/UI_Images/crosshair.png" id="4_t4xpv"]
+[ext_resource type="PackedScene" uid="uid://v3d2krk6r6st" path="res://UI/mask_ui.tscn" id="6_wrog8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1c7cj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnx0h"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6j2t"]
-render_priority = 0
-shader = ExtResource("2_mjs5u")
-
-[sub_resource type="QuadMesh" id="QuadMesh_jnu8m"]
-material = SubResource("ShaderMaterial_j6j2t")
-flip_faces = true
-size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_kygf7")
@@ -32,10 +23,7 @@ shape = SubResource("CapsuleShape3D_gnx0h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606869, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-
-[node name="Shaders" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00323892, -0.0361791, -0.626082)
-mesh = SubResource("QuadMesh_jnu8m")
+current = true
 
 [node name="RayCast3D" parent="Head" groups=["player"] instance=ExtResource("2_r1hne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.398461)
@@ -71,6 +59,8 @@ offset_right = 18.0
 offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MaskUi" parent="." instance=ExtResource("6_wrog8")]
 
 [connection signal="dialogue_ended" from="Head/TextBox" to="." method="_on_text_box_dialogue_ended"]
 [connection signal="dialogue_started" from="Head/TextBox" to="." method="_on_text_box_dialogue_started"]
