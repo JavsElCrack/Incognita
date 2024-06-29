@@ -23,15 +23,17 @@ var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
 var count = 0
-var initialsizetext = Vector2(0,0)
+var initialsizetext = Vector2(36,55)
 signal finished_displaying()
 signal dialogue_started()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(initialsize)
 	visible = false
 	display_text("Use WASD to move
 				 and E to interact")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,6 +41,7 @@ func _process(delta):
 	pass
 
 func display_text(text_to_display: String):
+	clear_dialogue_box()
 	visible = true
 	count += 1
 	letter_index = 0
@@ -91,7 +94,7 @@ func finish_dialogue():
 
 func clear_dialogue_box():
 	label.text = ""
-	size = initialsize
+	size = initialsizetext
 	visible = false
 func _on_letter_display_timer_timeout():
 	_display_letter()

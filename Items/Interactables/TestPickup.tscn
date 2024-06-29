@@ -42,6 +42,7 @@ material = SubResource("ShaderMaterial_brndo")
 [node name="Node" type="StaticBody3D"]
 script = ExtResource("1_y2sv7")
 stateString = "TestPickup"
+PickUpDialogue = "That could be useful"
 prompt_message = "PickUp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

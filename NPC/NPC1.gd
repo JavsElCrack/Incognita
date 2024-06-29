@@ -5,6 +5,8 @@ const SPEED = 3.0
 @export var textbox : Textbox
 @export var dialogue_json : JSON
 @export var voiceID : int
+@export var addMaskComment = false
+@export var MaskComment : String
 @export_category("Navigation")
 @export var follow_target = false
 @export var lookatPos : Node3D
@@ -50,6 +52,7 @@ func _on_interacted(body):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	textbox.visible = true
 	if body.is_in_group("player"):
+		textbox.connect("dialogue_ended",onDialogueEnded)
 		(textbox as Textbox).voiceid = voiceID
 		(textbox.get_child(4) as EzDialogue).start_dialogue(dialogue_json,GameState.state)
 		(body as Player).lockmovement_and_look(lookatPos)
@@ -64,6 +67,13 @@ func _on_interacted(body):
 func update_target_location(target_location:Node3D):
 	(nav_agent as NavigationAgent3D).target_position = target_location.global_position
 	
+
+func onDialogueEnded():
+	if addMaskComment == true:
+		print("Sex")
+		GameState.mask_dialogue(MaskComment)
+		textbox.disconnect("dialogue_ended",onDialogueEnded)
+		
 
 
 func _on_navigation_agent_3d_target_reached():
