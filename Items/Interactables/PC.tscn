@@ -1,4 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2cwscslukr8p"]
+[gd_scene load_steps=30 format=3 uid="uid://c2cwscslukr8p"]
+
+[ext_resource type="PackedScene" uid="uid://0wa3llb8pn5k" path="res://Items/Interactables/PC/Minigame.tscn" id="1_g5bd8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2uf1o"]
 resource_name = "standardSurface1"
@@ -393,10 +395,4 @@ libraries = {
 "": SubResource("AnimationLibrary_ks2s5")
 }
 
-[node name="2D" type="Node" parent="."]
-
-[node name="SubViewport" type="SubViewport" parent="2D"]
-
-[node name="Camera2D" type="Camera2D" parent="2D/SubViewport"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="2D"]
+[node name="2D" parent="." instance=ExtResource("1_g5bd8")]
