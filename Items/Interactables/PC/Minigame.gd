@@ -1,30 +1,26 @@
-extends Node
+extends SubViewport
 
-@onready var player = $Player
+@onready var player =$Player
 @export var SPEED = 300
-var enableminigame = true
-var velocity = Vector2.ZERO
-var click_pos = Vector2.ZERO
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	click_pos = Vector2(player.position.x, player.position.y)
+var enableminigame = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if enableminigame:
-		if Input.is_action_just_pressed("left_click"):
-			click_pos = get_viewport().get_mouse_position()
-			var target_pos = (click_pos - player.position).normalized()
-			velocity = target_pos * SPEED
-		
-		# Move the player and stop when close to the target position
-		if player.position.distance_to(click_pos) > 3:
-			player.velocity = velocity
-		else:
-			player.velocity = Vector2.ZERO
+		var velocity = Vector2.ZERO
 
-		player.move_and_slide()
+		if Input.is_action_pressed("move_up"):
+			velocity.y -= 1
+		if Input.is_action_pressed("move_down"):
+			velocity.y += 1
+		if Input.is_action_pressed("move_left"):
+			velocity.x -= 1
+		if Input.is_action_pressed("move_right"):
+			velocity.x += 1
+
+		if velocity != Vector2.ZERO:
+			velocity = velocity.normalized() * SPEED
+		player.velocity = velocity
 
 func _unhandled_input(event):
 	pass

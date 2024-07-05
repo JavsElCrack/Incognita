@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxaghwiica4la"]
 
-[ext_resource type="Script" path="res://Interact/InteractRay.gd" id="1_3erbx"]
+[ext_resource type="Script" path="res://Re-Usables/Interact/InteractRay.gd" id="1_3erbx"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="2_2t14d"]
 
 [node name="InteractRay" type="RayCast3D"]

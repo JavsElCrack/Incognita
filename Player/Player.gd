@@ -19,6 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Head/Camera3D
 @onready var raycast = $Head/RayCast3D
 @onready var maskui = $MaskUi
+@onready var crosshair = $Head/Crosshair
 @onready var anim_tree = $AnimationTree
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -80,7 +81,16 @@ func lockmovement_and_look(body :Object):
 	lockmovement = true
 	isinDialogue = true
 	raycast.isInDialogue = true
-	
+
+func lockmovementP():
+	lockmovement = true
+	isinDialogue = true
+	raycast.isInDialogue = true
+
+func unlockmovementP():
+	lockmovement = false
+	isinDialogue = false
+	raycast.isInDialogue = false
 
 
 func _on_text_box_dialogue_started():
