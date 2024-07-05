@@ -24,6 +24,7 @@ func _on_interacted(body):
 			(body as Player).raycast.showPrompt = false
 			(body as Player).lockmovement = true
 			(body as Player).crosshair.visible = false
+			GameState.state["enableMinigame"] = true
 			sub_viewport.enableminigame = true
 			toggle = true
 		else:
@@ -32,6 +33,7 @@ func _on_interacted(body):
 			(body as Player).raycast.showPrompt = true
 			(body as Player).lockmovement = false
 			(body as Player).crosshair.visible = true
+			GameState.state["enableMinigame"] = false
 			sub_viewport.enableminigame = false
 			toggle = false
 

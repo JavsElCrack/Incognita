@@ -3,6 +3,8 @@ var player
 func _ready():
 	player = get_tree().get_nodes_in_group("player")
 var state :={
+	"enableMinigame" : false,
+	"MinigameProgress" : 0,
 	"TestPickup": 0,
 	"TestPickupFlag": true 
 	}

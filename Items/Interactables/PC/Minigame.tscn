@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://0wa3llb8pn5k"]
+[gd_scene load_steps=15 format=3 uid="uid://0wa3llb8pn5k"]
 
 [ext_resource type="Texture2D" uid="uid://qapqi3ouhmpe" path="res://2D/Mask-Sheet.png" id="1_c3dcu"]
 [ext_resource type="Script" path="res://Items/Interactables/PC/Minigame.gd" id="1_ocx0v"]
+[ext_resource type="PackedScene" uid="uid://cirrqsgglddc0" path="res://Items/Interactables/PC/Man.tscn" id="2_pnean"]
 [ext_resource type="Script" path="res://Items/Interactables/PC/Player.gd" id="2_w31l8"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="5_em0cj"]
 
 [sub_resource type="Animation" id="Animation_1k63d"]
 length = 0.001
@@ -55,6 +57,14 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkpqh"]
 radius = 45.607
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6vfb"]
+content_margin_left = 200.0
+content_margin_right = 200.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstea"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
 [node name="SubViewport" type="SubViewport"]
 disable_3d = true
 own_world_3d = true
@@ -63,6 +73,7 @@ audio_listener_enable_2d = true
 size = Vector2i(1280, 861)
 render_target_update_mode = 4
 script = ExtResource("1_ocx0v")
+object_to_spawn = ExtResource("2_pnean")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -10
@@ -73,9 +84,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.184314, 0.184314, 1)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(848, 396)
-scale = Vector2(2.74247, 2.74247)
+[node name="Player" type="CharacterBody2D" parent="." groups=["2dplayer"]]
+position = Vector2(640, 420)
+scale = Vector2(2, 2)
 script = ExtResource("2_w31l8")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
@@ -97,3 +108,31 @@ active = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_jkpqh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("5_em0cj")
+text = "	Mask 0s v.1.0.15 "
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -27.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.247059, 0.247059, 1)
+theme_override_fonts/font = ExtResource("5_em0cj")
+theme_override_styles/background = SubResource("StyleBoxFlat_p6vfb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sstea")
+value = 60.0
+allow_greater = true
