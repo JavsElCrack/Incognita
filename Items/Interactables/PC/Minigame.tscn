@@ -1,10 +1,30 @@
-[gd_scene load_steps=15 format=3 uid="uid://0wa3llb8pn5k"]
+[gd_scene load_steps=28 format=3 uid="uid://0wa3llb8pn5k"]
 
 [ext_resource type="Texture2D" uid="uid://qapqi3ouhmpe" path="res://2D/Mask-Sheet.png" id="1_c3dcu"]
 [ext_resource type="Script" path="res://Items/Interactables/PC/Minigame.gd" id="1_ocx0v"]
 [ext_resource type="PackedScene" uid="uid://cirrqsgglddc0" path="res://Items/Interactables/PC/Man.tscn" id="2_pnean"]
 [ext_resource type="Script" path="res://Items/Interactables/PC/Player.gd" id="2_w31l8"]
+[ext_resource type="Shader" path="res://Shaders/CRT.gdshader" id="3_kcioo"]
+[ext_resource type="AudioStream" uid="uid://bmmmo43rbeyjq" path="res://Sound/keyboard/keyboard_1.wav" id="3_mg3is"]
+[ext_resource type="AudioStream" uid="uid://duby02j7sd2c5" path="res://Sound/keyboard/keyboard_2.wav" id="4_vin6i"]
+[ext_resource type="AudioStream" uid="uid://emlgr70ubfpx" path="res://Sound/keyboard/keyboard_3.wav" id="5_bdpcy"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="5_em0cj"]
+[ext_resource type="AudioStream" uid="uid://bbmjqpunnd44y" path="res://Sound/keyboard/keyboard_4.wav" id="6_7cxmp"]
+[ext_resource type="AudioStream" uid="uid://ypm3r7616wke" path="res://Sound/keyboard/keyboard_5.wav" id="7_4buju"]
+[ext_resource type="AudioStream" uid="uid://c6t2swsceoufx" path="res://Sound/keyboard/keyboard_6.wav" id="8_p13ux"]
+[ext_resource type="AudioStream" uid="uid://b4ngt7uy1ihbq" path="res://Sound/keyboard/keyboard_7.wav" id="9_d88xt"]
+[ext_resource type="AudioStream" uid="uid://cieosqntyni47" path="res://Sound/keyboard/keyboard_8.wav" id="10_gcpb3"]
+[ext_resource type="AudioStream" uid="uid://sxkv6hgb5ftv" path="res://Sound/keyboard/keyboard_9.wav" id="11_uya1b"]
+[ext_resource type="AudioStream" uid="uid://dkcy7ykc7o6ms" path="res://Sound/keyboard/keyboard_10.wav" id="12_jih0v"]
+[ext_resource type="AudioStream" uid="uid://4btsgm3x44gr" path="res://Sound/SingleSoundEffects/MiniGamePïckup.wav" id="17_py1x6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6vfb"]
+content_margin_left = 200.0
+content_margin_right = 200.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstea"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
 
 [sub_resource type="Animation" id="Animation_1k63d"]
 length = 0.001
@@ -57,13 +77,22 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkpqh"]
 radius = 45.607
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6vfb"]
-content_margin_left = 200.0
-content_margin_right = 200.0
-bg_color = Color(0.247059, 0.247059, 0.247059, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstea"]
-bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlaej"]
+shader = ExtResource("3_kcioo")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.339
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.37
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.551
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
 
 [node name="SubViewport" type="SubViewport"]
 disable_3d = true
@@ -74,8 +103,11 @@ size = Vector2i(1280, 861)
 render_target_update_mode = 4
 script = ExtResource("1_ocx0v")
 object_to_spawn = ExtResource("2_pnean")
+audioclips = Array[AudioStreamWAV]([ExtResource("3_mg3is"), ExtResource("4_vin6i"), ExtResource("5_bdpcy"), ExtResource("6_7cxmp"), ExtResource("7_4buju"), ExtResource("8_p13ux"), ExtResource("9_d88xt"), ExtResource("10_gcpb3"), ExtResource("11_uya1b"), ExtResource("12_jih0v")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,41 +116,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.184314, 0.184314, 1)
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["2dplayer"]]
-position = Vector2(640, 420)
-scale = Vector2(2, 2)
-script = ExtResource("2_w31l8")
+[node name="Timer" type="Timer" parent="CanvasLayer"]
 
-[node name="Sprite" type="Sprite2D" parent="Player"]
-texture_filter = 1
-scale = Vector2(3, 3)
-texture = ExtResource("1_c3dcu")
-hframes = 2
-frame = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite"]
-libraries = {
-"": SubResource("AnimationLibrary_v3a1u")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="Player/Sprite"]
-tree_root = SubResource("AnimationNodeStateMachine_s50yb")
-anim_player = NodePath("../AnimationPlayer")
-active = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_jkpqh")
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
-theme_override_fonts/font = ExtResource("5_em0cj")
-text = "	Mask 0s v.1.0.15 "
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -136,3 +136,52 @@ theme_override_styles/background = SubResource("StyleBoxFlat_p6vfb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sstea")
 value = 60.0
 allow_greater = true
+show_percentage = false
+
+[node name="Player" type="CharacterBody2D" parent="CanvasLayer" groups=["2dplayer"]]
+position = Vector2(640, 420)
+scale = Vector2(2, 2)
+script = ExtResource("2_w31l8")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/Player"]
+texture_filter = 1
+use_parent_material = true
+scale = Vector2(3, 3)
+texture = ExtResource("1_c3dcu")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Player/Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_v3a1u")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Player/Sprite"]
+tree_root = SubResource("AnimationNodeStateMachine_s50yb")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Player"]
+shape = SubResource("CircleShape2D_jkpqh")
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer"]
+z_index = 10
+material = SubResource("ShaderMaterial_tlaej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("5_em0cj")
+theme_override_font_sizes/font_size = 40
+text = "	Mask 0s v.1.0.15 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_py1x6")

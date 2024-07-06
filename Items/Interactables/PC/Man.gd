@@ -1,6 +1,6 @@
 extends Area2D
 
-
+signal pickup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +11,8 @@ func _ready():
 func _on_body_entered(body):
 	# Check if the body is the player
 	if body.is_in_group("2dplayer"):
-		GameState.state["MinigameProgress"]+=1
+		GameState.state["MinigameProgress"]+=10
+		pickup.emit()
 		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

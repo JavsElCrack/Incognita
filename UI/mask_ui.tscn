@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://v3d2krk6r6st"]
+[gd_scene load_steps=23 format=3 uid="uid://v3d2krk6r6st"]
 
 [ext_resource type="Script" path="res://UI/mask_ui.gd" id="1_3teh7"]
 [ext_resource type="Texture2D" uid="uid://ccgsk2smyneye" path="res://UI/UI_Images/Mask Background.png" id="1_kqj8h"]
+[ext_resource type="Shader" path="res://Shaders/mask_ui.gdshader" id="2_3u21q"]
 [ext_resource type="Texture2D" uid="uid://dswapg4k2g4vl" path="res://UI/VieportTexture.tres" id="2_41pye"]
 [ext_resource type="ArrayMesh" uid="uid://co1drqduxwegw" path="res://Models/Mask.tres" id="2_b7461"]
 [ext_resource type="Texture2D" uid="uid://cvc1d4n7a8631" path="res://UI/UI_Images/textbox.png" id="3_auxou"]
@@ -15,6 +16,14 @@
 [ext_resource type="AudioStream" uid="uid://csp6avyrd2g80" path="res://Sound/vocales_ale_ogro/ogro_u.wav" id="8_0ocs2"]
 [ext_resource type="Script" path="res://UI/rotate_mask.gd" id="12_62av0"]
 [ext_resource type="Shader" path="res://Shaders/fog.gdshader" id="15_gjdwk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hdvq"]
+shader = ExtResource("2_3u21q")
+shader_parameter/shake = 0.001
+shader_parameter/noiseQuality = 239.5
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.05
+shader_parameter/colorOffsetIntensity = 0.342
 
 [sub_resource type="Gradient" id="Gradient_p1dvm"]
 
@@ -46,6 +55,8 @@ offset_right = 355.0
 offset_bottom = 355.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+z_index = 10
+material = SubResource("ShaderMaterial_8hdvq")
 layout_mode = 0
 offset_right = 333.0
 offset_bottom = 333.0
@@ -106,6 +117,77 @@ theme_override_font_sizes/font_size = 45
 script = ExtResource("6_4npuc")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/TextureRect"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_txerx")
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 333.0
+texture = SubResource("CanvasTexture_js6lf")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 333.0
+texture = ExtResource("1_kqj8h")
+expand_mode = 3
+
+[node name="Mask" type="Sprite2D" parent="Control/TextureRect2"]
+z_index = 2
+position = Vector2(168, 159)
+scale = Vector2(0.548, 0.548)
+texture = ExtResource("2_41pye")
+
+[node name="TextBox" type="MarginContainer" parent="Control/TextureRect2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.076
+anchor_bottom = 0.129
+offset_left = 322.0
+offset_top = 135.0
+offset_right = 332.692
+offset_bottom = 147.643
+grow_vertical = 2
+script = ExtResource("3_qfsb0")
+audioclips = Array[AudioStreamWAV]([ExtResource("4_40kip"), ExtResource("5_ndwpa"), ExtResource("6_yjhla"), ExtResource("7_6jeln"), ExtResource("8_0ocs2")])
+
+[node name="Control" type="Control" parent="Control/TextureRect2/TextBox"]
+layout_mode = 2
+
+[node name="LetterDisplayTimer" type="Timer" parent="Control/TextureRect2/TextBox/Control"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/TextureRect2/TextBox/Control"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/TextureRect2/TextBox"]
+layout_mode = 2
+texture = ExtResource("3_auxou")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TextureRect2/TextBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Control/TextureRect2/TextBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8p7jy")
+theme_override_font_sizes/font_size = 45
+
+[node name="EzDialogue" type="Node" parent="Control/TextureRect2/TextBox"]
+script = ExtResource("6_4npuc")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TextureRect2"]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_txerx")
 layout_mode = 0
@@ -143,3 +225,7 @@ current = true
 [connection signal="timeout" from="Control/TextureRect/TextBox/Control/LetterDisplayTimer" to="Control/TextureRect/TextBox" method="_on_letter_display_timer_timeout" flags=18]
 [connection signal="dialogue_generated" from="Control/TextureRect/TextBox/EzDialogue" to="Control/TextureRect/TextBox" method="_on_ez_dialogue_dialogue_generated" flags=18]
 [connection signal="end_of_dialogue_reached" from="Control/TextureRect/TextBox/EzDialogue" to="Control/TextureRect/TextBox" method="_on_ez_dialogue_end_of_dialogue_reached" flags=18]
+[connection signal="finished_displaying" from="Control/TextureRect2/TextBox" to="Control/TextureRect2/TextBox" method="_on_finished_displaying" flags=18]
+[connection signal="timeout" from="Control/TextureRect2/TextBox/Control/LetterDisplayTimer" to="Control/TextureRect2/TextBox" method="_on_letter_display_timer_timeout" flags=18]
+[connection signal="dialogue_generated" from="Control/TextureRect2/TextBox/EzDialogue" to="Control/TextureRect2/TextBox" method="_on_ez_dialogue_dialogue_generated" flags=18]
+[connection signal="end_of_dialogue_reached" from="Control/TextureRect2/TextBox/EzDialogue" to="Control/TextureRect2/TextBox" method="_on_ez_dialogue_end_of_dialogue_reached" flags=18]

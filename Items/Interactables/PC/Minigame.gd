@@ -1,11 +1,16 @@
 extends SubViewport
-
-@onready var player = $Player
+@onready var timer = $CanvasLayer/Timer
+@onready var progress_bar = $CanvasLayer/ProgressBar
+@onready var canvas_layer = $CanvasLayer
+@onready var player = $CanvasLayer/Player
 @export var SPEED = 300
 @export var object_to_spawn: PackedScene
 @export var spawn_interval: float = 3.0
-@onready var timer = $Timer
-@onready var progress_bar = $ProgressBar
+@export var audioclips : Array[AudioStreamWAV]
+@onready var audiosource = $AudioStreamPlayer
+@onready var pickup = $Pickup
+const MIN_PITCH = 0.2
+const MAX_PITCH = 3
 
 var enableminigame = false
 		# Get the viewport size
@@ -17,6 +22,8 @@ var player_size = Vector2(64, 64)
 func _ready():
 	# Get the viewport size
 	viewport_size = get_visible_rect().size
+	viewport_size.x -= 10
+	viewport_size.y -= 10
 	# Start the spawn timer
 	var timer = Timer.new()
 	timer.wait_time = spawn_interval
@@ -27,6 +34,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	GameState.state["MinigameProgress"] -= 0.15 * get_physics_process_delta_time()
 	progress_bar.value = GameState.state["MinigameProgress"]
 	if enableminigame:
 		var velocity = Vector2.ZERO
@@ -39,6 +47,9 @@ func _process(delta):
 			velocity.x -= 1
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
+
+		if Input.is_action_just_pressed("move_down") || Input.is_action_just_pressed("move_left") || Input.is_action_just_pressed("move_right") || Input.is_action_just_pressed("move_up"):
+			play_keyboard()
 
 		if velocity != Vector2.ZERO:
 			velocity = velocity.normalized() * SPEED
@@ -57,17 +68,27 @@ func _process(delta):
 func _on_Timer_timeout():
 	if enableminigame:
 		spawn_object()
+func play_keyboard():
+	if audiosource.playing == true:
+		audiosource.stop()
+	audiosource.pitch_scale = randf_range(MIN_PITCH, MAX_PITCH)
+	var randomIndex = randi_range(0, audioclips.size() - 1)
+	audiosource.stream = audioclips[randomIndex]
+	audiosource.play()
+
 
 # Function to spawn an object
 func spawn_object():
 	if object_to_spawn:
 		var instance = object_to_spawn.instantiate()
-		add_child(instance)
+		canvas_layer.add_child(instance)
 
 		# Set a random position within the viewport
 		var position_x = randf_range(0, viewport_size.x)
 		var position_y = randf_range(0, viewport_size.y)
 		instance.position = Vector2(position_x, position_y)
-
+		instance.connect("pickup",play_pickup_sound)
+func play_pickup_sound():
+	pickup.play()
 func _unhandled_input(event):
 	pass

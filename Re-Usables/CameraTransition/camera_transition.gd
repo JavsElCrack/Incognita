@@ -4,6 +4,7 @@ extends Node
 var transitioning: bool = false
 var tween
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	find_or_create_camera3D()

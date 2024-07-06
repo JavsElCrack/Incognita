@@ -4,6 +4,7 @@ var playercam
 @onready var sub_viewport = $SubViewport
 var player
 var toggle = false
+var checkTransition = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,6 +14,10 @@ func _ready():
 func _process(delta):
 	if toggle  && Input.is_action_just_pressed("interact"):
 		pass
+	if checkTransition:
+		if CameraTransition.transitioning == false:
+			(player as Player).lockmovement = false
+			checkTransition = false
 
 func _on_interacted(body):
 	if body.is_in_group("player"):
@@ -31,7 +36,7 @@ func _on_interacted(body):
 			print("PC to Player")
 			CameraTransition.transition_camera(pccam,playercam,2)
 			(body as Player).raycast.showPrompt = true
-			(body as Player).lockmovement = false
+			checkTransition = true
 			(body as Player).crosshair.visible = true
 			GameState.state["enableMinigame"] = false
 			sub_viewport.enableminigame = false

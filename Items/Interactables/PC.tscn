@@ -506,7 +506,7 @@ material = SubResource("ShaderMaterial_0611n")
 size = Vector2(1.01, 0.68)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xuk3o"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("SubViewport/SubViewport")
 
 [sub_resource type="Animation" id="Animation_qbc35"]
 resource_name = "Take 001"
@@ -594,3 +594,5 @@ cull_mask = 1048573
 [node name="SubViewport" parent="." instance=ExtResource("1_g5bd8")]
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]
+
+[editable path="SubViewport"]
