@@ -179,7 +179,7 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
 theme_override_fonts/font = ExtResource("5_em0cj")
 theme_override_font_sizes/font_size = 40
-text = "	Mask 0s v.1.0.15 "
+text = "Inc[o]gnita Inc. 0s v.1.0.15 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccnudeloy7rru"]
+[gd_scene load_steps=16 format=3 uid="uid://ccnudeloy7rru"]
 
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_5h7jb"]
 [ext_resource type="Script" path="res://Scenes/Testing.gd" id="1_tdrj7"]
@@ -31,9 +31,6 @@ albedo_color = Color(0.254902, 0, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpak0"]
 albedo_color = Color(0.254902, 1, 1, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_wv3jy"]
-viewport_path = NodePath("Computer/SubViewport")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_tdrj7")
@@ -173,10 +170,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9576, 0, 26.9164)
 transform = Transform3D(-1.17657e-07, 0, -2.69168, 0, 2.69168, 0, 2.69168, 0, -1.17657e-07, -4.36731, 3.68023, 0.196327)
 
 [node name="Computer" parent="." instance=ExtResource("9_s2jbm")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 7.01511, 3.58073, 6.07745)
-
-[node name="Sprite3D" parent="Computer/Computer/Computer/RootNode/PC" index="5"]
-texture = SubResource("ViewportTexture_wv3jy")
-
-[editable path="Computer"]
-[editable path="Computer/SubViewport"]
+transform = Transform3D(-0.999953, 0, -0.00968656, 0, 1, 0, 0.00968656, 0, -0.999953, 6.97389, 3.61184, 7.36586)
