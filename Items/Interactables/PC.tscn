@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://c2cwscslukr8p"]
+[gd_scene load_steps=31 format=3 uid="uid://c2cwscslukr8p"]
 
 [ext_resource type="Script" path="res://Items/Interactables/PC.gd" id="1_g2nsa"]
 [ext_resource type="PackedScene" uid="uid://0wa3llb8pn5k" path="res://Items/Interactables/PC/Minigame.tscn" id="1_g5bd8"]
 [ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="1_paudk"]
+[ext_resource type="PackedScene" uid="uid://lwce0uwtqxyo" path="res://Items/Interactables/PC/Password.tscn" id="4_1yov0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_72msd"]
 size = Vector3(1.11348, 0.967413, 1)
@@ -72,6 +73,26 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cprt3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o36da"]
+render_priority = 0
+shader = ExtResource("1_paudk")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = null
+shader_parameter/emission_energy = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/albedo = Color(0.862745, 0.776471, 0.615686, 1)
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xj7hw"]
 _surfaces = [{
@@ -288,26 +309,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d8wiv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o36da"]
-render_priority = 0
-shader = ExtResource("1_paudk")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = null
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/emission = null
-shader_parameter/emission_energy = null
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/albedo = Color(0.862745, 0.776471, 0.615686, 1)
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tpfx5"]
 render_priority = 0
 shader = ExtResource("1_paudk")
@@ -403,7 +404,7 @@ _data = {
 "Take 001": SubResource("Animation_qbc35")
 }
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="PC" type="StaticBody3D"]
 script = ExtResource("1_g2nsa")
 prompt_message = "Use Computer"
 
@@ -426,11 +427,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00272424, 0)
 transform = Transform3D(0.817419, 0, 0, 0, 0.219549, 0, 0, 0, 0.421157, 0.0248706, -0.020801, -0.0200659)
 mesh = SubResource("ArrayMesh_q7uqu")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_o36da")
 
 [node name="pCube12" type="MeshInstance3D" parent="Computer/Computer/RootNode/kEYBOARD_aND_MOUSE"]
 transform = Transform3D(1, 0, 0, 0, 0.199964, 0, 0, 0, 3.33452, 0.023096, -0.0209822, 0.00772588)
 mesh = SubResource("ArrayMesh_wfkkx")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_o36da")
 
 [node name="PC" type="Node3D" parent="Computer/Computer/RootNode"]
 
@@ -473,6 +476,9 @@ cull_mask = 1048573
 
 [node name="SubViewport" parent="." instance=ExtResource("1_g5bd8")]
 
+[node name="PassWordViewport" parent="." instance=ExtResource("4_1yov0")]
+
 [connection signal="interacted" from="." to="." method="_on_interacted"]
+[connection signal="correctpass" from="PassWordViewport" to="." method="_on_pass_word_viewport_correctpass"]
 
 [editable path="SubViewport"]

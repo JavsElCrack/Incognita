@@ -1,0 +1,26 @@
+extends Node3D
+var flag1 = true
+var flag2 = true
+var playerInArea = false
+func _on_ez_dialogue_custom_signal_received(value):
+	match value:
+		"neilFirstTime":
+			GameState.state["flags"]["Neil"]["firsttime"] = false
+
+
+
+func _on_pass_word_viewport_correctpass():
+	GameState.state["flags"]["John"]["readNeilEmail"] = true
+
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("player"):
+		if flag1:
+			GameState.mask_dialogue("This is your computer the password is: password")
+			flag1 = false
+		playerInArea = true
+
+func _on_area_3d_body_exited(body):
+	if body.is_in_group("player"):
+		playerInArea = false
+		flag2 = true

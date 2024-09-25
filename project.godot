@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Incognita"
-run/main_scene="res://Scenes/Testing.tscn"
+config/name="Inc[o]gnita"
+run/main_scene="res://Scenes/Intro.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 

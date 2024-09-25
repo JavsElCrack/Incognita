@@ -6,7 +6,7 @@ const SPEED = 3.0
 @export var dialogue_json : JSON
 @export var voiceID : int
 @export var addMaskComment = false
-@export var MaskComment : String
+@export_multiline var MaskComment : String
 @export_category("Navigation")
 @export var follow_target = false
 @export var lookatPos : Node3D
@@ -48,6 +48,11 @@ func _physics_process(delta):
 
 
 func _on_interacted(body):
+	print(body," interacted with NPC")
+	startDialogue(body)
+
+
+func startDialogue(body):
 	isInDialogue = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	textbox.visible = true
@@ -63,14 +68,13 @@ func _on_interacted(body):
 		self.rotation = initialrot
 		self.rotation.y = lookatRot.y
 		print("Dialogue Started")
-
+		
 func update_target_location(target_location:Node3D):
 	(nav_agent as NavigationAgent3D).target_position = target_location.global_position
 	
 
 func onDialogueEnded():
 	if addMaskComment == true:
-		print("Sex")
 		GameState.mask_dialogue(MaskComment)
 		textbox.disconnect("dialogue_ended",onDialogueEnded)
 		

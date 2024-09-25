@@ -9,6 +9,10 @@ extends SubViewport
 @export var audioclips : Array[AudioStreamWAV]
 @onready var audiosource = $AudioStreamPlayer
 @onready var pickup = $Pickup
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+var cooldown = 0.0  # Variable to track cooldown time
+const COOLDOWN_TIME = 5.0  # 5 seconds cooldown
+
 const MIN_PITCH = 0.2
 const MAX_PITCH = 3
 
@@ -32,9 +36,19 @@ func _ready():
 	timer.start()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	GameState.state["MinigameProgress"] -= 0.15 * get_physics_process_delta_time()
+
+func _physics_process(delta):
+	GameState.state["MinigameProgress"] -= 0.5 * get_physics_process_delta_time()
+	# Decrease cooldown over time
+	if cooldown > 0:
+		cooldown -= delta
+	else:
+		# Check if the MinigameProgress is 0.3 and cooldown has elapsed
+		if GameState.state["MinigameProgress"] == 30:
+			# Call your custom function and reset the cooldown
+			trigger_event()
+			cooldown = COOLDOWN_TIME
+	
 	progress_bar.value = GameState.state["MinigameProgress"]
 	if enableminigame:
 		var velocity = Vector2.ZERO
@@ -90,5 +104,9 @@ func spawn_object():
 		instance.connect("pickup",play_pickup_sound)
 func play_pickup_sound():
 	pickup.play()
+
+func trigger_event():
+	GameState.mask_dialogue("Better get back to work!")
+
 func _unhandled_input(event):
 	pass

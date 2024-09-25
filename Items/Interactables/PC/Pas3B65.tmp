@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://lwce0uwtqxyo"]
+
+[ext_resource type="Script" path="res://Items/Interactables/PC/Password.gd" id="1_g0xry"]
+[ext_resource type="AudioStream" uid="uid://bmmmo43rbeyjq" path="res://Sound/keyboard/keyboard_1.wav" id="3_eta6j"]
+[ext_resource type="AudioStream" uid="uid://duby02j7sd2c5" path="res://Sound/keyboard/keyboard_2.wav" id="4_ulnkq"]
+[ext_resource type="AudioStream" uid="uid://emlgr70ubfpx" path="res://Sound/keyboard/keyboard_3.wav" id="5_yul74"]
+[ext_resource type="AudioStream" uid="uid://bbmjqpunnd44y" path="res://Sound/keyboard/keyboard_4.wav" id="6_uhjl6"]
+[ext_resource type="AudioStream" uid="uid://ypm3r7616wke" path="res://Sound/keyboard/keyboard_5.wav" id="7_ccmry"]
+[ext_resource type="AudioStream" uid="uid://c6t2swsceoufx" path="res://Sound/keyboard/keyboard_6.wav" id="8_y7fq0"]
+[ext_resource type="AudioStream" uid="uid://b4ngt7uy1ihbq" path="res://Sound/keyboard/keyboard_7.wav" id="9_vb2ea"]
+[ext_resource type="AudioStream" uid="uid://cieosqntyni47" path="res://Sound/keyboard/keyboard_8.wav" id="10_vws06"]
+[ext_resource type="AudioStream" uid="uid://sxkv6hgb5ftv" path="res://Sound/keyboard/keyboard_9.wav" id="11_myor8"]
+[ext_resource type="AudioStream" uid="uid://dkcy7ykc7o6ms" path="res://Sound/keyboard/keyboard_10.wav" id="12_1udok"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="13_n52ni"]
+[ext_resource type="Shader" path="res://Shaders/CRT.gdshader" id="16_yinon"]
+[ext_resource type="AudioStream" uid="uid://4btsgm3x44gr" path="res://Sound/SingleSoundEffects/MiniGamePïckup.wav" id="17_cx6ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6vfb"]
+content_margin_left = 200.0
+content_margin_right = 200.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstea"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlaej"]
+shader = ExtResource("16_yinon")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.339
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.37
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.551
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_223yr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
+[node name="SubViewport" type="SubViewport"]
+disable_3d = true
+own_world_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1280, 861)
+render_target_update_mode = 4
+script = ExtResource("1_g0xry")
+password = null
+is_typing = null
+audioclips = Array[AudioStreamWAV]([ExtResource("3_eta6j"), ExtResource("4_ulnkq"), ExtResource("5_yul74"), ExtResource("6_uhjl6"), ExtResource("7_ccmry"), ExtResource("8_y7fq0"), ExtResource("9_vb2ea"), ExtResource("10_vws06"), ExtResource("11_myor8"), ExtResource("12_1udok")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -27.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_colors/font_outline_color = Color(0.247059, 0.247059, 0.247059, 1)
+theme_override_fonts/font = ExtResource("13_n52ni")
+theme_override_styles/background = SubResource("StyleBoxFlat_p6vfb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sstea")
+value = 60.0
+allow_greater = true
+show_percentage = false
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer"]
+z_index = 10
+material = SubResource("ShaderMaterial_tlaej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("13_n52ni")
+theme_override_font_sizes/font_size = 40
+text = "Inc[o]gnita Inc. 0s v.1.0.15 "
+
+[node name="PasswordLabel" type="Label" parent="CanvasLayer"]
+offset_left = 440.0
+offset_top = 400.0
+offset_right = 659.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("13_n52ni")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_223yr")
+text = "Password:"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_cx6ng")

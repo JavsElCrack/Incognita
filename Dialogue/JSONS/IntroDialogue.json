@@ -1,0 +1,52 @@
+[
+	{
+		"commands_raw": "Firstly, I want to thank you all for coming here. \nI know many of you came here in a time of grief.\n?>  Continue Listening -> choice 1\n\n\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			-680,
+			-360
+		]
+	},
+	{
+		"commands_raw": "Our organization has helped many people struggling in life.\n I hope that all of you will listen to us with an open mind.\n?>  Continue Listening -> Diag Node_1\n\n\n",
+		"gnode_name": "choice 1",
+		"id": 1,
+		"name": "choice 1",
+		"position": [
+			-120,
+			-340
+		]
+	},
+	{
+		"commands_raw": "Grief can result in stagnation and \nstagnation becomes your worst enemy.\n?>  Continue Listening -> Diag Node_2",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			200,
+			-320
+		]
+	},
+	{
+		"commands_raw": "We must always look forward, keep moving, keep walking.\n  Will you accept the will of our organization?\n?>  Accept will -> Diag Node\n",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			480,
+			-320
+		]
+	},
+	{
+		"commands_raw": "Let us start\nsignal(startGame)",
+		"gnode_name": "diag node",
+		"id": 4,
+		"name": "Diag Node",
+		"position": [
+			800,
+			-320
+		]
+	}
+]

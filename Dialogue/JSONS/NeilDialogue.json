@@ -1,0 +1,62 @@
+[
+	{
+		"commands_raw": "Hi, my name is Neil.\n?>  Ask about Job. -> Diag Node\n$if flags[\"Neil\"][\"firsttime\"]{\n    ?>Introduce Yourself -> Diag Node_1\n}\n$if flags[\"Neil\"][\"gift\"]{\n    ?>Return Gift  -> Diag Node_2\n}\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			20,
+			-140
+		]
+	},
+	{
+		"commands_raw": "Oh, I work in HR. Do let me know if anybody bothers you.",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			460,
+			-180
+		]
+	},
+	{
+		"commands_raw": "Oh, nice to meet you! Hey, can I ask you for help!\n?>What do you need? -> Diag Node_4\n",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "Oh, you’re a lifesaver, now the wife won’t kill me anymore.\n?>Ask about past -> Diag Node_3",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			180,
+			-460
+		]
+	},
+	{
+		"commands_raw": "Oh, me and Claudia met in college and \nwent through some rough patches, \nbut after going to a recruitment talk at \nInc[o]gnita, we’ve been here.\n\n",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			500,
+			-460
+		]
+	},
+	{
+		"commands_raw": "Me and Claudia’s anniversary was not \ntoo long ago and I lost my gift somewhere \nin the break room.\nCan you keep an eye out for it?\n",
+		"gnode_name": "diag node_4",
+		"id": 5,
+		"name": "Diag Node_4",
+		"position": [
+			460,
+			60
+		]
+	}
+]

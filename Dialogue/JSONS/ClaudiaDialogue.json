@@ -1,0 +1,52 @@
+[
+	{
+		"commands_raw": "Hey, you’re the new guy. How is the work treating you?\n?>  Alright. -> Diag Node_1\n$if flags[\"Neil\"][\"gift\"]{\n    ?>Hey, I found this.-> Diag Node_2\n}\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "That clumsy asshole!\n Sorry you had to be the one to find this. \nOur anniversary was two weeks ago. \nI thought he forgot.\n?> Ask about past-> Diag Node\n",
+		"gnode_name": "diag node_2",
+		"id": 1,
+		"name": "Diag Node_2",
+		"position": [
+			680,
+			120
+		]
+	},
+	{
+		"commands_raw": "Happy to hear that! Welcome to Inc[o]gnita.",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			840,
+			-160
+		]
+	},
+	{
+		"commands_raw": "Neil and I have been married for a while. \nHowever, a few years ago things between \nhim and I were not so great to say the least. \nA friend of ours recommended the Inc[o]gnita seminar.\n?> Continue listening -> Diag Node_3",
+		"gnode_name": "diag node",
+		"id": 3,
+		"name": "Diag Node",
+		"position": [
+			1060,
+			120
+		]
+	},
+	{
+		"commands_raw": "I don’t think our relationship would’ve continued \nif not for the seminar. \nInc[o]gnita has helped me to talk \nthings out with Neil more. I’ll talk to him in a bit. \nThanks again.\n\n",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			1320,
+			120
+		]
+	}
+]

@@ -17,7 +17,7 @@ expand_margin_bottom = 3.0
 
 [node name="Button" type="Button"]
 theme_override_fonts/font = ExtResource("1_p810v")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("2_km8kq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rj52l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rj52l")

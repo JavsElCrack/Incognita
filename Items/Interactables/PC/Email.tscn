@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt7v6hljyblnr"]
+
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="12_rw6gr"]
+[ext_resource type="Shader" path="res://Shaders/CRT.gdshader" id="13_co20y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlaej"]
+shader = ExtResource("13_co20y")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.339
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.37
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.551
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_223yr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
+[node name="SubViewport" type="SubViewport"]
+disable_3d = true
+own_world_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1280, 861)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer"]
+z_index = 10
+material = SubResource("ShaderMaterial_tlaej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("12_rw6gr")
+theme_override_font_sizes/font_size = 40
+text = "Inc[o]gnita Inc. 0s v.1.0.15 "
+
+[node name="EmailLabel" type="Label" parent="CanvasLayer"]
+offset_left = 130.0
+offset_top = 100.0
+offset_right = 1130.0
+offset_bottom = 1902.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("12_rw6gr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_223yr")
+text = "Email:
+From: kenneth76@incognita.com to: neilgarmen@incognita.com
+Hey Neil,
+I am messaging you to ask to take a look at John. He has been very anxious lately. I feel he may want to do something rash. Please talk to him before reporting anything. I hope he calms down in the next few days but please do speak to him QUICK.
+Regards,
+Kenneth"
+horizontal_alignment = 1
+autowrap_mode = 3
