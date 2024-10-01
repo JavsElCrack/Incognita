@@ -47,7 +47,6 @@ func display_text(text_to_display: String):
 		firstimeDia = false
 	self.position = pos
 	self.size = Vector2(0,0)
-	print(self.position)
 	count += 1
 	letter_index = 0
 	text = text_to_display
