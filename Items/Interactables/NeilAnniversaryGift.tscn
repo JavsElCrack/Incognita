@@ -52,5 +52,5 @@ shape = SubResource("BoxShape3D_3weqh")
 transform = Transform3D(0.584358, 0, 0, 0, 0.374507, 0, 0, 0, 1.36499, 0, 0, 0)
 mesh = SubResource("BoxMesh_n1jfw")
 
-[connection signal="interacted" from="." to="." method="_on_interacted"]
 [connection signal="interacted" from="." to="." method="_on_interacted_pickup"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]
