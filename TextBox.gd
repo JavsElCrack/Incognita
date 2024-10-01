@@ -7,7 +7,7 @@ class_name Textbox extends MarginContainer
 @onready var buttonparent = $VBoxContainer/HBoxContainer
 @onready var choicebuttonscene = preload("res://UI/ChoiceButton.tscn")
 @onready var initialsize = size
-
+var buttons_size = 50 
 @export var audioclipsjavs : Array[AudioStreamWAV]
 @export var audioclipsogro : Array[AudioStreamWAV]
 @export var audioclipsma : Array[AudioStreamWAV]
@@ -22,6 +22,7 @@ const MAX_WIDTH = 700
 const MIN_PITCH = 0.2
 const MAX_PITCH = 3
 var text = ""
+var firstimeDia = true
 var voiceid = 0
 var islastdialogue = false
 var letter_index = 0
@@ -31,6 +32,7 @@ var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
 var count = 0
+var pos
 var initialsizetext = Vector2(0,0)
 signal finished_displaying()
 signal dialogue_started()
@@ -40,6 +42,12 @@ func _ready():
 	pass
 
 func display_text(text_to_display: String):
+	if firstimeDia:
+		pos = self.position
+		firstimeDia = false
+	self.position = pos
+	self.size = Vector2(0,0)
+	print(self.position)
 	count += 1
 	letter_index = 0
 	text = text_to_display
@@ -138,7 +146,7 @@ func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
 func _on_finished_displaying():
 	timer.stop()  # Ensure the timer is stopped
 	var tsize = self.size
-	tsize.y += 50
+	tsize.y += buttons_size
 	self.size = tsize
 	for choice in choice_buttons:
 		buttonparent.add_child(choice)
@@ -147,6 +155,7 @@ func _on_ez_dialogue_end_of_dialogue_reached():
 	islastdialogue = true
 
 func finish_dialogue():
+	firstimeDia = true
 	$"VBoxContainer/HBoxContainer/Finish Button".visible = true
 
 func _on_finish_button_pressed():
