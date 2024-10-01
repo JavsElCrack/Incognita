@@ -16,6 +16,7 @@ class_name Textbox extends MarginContainer
 @export var audioclipsgabo : Array[AudioStreamWAV]
 @export var audioclipsmaria : Array[AudioStreamWAV]
 
+
 var StopAudioSource = true
 const MAX_WIDTH = 700
 const MIN_PITCH = 0.2
@@ -136,6 +137,9 @@ func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
 
 func _on_finished_displaying():
 	timer.stop()  # Ensure the timer is stopped
+	var tsize = self.size
+	tsize.y += 50
+	self.size = tsize
 	for choice in choice_buttons:
 		buttonparent.add_child(choice)
 
