@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ovq6m2drpi5"]
+
+[ext_resource type="Shader" path="res://Scenes/rainwindow.gdshader" id="1_4e7hr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gb1a1"]
+render_priority = 0
+shader = ExtResource("1_4e7hr")
+shader_parameter/albedo = Color(0, 0.780392, 0.811765, 0.0470588)
+shader_parameter/specular = 1.0
+shader_parameter/offset = 0.001
+shader_parameter/opacity = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_tjgj3"]
+material = SubResource("ShaderMaterial_gb1a1")
+size = Vector3(1, 1.7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d5xc7"]
+size = Vector3(1, 1.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_46m7l"]
+
+[node name="Window" type="Node3D"]
+
+[node name="window" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_tjgj3")
+
+[node name="frame" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 1, 0, 0, 0, 0.036, 0.0782482, -0.00779697, -0.517375)
+mesh = SubResource("BoxMesh_d5xc7")
+skeleton = NodePath("../window")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 1, 0, 0, 0, 0.036, 0.0782482, -0.00779697, 0.515501)
+mesh = SubResource("BoxMesh_d5xc7")
+skeleton = NodePath("../window")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 1, 0, 0, 0, 0.036, 0.0784871, -0.008, 0)
+mesh = SubResource("BoxMesh_d5xc7")
+skeleton = NodePath("../window")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, -4.37114e-08, 0.036, 0, -1, -1.57361e-09, 0.0784871, -0.008, 0)
+mesh = SubResource("BoxMesh_46m7l")
+skeleton = NodePath("../window")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, -4.37114e-08, 0.036, 0, -1, -1.57361e-09, 0.0784871, 0.844294, 0)
+mesh = SubResource("BoxMesh_46m7l")
+skeleton = NodePath("../window")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, -4.37114e-08, 0.036, 0, -1, -1.57361e-09, 0.0784871, -0.864497, 0)
+mesh = SubResource("BoxMesh_46m7l")
+skeleton = NodePath("../window")

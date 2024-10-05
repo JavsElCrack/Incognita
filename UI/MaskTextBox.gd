@@ -31,8 +31,7 @@ signal dialogue_started()
 func _ready():
 	print(initialsize)
 	visible = false
-	display_text("Use WASD to move
-				 and E to interact")
+
 	
 
 

@@ -407,6 +407,7 @@ _data = {
 [node name="PC" type="StaticBody3D"]
 script = ExtResource("1_g2nsa")
 prompt_message = "Use Computer"
+prompt_input = "computer"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0156396, 0.0331388, 0)

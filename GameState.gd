@@ -14,8 +14,11 @@ var state := {
 			"firsttime": true,
 			"gift": false
 		},
+		"Door": {
+			"kennethdoor": false,
+		},
 		"Claudia": {
-			"firsttime": true
+			"firsttime": true,
 		},
 		"John": {
 			"readNeilEmail": false

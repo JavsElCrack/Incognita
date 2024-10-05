@@ -2,6 +2,11 @@ extends Node3D
 var flag1 = true
 var flag2 = true
 var playerInArea = false
+
+func _ready():
+	GameState.mask_dialogue("Use WASD to move
+		 and E to interact")
+
 func _on_ez_dialogue_custom_signal_received(value):
 	match value:
 		"neilFirstTime":

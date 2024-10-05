@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://UI/mask_ui.gd" id="1_3teh7"]
 [ext_resource type="Texture2D" uid="uid://ccgsk2smyneye" path="res://UI/UI_Images/Mask Background.png" id="1_kqj8h"]
-[ext_resource type="Shader" path="res://Shaders/mask_ui.gdshader" id="2_3u21q"]
 [ext_resource type="Texture2D" uid="uid://dswapg4k2g4vl" path="res://UI/VieportTexture.tres" id="2_41pye"]
 [ext_resource type="ArrayMesh" uid="uid://co1drqduxwegw" path="res://Models/Mask.tres" id="2_b7461"]
+[ext_resource type="Shader" path="res://UI/chromatic_chaos.gdshader" id="2_naecd"]
 [ext_resource type="Texture2D" uid="uid://cvc1d4n7a8631" path="res://UI/UI_Images/textbox.png" id="3_auxou"]
 [ext_resource type="Script" path="res://UI/MaskTextBox.gd" id="3_qfsb0"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="4_8p7jy"]
@@ -18,12 +18,10 @@
 [ext_resource type="Shader" path="res://Shaders/fog.gdshader" id="15_gjdwk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hdvq"]
-shader = ExtResource("2_3u21q")
-shader_parameter/shake = 0.001
-shader_parameter/noiseQuality = 239.5
-shader_parameter/noiseIntensity = 0.001
-shader_parameter/offsetIntensity = 0.05
-shader_parameter/colorOffsetIntensity = 0.342
+shader = ExtResource("2_naecd")
+shader_parameter/chaos = 10.733
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 5.0
 
 [sub_resource type="Gradient" id="Gradient_p1dvm"]
 
@@ -197,28 +195,31 @@ texture = SubResource("CanvasTexture_js6lf")
 expand_mode = 1
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 241.82, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
 script = ExtResource("12_62av0")
 
 [node name="SubViewport" type="SubViewport" parent="Node3D"]
 transparent_bg = true
 size = Vector2i(500, 500)
 
-[node name="PivotPoint" type="Node3D" parent="Node3D/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 241.82, 0)
+[node name="Node3D" type="Node3D" parent="Node3D/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.0534514, -0.99857, 0, 0.99857, -0.0534514, -5.43892e-07, 241.82, 0.206)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/SubViewport/PivotPoint"]
-transform = Transform3D(0.94998, -0.0914992, 0.298606, 0.0399665, 0.983876, 0.174331, -0.309743, -0.153677, 0.938319, 0.111803, -1.66788, 0.111092)
+[node name="PivotPoint" type="Node3D" parent="Node3D/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43892e-07, 0, -0.206)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/SubViewport/Node3D/PivotPoint"]
+transform = Transform3D(0.94998, -0.0914992, 0.298607, 0.0399665, 0.983876, 0.174331, -0.309743, -0.153677, 0.938319, 0.111803, -1.66788, 0.111092)
 mesh = ExtResource("2_b7461")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/SubViewport/PivotPoint"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/SubViewport/Node3D/PivotPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.525402)
 light_color = Color(0.823529, 0.870588, 0.878431, 1)
 light_energy = 0.416
 
-[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport"]
-transform = Transform3D(1, -6.70552e-08, -2.68221e-07, 6.70552e-08, 1, 2.38419e-07, 2.68221e-07, -2.38419e-07, 1, -5.43892e-07, 241.82, 0.206)
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport/Node3D"]
+transform = Transform3D(1, -6.70551e-08, -2.68221e-07, 6.70552e-08, 1, 2.38419e-07, 2.68221e-07, -2.38419e-07, 1, 0, 0, 0)
 current = true
 
 [connection signal="finished_displaying" from="Control/TextureRect/TextBox" to="Control/TextureRect/TextBox" method="_on_finished_displaying" flags=18]

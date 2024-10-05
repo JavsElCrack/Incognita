@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var pivot_point = $SubViewport/PivotPoint
-@onready var camera =$SubViewport/PivotPoint/MeshInstance3D/Camera3D
-@onready var meshinstance  = $SubViewport/PivotPoint/MeshInstance3D
+@onready var pivot_point = $SubViewport/Node3D/PivotPoint
+@onready var camera = $SubViewport/Node3D/Camera3D
+@onready var meshinstance  = $SubViewport/Node3D/PivotPoint/MeshInstance3D
 var rotation_speed : float = 0.04  # Adjust this value to change the rotation speed
 var rotation_limit : float = 15.0  # Adjust this value to change the rotation limit
 var rotation_direction_y : int = 1  # Initial rotation direction for Y-axis: 1 or -1
