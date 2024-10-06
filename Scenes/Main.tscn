@@ -1,12 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://buk1mwkjg5qs5"]
+[gd_scene load_steps=37 format=3 uid="uid://buk1mwkjg5qs5"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_8beko"]
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_yuldt"]
 [ext_resource type="Texture2D" uid="uid://bwootpqaln0mi" path="res://Textures/skybox/chicago-skyline-lake-michigan.jpg" id="2_0v5hf"]
-[ext_resource type="PackedScene" uid="uid://cio06nhtrxoas" path="res://Items/mirror.tscn" id="4_csqvo"]
+[ext_resource type="PackedScene" uid="uid://rgak22gmhj5o" path="res://Objects/prefabs/dorm_room.tscn" id="4_fpnmi"]
 [ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="4_j6440"]
-[ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="5_1iidq"]
-[ext_resource type="PackedScene" uid="uid://bm36ygd5ttfga" path="res://Objects/bed.tscn" id="5_br1cp"]
 [ext_resource type="PackedScene" uid="uid://canf23e30pxav" path="res://Objects/mesa.tscn" id="6_5t3ag"]
 [ext_resource type="PackedScene" uid="uid://c2cwscslukr8p" path="res://Items/Interactables/PC.tscn" id="7_sty5q"]
 [ext_resource type="PackedScene" uid="uid://dattjjxsgkuoe" path="res://Items/Interactables/PC_Text.tscn" id="8_73htx"]
@@ -14,23 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://bycu67gi0dysa" path="res://Objects/cornercounter.tscn" id="9_21ljy"]
 [ext_resource type="PackedScene" uid="uid://bfsrx1d4fd7to" path="res://NPC/NPC3.tscn" id="9_r0hax"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/NeilDialogue.json" id="10_71wio"]
-[ext_resource type="PackedScene" uid="uid://2ovq6m2drpi5" path="res://Objects/window.tscn" id="10_ao24h"]
 [ext_resource type="PackedScene" uid="uid://g4n8ccdhy82s" path="res://Objects/counter_sink.tscn" id="10_rkfse"]
 [ext_resource type="Shader" path="res://Shaders/mirror.gdshader" id="11_etge6"]
 [ext_resource type="PackedScene" uid="uid://bxj42jeypgffr" path="res://NPC/NPC2.tscn" id="12_tf4r3"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/ClaudiaDialogue.json" id="13_bo7eb"]
-[ext_resource type="Texture2D" uid="uid://b1uwn5ukjt1fl" path="res://Models/itch/Models pack psx/Texture/Paper.jpg" id="13_rbpyt"]
 [ext_resource type="Texture2D" uid="uid://cgt4c2ow01t6b" path="res://Models/itch/Models pack psx/Texture/Fabric.jpg" id="13_tbbke"]
 [ext_resource type="PackedScene" uid="uid://dp5rls24av8vb" path="res://Items/Interactables/NeilAnniversaryGift.tscn" id="14_mxh22"]
 [ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="15_rbt6d"]
 [ext_resource type="PackedScene" uid="uid://3rt8wqvh0f6i" path="res://NPC/NPC1.tscn" id="16_bcpjj"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/JohnDialogue.json" id="17_qcalm"]
-[ext_resource type="PackedScene" uid="uid://s108iq6sc5sg" path="res://Objects/desk.tscn" id="22_f4hf4"]
-[ext_resource type="PackedScene" uid="uid://rtsbsynts16s" path="res://Objects/librero.tscn" id="24_0t8ti"]
 [ext_resource type="PackedScene" uid="uid://dm34g1mluun7w" path="res://Objects/buildings/building_01_1.tscn" id="25_2fapa"]
 [ext_resource type="PackedScene" uid="uid://dwgfgc41m6yp5" path="res://Objects/buildings/building_02_2.tscn" id="27_kbk06"]
 [ext_resource type="PackedScene" uid="uid://dtlh5nrugce2d" path="res://Objects/buildings/building_03_1.tscn" id="28_70ipc"]
-[ext_resource type="PackedScene" uid="uid://b2prtugoh0y0x" path="res://Objects/door.tscn" id="31_64ptv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_053ir"]
 panorama = ExtResource("2_0v5hf")
@@ -51,34 +44,6 @@ uv1_scale = Vector3(50, 50, 50)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg0ec"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
 uv1_scale = Vector3(50, 50, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d356m"]
-albedo_texture = ExtResource("4_j6440")
-uv1_scale = Vector3(3, 3, 3)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbmbt"]
-render_priority = 0
-shader = ExtResource("5_1iidq")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = null
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/emission = null
-shader_parameter/emission_energy = null
-shader_parameter/uv1_scale = Vector3(3, 3, 3)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
-shader_parameter/texture_albedo = ExtResource("4_j6440")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nlnef"]
-size = Vector3(1, 1, 2.85946)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43ijf"]
 shader = ExtResource("11_etge6")
@@ -125,10 +90,10 @@ void fragment() {
 }
 "
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pireb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c2m1x"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_742uu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv3dm"]
 resource_local_to_scene = true
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_43ijf")
@@ -143,15 +108,15 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = SubResource("ViewportTexture_pireb")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_c2m1x")
 
-[sub_resource type="QuadMesh" id="QuadMesh_ahfja"]
+[sub_resource type="QuadMesh" id="QuadMesh_lgl2f"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_742uu")
+material = SubResource("ShaderMaterial_rv3dm")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnoco"]
-albedo_texture = ExtResource("13_rbpyt")
-uv1_scale = Vector3(4, 4, 4)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d356m"]
+albedo_texture = ExtResource("4_j6440")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ua7r0"]
 viewport_path = NodePath("SubViewport/SubViewport")
@@ -180,110 +145,17 @@ use_collision = true
 size = Vector3(2.08186, 0.002, 10.7831)
 material = SubResource("StandardMaterial3D_hg0ec")
 
-[node name="Room" type="Node3D" parent="Environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.24115, 0, -0.60249)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 1.8149, 1.39752, 0.871853)
-use_collision = true
-size = Vector3(1, 1.32772, 1)
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, -1.81018, 1.39752, 0.871853)
-use_collision = true
-size = Vector3(1, 1.32772, 1)
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, -3.03553, 1.39752, 3.81951)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 0.317, 6.81951)
-use_collision = true
-size = Vector3(0.252487, 1, 1)
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 3.05651, 1.51681, 6.81951)
-use_collision = true
-size = Vector3(0.122187, 0.47787, 1)
-material = SubResource("ShaderMaterial_fbmbt")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, -2.70537, 1.51681, 6.81951)
-use_collision = true
-size = Vector3(0.197944, 0.47787, 1)
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, 3.16962, 1.39752, 3.81951)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="desk" parent="Environment/Room" instance=ExtResource("22_f4hf4")]
-transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 2.53473, 3.02124e-05, 1.91843)
-
-[node name="bed" parent="Environment/Room" instance=ExtResource("5_br1cp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.37614, 2.99835e-05, 5.15446)
-
-[node name="PC" parent="Environment/Room" instance=ExtResource("7_sty5q")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.77969, 1.30843, 1.9274)
-
-[node name="Area3D" type="Area3D" parent="Environment/Room/PC"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.857932, 0.33837, -0.374679)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Room/PC/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423973, -0.0464435, 0.364722)
-shape = SubResource("BoxShape3D_nlnef")
-
-[node name="librero" parent="Environment/Room" instance=ExtResource("24_0t8ti")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.69127, 3.02124e-05, 1.8938)
-
-[node name="Mirror" parent="Environment/Room" instance=ExtResource("4_csqvo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.90059, 1.52705, 5.8527)
+[node name="Room" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 0.00619888)
 
 [node name="MeshInstance3D" parent="Environment/Room/Mirror" index="0"]
-mesh = SubResource("QuadMesh_ahfja")
+mesh = SubResource("QuadMesh_lgl2f")
 
 [node name="Camera3D" parent="Environment/Room/Mirror/SubViewport" index="0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1073, 1.37143, -3.61152)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -3.10759)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043093, 2.84948, 3.7466)
-size = Vector3(6.27002, 0.123099, 6.17654)
-material = SubResource("StandardMaterial3D_gnoco")
-
-[node name="WindowWall" type="StaticBody3D" parent="Environment/Room"]
-
-[node name="Window" parent="Environment/Room/WindowWall" instance=ExtResource("10_ao24h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.92758, 1.55464, 6.94335)
-
-[node name="Window2" parent="Environment/Room/WindowWall" instance=ExtResource("10_ao24h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.160252, 1.55464, 6.94335)
-
-[node name="Window3" parent="Environment/Room/WindowWall" instance=ExtResource("10_ao24h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.888126, 1.55464, 6.94335)
-
-[node name="Window4" parent="Environment/Room/WindowWall" instance=ExtResource("10_ao24h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.19245, 1.55464, 6.94335)
-
-[node name="Window5" parent="Environment/Room/WindowWall" instance=ExtResource("10_ao24h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.22825, 1.55464, 6.94335)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 2.70292, 6.81951)
-use_collision = true
-size = Vector3(0.189431, 1, 1)
-material = SubResource("StandardMaterial3D_d356m")
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Room"]
-transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 2.75651, 1.51681, 6.81951)
-use_collision = true
-size = Vector3(0.122187, 0.47787, 1)
-material = SubResource("StandardMaterial3D_d356m")
+[node name="PC" parent="Environment/Room" instance=ExtResource("7_sty5q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.68106, 1.32837, 2.06945)
 
 [node name="mess hall" type="Node3D" parent="Environment"]
 transform = Transform3D(-9.3328e-08, 0, 2.13509, 0, 2.13509, 0, -2.13509, 0, -9.3328e-08, -6.03417, 0, -27.6025)
@@ -403,47 +275,59 @@ transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4476, 1, 0.708426)
 
 [node name="Skeleton3D" parent="Player/Mesh/Player/RootNode/master/Reference" index="0"]
-bones/0/position = Vector3(0.0552543, 0.926404, -0.061989)
-bones/0/rotation = Quaternion(-0.683858, -0.247883, -0.271065, 0.63041)
-bones/1/rotation = Quaternion(0.457276, 0.492071, 0.500022, -0.546574)
-bones/2/rotation = Quaternion(0.081646, 0.0284356, 0.0119832, 0.996184)
-bones/3/rotation = Quaternion(0.0821684, 0.126181, 0.00875098, 0.98856)
-bones/4/rotation = Quaternion(-0.0102588, 0.199688, -0.00374522, 0.979799)
-bones/5/rotation = Quaternion(0.17351, -0.2487, 0.0394032, 0.952098)
-bones/9/rotation = Quaternion(-0.00435422, 0.0861791, -0.801276, 0.592039)
-bones/10/rotation = Quaternion(0.0929158, -0.173271, -0.443188, 0.874602)
-bones/11/rotation = Quaternion(0.0120379, 0.362804, -0.0544503, 0.930195)
-bones/12/rotation = Quaternion(-0.097053, 0.0409614, -0.113265, 0.987965)
-bones/14/rotation = Quaternion(0.0332341, 0.299198, -0.191806, 0.934123)
-bones/15/rotation = Quaternion(0.0400039, -0.181514, 0.00209236, 0.982572)
-bones/19/rotation = Quaternion(-0.021006, -0.17106, 0.00661571, 0.985014)
-bones/20/rotation = Quaternion(-0.0005349, -0.000536744, -0.147357, 0.989083)
-bones/23/rotation = Quaternion(0.0115405, 0.0439395, -0.104286, 0.993509)
-bones/24/rotation = Quaternion(0.00230918, 0.0328266, -0.291185, 0.956101)
-bones/27/rotation = Quaternion(-0.0117023, 0.00715589, -0.196247, 0.980459)
-bones/28/rotation = Quaternion(-0.00432339, 0.0524226, -0.332217, 0.941735)
-bones/33/rotation = Quaternion(-0.00892846, 0.0857335, -0.359825, 0.92903)
-bones/36/rotation = Quaternion(0.791515, -0.608669, -0.0486624, 0.0256562)
-bones/37/rotation = Quaternion(0.101667, 0.0620245, -0.46841, 0.875448)
-bones/38/rotation = Quaternion(-0.0614458, 0.414148, 0.0088494, 0.90809)
-bones/39/rotation = Quaternion(-0.162125, -0.0543734, 0.125842, 0.977202)
-bones/41/rotation = Quaternion(-0.728316, 0.366537, -0.00462721, 0.578952)
-bones/42/rotation = Quaternion(0.0380346, -0.00747423, -0.000753088, 0.999248)
-bones/46/rotation = Quaternion(-0.0284975, -0.101054, 0.00283337, 0.994469)
-bones/47/rotation = Quaternion(0.000339131, 0.00469103, -0.157328, 0.987535)
-bones/50/rotation = Quaternion(-0.0024584, -0.00643155, -0.12765, 0.991795)
-bones/51/rotation = Quaternion(0.00214957, 0.0240265, -0.195984, 0.98031)
-bones/54/rotation = Quaternion(0.00790983, -0.0453447, -0.271204, 0.961421)
-bones/55/rotation = Quaternion(-0.00365732, 0.0392567, -0.281421, 0.958774)
-bones/59/rotation = Quaternion(-0.0294665, 0.161211, -0.228911, 0.959553)
-bones/60/rotation = Quaternion(-0.00758939, 0.0649459, -0.340725, 0.937886)
-bones/63/rotation = Quaternion(-0.369481, 0.633516, 0.487959, 0.473327)
-bones/64/rotation = Quaternion(0.0758758, -0.312811, -0.0057203, 0.946763)
-bones/65/rotation = Quaternion(-0.440873, 0.582339, 0.422388, 0.536751)
-bones/68/rotation = Quaternion(0.357575, -0.393567, 0.689807, 0.491338)
-bones/69/rotation = Quaternion(-0.119977, -0.32256, -0.0625145, 0.936831)
-bones/70/rotation = Quaternion(-0.540676, 0.465544, 0.405283, 0.571563)
-bones/71/rotation = Quaternion(-0.016901, 0.0238014, 0.0831812, 0.996107)
+bones/0/position = Vector3(0.0557139, 0.92578, -0.0645864)
+bones/0/rotation = Quaternion(-0.683891, -0.247745, -0.270608, 0.630624)
+bones/1/rotation = Quaternion(0.457238, 0.491747, 0.500159, -0.546772)
+bones/2/rotation = Quaternion(0.0812588, 0.0291848, 0.0121192, 0.996192)
+bones/3/rotation = Quaternion(0.081746, 0.126941, 0.00888316, 0.988496)
+bones/4/rotation = Quaternion(-0.0105589, 0.201556, -0.00318375, 0.979415)
+bones/5/rotation = Quaternion(0.171648, -0.22249, 0.0386657, 0.958927)
+bones/9/rotation = Quaternion(-0.00421962, 0.0865382, -0.801713, 0.591397)
+bones/10/rotation = Quaternion(0.0975579, -0.173108, -0.437734, 0.876872)
+bones/11/rotation = Quaternion(0.0163004, 0.362982, -0.0536804, 0.930106)
+bones/12/rotation = Quaternion(-0.0957568, 0.0352275, -0.0975457, 0.989987)
+bones/14/rotation = Quaternion(0.0342516, 0.288909, -0.189954, 0.937697)
+bones/15/rotation = Quaternion(0.0396149, -0.191536, -0.00045122, 0.980686)
+bones/16/rotation = Quaternion(0.0203425, -0.0551319, -0.0821203, 0.994888)
+bones/19/rotation = Quaternion(-0.0221268, -0.172951, 0.0103074, 0.984628)
+bones/20/rotation = Quaternion(-0.000543192, -0.000591102, -0.146933, 0.989146)
+bones/21/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
+bones/23/rotation = Quaternion(0.0115389, 0.0446427, -0.105041, 0.993398)
+bones/24/rotation = Quaternion(0.00212625, 0.0285348, -0.260072, 0.965165)
+bones/25/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
+bones/27/rotation = Quaternion(-0.0119884, 0.00527858, -0.18121, 0.983357)
+bones/28/rotation = Quaternion(-0.00423624, 0.0503981, -0.317931, 0.946764)
+bones/29/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
+bones/32/rotation = Quaternion(-0.0322059, 0.221323, -0.126438, 0.966433)
+bones/33/rotation = Quaternion(-0.00826386, 0.0841171, -0.344957, 0.934805)
+bones/34/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
+bones/36/rotation = Quaternion(0.791808, -0.60832, -0.0477793, 0.0265265)
+bones/37/rotation = Quaternion(0.104576, 0.0615933, -0.465266, 0.876811)
+bones/38/rotation = Quaternion(-0.058964, 0.40956, 0.0105259, 0.910315)
+bones/39/rotation = Quaternion(-0.161706, -0.0538525, 0.147113, 0.974325)
+bones/41/rotation = Quaternion(-0.728009, 0.367857, -0.00520356, 0.578495)
+bones/42/rotation = Quaternion(0.0378361, -0.00697582, -0.000780167, 0.999259)
+bones/43/rotation = Quaternion(0.0203425, 0.0821203, -0.0551319, 0.994888)
+bones/46/rotation = Quaternion(-0.0300011, -0.102375, 0.0120152, 0.994221)
+bones/47/rotation = Quaternion(0.000122846, 0.00337509, -0.150256, 0.988642)
+bones/48/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
+bones/50/rotation = Quaternion(-0.00297105, -0.0102994, -0.125366, 0.992053)
+bones/51/rotation = Quaternion(0.00203314, 0.0236018, -0.193289, 0.980856)
+bones/52/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
+bones/54/rotation = Quaternion(0.00666195, -0.0486976, -0.269254, 0.961814)
+bones/55/rotation = Quaternion(-0.00366027, 0.038949, -0.278659, 0.959593)
+bones/56/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
+bones/59/rotation = Quaternion(-0.0299882, 0.158045, -0.226446, 0.960648)
+bones/60/rotation = Quaternion(-0.0074637, 0.0648007, -0.338022, 0.938875)
+bones/61/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
+bones/63/rotation = Quaternion(-0.371632, 0.635227, 0.485771, 0.471597)
+bones/64/rotation = Quaternion(0.075829, -0.317354, -0.00538348, 0.945255)
+bones/65/rotation = Quaternion(-0.440493, 0.582693, 0.423702, 0.535641)
+bones/66/rotation = Quaternion(0.00361983, -0.00203922, 0.0786054, 0.996897)
+bones/68/rotation = Quaternion(0.356198, -0.392899, 0.690523, 0.491865)
+bones/69/rotation = Quaternion(-0.120076, -0.322281, -0.0625588, 0.936911)
+bones/70/rotation = Quaternion(-0.540809, 0.465345, 0.404201, 0.572365)
+bones/71/rotation = Quaternion(-0.0177412, 0.0235078, 0.0827302, 0.996137)
 
 [node name="PC2" parent="." instance=ExtResource("8_73htx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.101, 1.408, 1.80676)
@@ -493,22 +377,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4843, -81.49, -55)
 [node name="building_03_1" parent="Building" instance=ExtResource("28_70ipc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.484, -81.49, -55)
 
-[node name="Door" parent="." instance=ExtResource("31_64ptv")]
-transform = Transform3D(0.00034912, 0, -1, 0, 1, 0, 1, 0, 0.00034912, 8.09805, 0.00100017, -1.06862)
-
-[node name="door" parent="Door" index="0"]
-flagString = "kennethdoor"
-
-[connection signal="body_entered" from="Environment/Room/PC/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Environment/Room/PC/Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="custom_signal_received" from="Player/Head/TextBox/EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
 [connection signal="correctpass" from="PC2/PassWordViewport" to="." method="_on_pass_word_viewport_correctpass"]
 
+[editable path="Environment/Room"]
 [editable path="Environment/Room/Mirror"]
+[editable path="Environment/Room/Door"]
 [editable path="Environment/mess hall/AnniversaryGift"]
 [editable path="Player"]
 [editable path="Player/Head/TextBox"]
 [editable path="PC2"]
 [editable path="PC2/TextSubViewport"]
 [editable path="PostIt"]
-[editable path="Door"]
