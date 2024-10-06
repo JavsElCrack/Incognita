@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2je4b7g4elbi"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mdccr"]
+viewport_path = NodePath("door/MeshInstance3D/SubViewport")
+
+[resource]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_mdccr")

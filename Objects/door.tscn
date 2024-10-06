@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2prtugoh0y0x"]
+[gd_scene load_steps=23 format=3 uid="uid://b2prtugoh0y0x"]
 
 [ext_resource type="Texture2D" uid="uid://c2ob4mh4r7lsn" path="res://Models/itch/Models pack psx/Texture/Door.jpg" id="1_dg4om"]
 [ext_resource type="Script" path="res://Objects/door.gd" id="1_oqnjt"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_o62ni"]
+[ext_resource type="Material" uid="uid://2je4b7g4elbi" path="res://Materials/door.tres" id="3_qdikk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax8j4"]
 resource_name = "Door"
@@ -41,22 +43,6 @@ shadow_mesh = SubResource("ArrayMesh_vknp7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q6lx6"]
 size = Vector3(0.944825, 2.19099, 0.0586978)
-
-[sub_resource type="Animation" id="Animation_jqc62"]
-resource_name = "open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -2.0944, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_uree8"]
 length = 0.001
@@ -105,6 +91,22 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jqc62"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.0944, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8r5j"]
 _data = {
 "RESET": SubResource("Animation_uree8"),
@@ -147,10 +149,13 @@ states/open/node = SubResource("AnimationNodeAnimation_8ydd7")
 states/open/position = Vector2(610.667, 34)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fh0rh"), "idle", "open", SubResource("AnimationNodeStateMachineTransition_xfgr8"), "open", "closed", SubResource("AnimationNodeStateMachineTransition_w7xaf"), "closed", "idle", SubResource("AnimationNodeStateMachineTransition_owiaq")]
 
+[sub_resource type="QuadMesh" id="QuadMesh_esvjl"]
+material = ExtResource("3_qdikk")
+size = Vector2(0.2, 0.2)
+
 [node name="Door" type="Node3D"]
 
 [node name="door" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_oqnjt")
 prompt_message = "Open Door"
 
@@ -174,5 +179,23 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/conditions/closed = false
 parameters/conditions/open = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.468172, 1.81554, 0.0284549)
+mesh = SubResource("QuadMesh_esvjl")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="door/MeshInstance3D"]
+transparent_bg = true
+size = Vector2i(70, 50)
+
+[node name="Label" type="Label" parent="door/MeshInstance3D/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_o62ni")
+theme_override_font_sizes/font_size = 40
+text = "213"
 
 [connection signal="interacted" from="door" to="door" method="_on_interacted"]
