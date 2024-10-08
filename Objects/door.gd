@@ -8,11 +8,10 @@ extends Interactable
 @export var doorNumber : String
 var doorOpen = false
 
-
 func _ready():
-	label.text = doorNumber
-	_set_viewport_mat(mesh_instance_3d,sub_viewport)
-
+	print("Label reference for doorNumber:", doorNumber, label)
+#	label.text = doorNumber
+	_set_viewport_mat(mesh_instance_3d, sub_viewport)
 
 func _on_interacted(_body):
 	if checkFlag:

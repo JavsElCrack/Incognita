@@ -15,6 +15,7 @@ var state := {
 			"gift": false
 		},
 		"Door": {
+			"locked": false,
 			"kennethdoor": false,
 		},
 		"Claudia": {

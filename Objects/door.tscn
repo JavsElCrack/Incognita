@@ -157,6 +157,7 @@ size = Vector2(0.2, 0.2)
 
 [node name="door" type="StaticBody3D" parent="."]
 script = ExtResource("1_oqnjt")
+doorNumber = "200"
 prompt_message = "Open Door"
 
 [node name="Cube_074" type="MeshInstance3D" parent="door"]

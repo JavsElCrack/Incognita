@@ -21,7 +21,8 @@ func _on_pass_word_viewport_correctpass():
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player"):
 		if flag1:
-			GameState.mask_dialogue("This is your computer the password is: password")
+			GameState.mask_dialogue("This is your computer
+			 the password is: password")
 			flag1 = false
 		playerInArea = true
 
