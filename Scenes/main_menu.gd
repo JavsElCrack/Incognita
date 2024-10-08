@@ -1,5 +1,5 @@
 extends Node3D
-
+var creditsToggle = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +18,12 @@ func _on_play_button_down():
 
 
 func _on_credits_button_down():
-	pass
+	if creditsToggle:
+		$Camera3D/Control/ScrollContainer.visible = false
+		creditsToggle = false
+	else:
+		$Camera3D/Control/ScrollContainer.visible = true
+		creditsToggle = true
 
 
 func _on_quit_button_down():
