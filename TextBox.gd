@@ -42,10 +42,11 @@ func _ready():
 	pass
 
 func display_text(text_to_display: String):
-	if firstimeDia:
-		pos = self.position
-		firstimeDia = false
-	self.position = pos
+	if GameState.state["flags"]["firsttimedialog"]:
+		GameState.dialgpos = self.position
+		GameState.state["flags"]["firsttimedialog"] = false
+		
+	self.position = GameState.dialgpos
 	self.size = Vector2(0,0)
 	count += 1
 	letter_index = 0

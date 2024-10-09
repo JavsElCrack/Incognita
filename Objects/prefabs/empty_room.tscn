@@ -1,17 +1,49 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2prtugoh0y0x"]
+[gd_scene load_steps=29 format=3 uid="uid://vil16jw6p6t1"]
 
-[ext_resource type="Texture2D" uid="uid://c2ob4mh4r7lsn" path="res://Models/itch/Models pack psx/Texture/Door.jpg" id="1_dg4om"]
-[ext_resource type="Script" path="res://Objects/door.gd" id="1_oqnjt"]
-[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_o62ni"]
-[ext_resource type="Material" uid="uid://2je4b7g4elbi" path="res://Materials/door.tres" id="3_qdikk"]
+[ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="1_pqg1t"]
+[ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="2_7kwkm"]
+[ext_resource type="Texture2D" uid="uid://b1uwn5ukjt1fl" path="res://Models/itch/Models pack psx/Texture/Paper.jpg" id="3_4a7jx"]
+[ext_resource type="Script" path="res://Objects/door.gd" id="4_rp7yu"]
+[ext_resource type="Texture2D" uid="uid://c2ob4mh4r7lsn" path="res://Models/itch/Models pack psx/Texture/Door.jpg" id="5_uwghs"]
+[ext_resource type="Material" uid="uid://2je4b7g4elbi" path="res://Materials/door.tres" id="6_7pw0w"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="7_vor1y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d356m"]
+albedo_texture = ExtResource("1_pqg1t")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbmbt"]
+render_priority = 0
+shader = ExtResource("2_7kwkm")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = null
+shader_parameter/emission_energy = null
+shader_parameter/uv1_scale = Vector3(3, 3, 3)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/texture_albedo = ExtResource("1_pqg1t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnoco"]
+albedo_texture = ExtResource("3_4a7jx")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax8j4"]
 resource_name = "Door"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_dg4om")
+albedo_texture = ExtResource("5_uwghs")
 metallic = 0.4
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_vknp7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3w1si"]
 _surfaces = [{
 "aabb": AABB(-0.000369359, -0.000560067, -0.0221207, 0.0192385, 0.00113013, 0.043646),
 "format": 4097,
@@ -39,7 +71,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray(133, 166, 193, 185, 90, 209, 18, 58, 198, 64, 176, 60, 0, 0, 255, 127, 255, 127, 0, 0, 133, 166, 193, 185, 111, 209, 18, 186, 129, 54, 181, 188, 0, 0, 255, 127, 255, 127, 0, 0, 133, 166, 193, 185, 111, 209, 18, 186, 198, 64, 176, 60, 0, 0, 255, 127, 255, 127, 0, 0, 133, 166, 193, 185, 90, 209, 18, 58, 129, 54, 181, 188, 0, 0, 255, 127, 255, 127, 0, 0, 114, 147, 154, 60, 90, 209, 18, 58, 198, 64, 176, 60, 255, 127, 255, 255, 255, 255, 255, 63, 133, 166, 193, 185, 90, 209, 18, 58, 129, 54, 181, 188, 255, 127, 255, 255, 255, 255, 255, 63, 133, 166, 193, 185, 90, 209, 18, 58, 198, 64, 176, 60, 255, 127, 255, 255, 255, 255, 255, 63, 114, 147, 154, 60, 90, 209, 18, 58, 129, 54, 181, 188, 255, 127, 255, 255, 255, 255, 255, 63, 114, 147, 154, 60, 111, 209, 18, 186, 198, 64, 176, 60, 255, 255, 255, 127, 255, 127, 255, 255, 114, 147, 154, 60, 90, 209, 18, 58, 129, 54, 181, 188, 255, 255, 255, 127, 255, 127, 255, 255, 114, 147, 154, 60, 90, 209, 18, 58, 198, 64, 176, 60, 255, 255, 255, 127, 255, 127, 255, 255, 114, 147, 154, 60, 111, 209, 18, 186, 129, 54, 181, 188, 255, 255, 255, 127, 255, 127, 255, 255, 133, 166, 193, 185, 111, 209, 18, 186, 198, 64, 176, 60, 255, 127, 0, 0, 255, 255, 255, 191, 114, 147, 154, 60, 111, 209, 18, 186, 129, 54, 181, 188, 255, 127, 0, 0, 255, 255, 255, 191, 114, 147, 154, 60, 111, 209, 18, 186, 198, 64, 176, 60, 255, 127, 0, 0, 255, 255, 255, 191, 133, 166, 193, 185, 111, 209, 18, 186, 129, 54, 181, 188, 255, 127, 0, 0, 255, 255, 255, 191, 114, 147, 154, 60, 111, 209, 18, 186, 129, 54, 181, 188, 255, 255, 255, 255, 255, 255, 255, 63, 133, 166, 193, 185, 90, 209, 18, 58, 129, 54, 181, 188, 255, 255, 255, 255, 255, 255, 255, 63, 114, 147, 154, 60, 90, 209, 18, 58, 129, 54, 181, 188, 255, 255, 255, 255, 255, 255, 255, 63, 133, 166, 193, 185, 111, 209, 18, 186, 129, 54, 181, 188, 255, 255, 255, 255, 255, 255, 255, 63, 114, 147, 154, 60, 90, 209, 18, 58, 198, 64, 176, 60, 255, 127, 255, 127, 255, 255, 255, 191, 133, 166, 193, 185, 111, 209, 18, 186, 198, 64, 176, 60, 255, 127, 255, 127, 255, 255, 255, 191, 114, 147, 154, 60, 111, 209, 18, 186, 198, 64, 176, 60, 255, 127, 255, 127, 255, 255, 255, 191, 133, 166, 193, 185, 90, 209, 18, 58, 198, 64, 176, 60, 255, 127, 255, 127, 255, 255, 255, 191)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_vknp7")
+shadow_mesh = SubResource("ArrayMesh_3w1si")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q6lx6"]
 size = Vector3(0.944825, 2.19099, 0.0586978)
@@ -150,55 +182,101 @@ states/open/position = Vector2(610.667, 34)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fh0rh"), "idle", "open", SubResource("AnimationNodeStateMachineTransition_xfgr8"), "open", "closed", SubResource("AnimationNodeStateMachineTransition_w7xaf"), "closed", "idle", SubResource("AnimationNodeStateMachineTransition_owiaq")]
 
 [sub_resource type="QuadMesh" id="QuadMesh_esvjl"]
-material = ExtResource("3_qdikk")
+material = ExtResource("6_7pw0w")
 size = Vector2(0.2, 0.2)
 
-[node name="Door" type="Node3D"]
+[node name="EmptyRoom" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 31.0062)
 
-[node name="door" type="StaticBody3D" parent="."]
-script = ExtResource("1_oqnjt")
-doorNumber = "200"
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 1.8149, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.32772, 1)
+material = SubResource("StandardMaterial3D_d356m")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 0.00395501, 2.46903, 0.871853)
+use_collision = true
+size = Vector3(0.256314, 0.501098, 1)
+material = SubResource("StandardMaterial3D_d356m")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, -1.81018, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.32772, 1)
+material = SubResource("StandardMaterial3D_d356m")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, -3.03553, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_d356m")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 3.05651, 1.51681, 6.81951)
+use_collision = true
+size = Vector3(0.122187, 0.47787, 1)
+material = SubResource("ShaderMaterial_fbmbt")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, 3.16962, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_d356m")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043093, 2.84948, 3.84695)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_gnoco")
+
+[node name="Door" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.470622, -0.0456725, 0.877486)
+
+[node name="door" type="StaticBody3D" parent="Door"]
+script = ExtResource("4_rp7yu")
+checkFlag = true
+flagString = "locked"
+doorNumber = "245"
 prompt_message = "Open Door"
 
-[node name="Cube_074" type="MeshInstance3D" parent="door"]
+[node name="Cube_074" type="MeshInstance3D" parent="Door/door"]
 transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, 0, 1.11884, 0)
 mesh = SubResource("ArrayMesh_yy4tf")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.465269, 1.10994, 0)
 shape = SubResource("BoxShape3D_q6lx6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="door"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door/door"]
 libraries = {
 "": SubResource("AnimationLibrary_a8r5j")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="door"]
+[node name="AnimationTree" type="AnimationTree" parent="Door/door"]
 tree_root = SubResource("AnimationNodeStateMachine_hh6ei")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/conditions/closed = false
 parameters/conditions/open = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door/door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.468172, 1.81554, 0.0284549)
 visible = false
 mesh = SubResource("QuadMesh_esvjl")
 skeleton = NodePath("../..")
 
-[node name="SubViewport" type="SubViewport" parent="door/MeshInstance3D"]
+[node name="SubViewport" type="SubViewport" parent="Door/door/MeshInstance3D"]
 transparent_bg = true
 size = Vector2i(70, 50)
 
-[node name="Label" type="Label" parent="door/MeshInstance3D/SubViewport"]
+[node name="Label" type="Label" parent="Door/door/MeshInstance3D/SubViewport"]
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("3_o62ni")
+theme_override_fonts/font = ExtResource("7_vor1y")
 theme_override_font_sizes/font_size = 40
-text = "213"
+text = "247"
 
-[connection signal="interacted" from="door" to="door" method="_on_interacted"]
+[connection signal="interacted" from="Door/door" to="Door/door" method="_on_interacted" flags=18]

@@ -23,11 +23,12 @@ var state := {
 		},
 		"John": {
 			"readNeilEmail": false
-		}
+		},
+		"firsttimedialog" : true
 	}
 }
 
-
+var dialgpos : Vector2
 func mask_dialogue(text:String):
 	player = get_tree().get_nodes_in_group("player")
 	(player[0] as Player).mask_dialogue(text)

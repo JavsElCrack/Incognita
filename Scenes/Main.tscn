@@ -1,23 +1,26 @@
-[gd_scene load_steps=42 format=3 uid="uid://buk1mwkjg5qs5"]
+[gd_scene load_steps=47 format=3 uid="uid://buk1mwkjg5qs5"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_8beko"]
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_yuldt"]
 [ext_resource type="Texture2D" uid="uid://bwootpqaln0mi" path="res://Textures/skybox/chicago-skyline-lake-michigan.jpg" id="2_0v5hf"]
+[ext_resource type="PackedScene" uid="uid://3xaaf4drjjqi" path="res://Objects/prefabs/bigger_room.tscn" id="3_060d7"]
 [ext_resource type="PackedScene" uid="uid://rgak22gmhj5o" path="res://Objects/prefabs/dorm_room.tscn" id="4_fpnmi"]
-[ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="4_j6440"]
 [ext_resource type="PackedScene" uid="uid://canf23e30pxav" path="res://Objects/mesa.tscn" id="6_5t3ag"]
 [ext_resource type="PackedScene" uid="uid://c2cwscslukr8p" path="res://Items/Interactables/PC.tscn" id="7_sty5q"]
+[ext_resource type="PackedScene" uid="uid://vil16jw6p6t1" path="res://Objects/prefabs/empty_room.tscn" id="8_3d7vh"]
 [ext_resource type="PackedScene" uid="uid://dattjjxsgkuoe" path="res://Items/Interactables/PC_Text.tscn" id="8_73htx"]
 [ext_resource type="PackedScene" uid="uid://deyr24n0r1ckj" path="res://Objects/counter.tscn" id="8_dx0vw"]
 [ext_resource type="PackedScene" uid="uid://bycu67gi0dysa" path="res://Objects/cornercounter.tscn" id="9_21ljy"]
 [ext_resource type="PackedScene" uid="uid://bfsrx1d4fd7to" path="res://NPC/NPC3.tscn" id="9_r0hax"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/NeilDialogue.json" id="10_71wio"]
+[ext_resource type="PackedScene" uid="uid://yf1k68ey4aj3" path="res://Objects/office_chair.tscn" id="10_d8813"]
 [ext_resource type="PackedScene" uid="uid://g4n8ccdhy82s" path="res://Objects/counter_sink.tscn" id="10_rkfse"]
 [ext_resource type="Shader" path="res://Shaders/mirror.gdshader" id="11_etge6"]
 [ext_resource type="PackedScene" uid="uid://bxj42jeypgffr" path="res://NPC/NPC2.tscn" id="12_tf4r3"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/ClaudiaDialogue.json" id="13_bo7eb"]
 [ext_resource type="Texture2D" uid="uid://cgt4c2ow01t6b" path="res://Models/itch/Models pack psx/Texture/Fabric.jpg" id="13_tbbke"]
 [ext_resource type="PackedScene" uid="uid://dp5rls24av8vb" path="res://Items/Interactables/NeilAnniversaryGift.tscn" id="14_mxh22"]
+[ext_resource type="Texture2D" uid="uid://b1uwn5ukjt1fl" path="res://Models/itch/Models pack psx/Texture/Paper.jpg" id="14_qljlr"]
 [ext_resource type="PackedScene" uid="uid://ts7p70ixs7sa" path="res://Items/Interactables/TestPickup.tscn" id="15_rbt6d"]
 [ext_resource type="PackedScene" uid="uid://3rt8wqvh0f6i" path="res://NPC/NPC1.tscn" id="16_bcpjj"]
 [ext_resource type="JSON" path="res://Dialogue/JSONS/JohnDialogue.json" id="17_qcalm"]
@@ -49,6 +52,15 @@ uv1_scale = Vector3(50, 50, 50)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg0ec"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
 uv1_scale = Vector3(50, 50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyhf6"]
+albedo_texture = ExtResource("14_qljlr")
+uv1_scale = Vector3(10, 10, 10)
+uv2_scale = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mnqu"]
+albedo_texture = ExtResource("14_qljlr")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43ijf"]
 shader = ExtResource("11_etge6")
@@ -119,12 +131,11 @@ shader_parameter/texture_albedo = SubResource("ViewportTexture_c2m1x")
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_rv3dm")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d356m"]
-albedo_texture = ExtResource("4_j6440")
-uv1_scale = Vector3(3, 3, 3)
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_ua7r0"]
 viewport_path = NodePath("SubViewport/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8ehr"]
+size = Vector3(14.4841, 7.19739, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_8beko")
@@ -139,9 +150,9 @@ shadow_enabled = true
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.79522, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20478, 0, 0)
 use_collision = true
-size = Vector3(48, 0.002, 200)
+size = Vector3(24, 0.002, 200)
 material = SubResource("StandardMaterial3D_gfp1p")
 
 [node name="Floor2" type="CSGBox3D" parent="Environment"]
@@ -149,6 +160,36 @@ transform = Transform3D(236.517, 0, 0, 0, 0.03, 0, 0, 0, 145.253, -7.58858, -81.
 use_collision = true
 size = Vector3(2.08186, 0.002, 10.7831)
 material = SubResource("StandardMaterial3D_hg0ec")
+
+[node name="Ceiling" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11974, 2.84948, 50.3671)
+use_collision = true
+size = Vector3(24, 0.002, 120)
+material = SubResource("StandardMaterial3D_dyhf6")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Ceiling"]
+transform = Transform3D(2.26396, 0, 0, 0, 1, 0, 0, 0, 2.32545, 0.043093, 1.60117, -62.8626)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Ceiling"]
+transform = Transform3D(4.72202, 0, 0, 0, -4.37114e-08, 2.32545, 0, -1, -1.01649e-07, 0.043093, 6.85951, -60.0754)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Ceiling"]
+transform = Transform3D(2.26396, 0, 0, 0, -4.37114e-08, 2.32545, 0, -1, -1.01649e-07, 0.043093, -2.39883, -70.0754)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Ceiling"]
+transform = Transform3D(2.26396, 0, 0, 0, -4.37114e-08, 2.32545, 0, -1, -1.01649e-07, -1.95691, -7.39883, 65.9246)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
 
 [node name="Room" parent="Environment" instance=ExtResource("4_fpnmi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 0.00619888)
@@ -160,185 +201,375 @@ mesh = SubResource("QuadMesh_lgl2f")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -3.10759)
 
 [node name="Label" parent="Environment/Room/Door/door/MeshInstance3D/SubViewport" index="0"]
-text = "245"
+text = "249"
 
 [node name="PC" parent="Environment/Room" instance=ExtResource("7_sty5q")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.68106, 1.32837, 2.06945)
 
-[node name="mess hall" type="Node3D" parent="Environment"]
-transform = Transform3D(-9.3328e-08, 0, 2.13509, 0, 2.13509, 0, -2.13509, 0, -9.3328e-08, -6.03417, 0, -27.6025)
+[node name="Room2" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 6.3062)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(2.19329, 0, 0, 0, 0.366156, 0, 0, 0, 0.169766, 0, 2.75145, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="MeshInstance3D" parent="Environment/Room2/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(-1.49831e-07, -0.366156, 0, 3.42774, -1.60052e-08, 0, 0, 0, 0.169766, 1.28066, 1.72476, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Camera3D" parent="Environment/Room2/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -9.29448)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(-1.49831e-07, -0.366156, 0, 3.42774, -1.60052e-08, 0, 0, 0, 0.169766, -1.26415, 1.72476, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Label" parent="Environment/Room2/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(-1.71781e-07, -2.73297, 0, 3.92989, -1.19462e-07, 0, 0, 0, 0.169766, -2.79656, 2, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Room3" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, -6.1938)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(-1.71781e-07, -2.73297, 0, 3.92989, -1.19462e-07, 0, 0, 0, 0.169766, 2.85422, 2, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="MeshInstance3D" parent="Environment/Room3/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(-1.71781e-07, -8.28356, 0, 3.92989, -3.62086e-07, 0, 0, 0, 0.169766, 0.0155642, 2, 8.00464)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Camera3D" parent="Environment/Room3/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, 3.19241)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(7.50878e-15, 3.62086e-07, 0.169766, 3.92989, -3.62086e-07, 0, 1.71781e-07, 8.28356, -7.42073e-09, -4.18014, 2, 4.04298)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Label" parent="Environment/Room3/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/mess hall"]
-transform = Transform3D(7.50878e-15, 3.62086e-07, 0.169766, 3.92989, -3.62086e-07, 0, 1.71781e-07, 8.28356, -7.42073e-09, 4.33079, 2, 4.04298)
-use_collision = true
-material = SubResource("StandardMaterial3D_d356m")
+[node name="Room4" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 18.7062)
 
-[node name="counter" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, 2.66489, 1.41504e-05, 7.65398)
+[node name="MeshInstance3D" parent="Environment/Room4/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="counter2" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, 1.95243, 1.41504e-05, 7.65398)
+[node name="Camera3D" parent="Environment/Room4/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -3.10759)
 
-[node name="counter3" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, 1.2328, 1.41504e-05, 7.65398)
+[node name="Label" parent="Environment/Room4/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "249"
 
-[node name="counter5" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, 0.518669, 1.41504e-05, 7.65398)
+[node name="Room5" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 25.0062)
 
-[node name="counter6" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, -0.200959, 1.41504e-05, 7.65398)
+[node name="MeshInstance3D" parent="Environment/Room5/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="counter7" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, -0.913958, 1.41504e-05, 7.65398)
+[node name="Camera3D" parent="Environment/Room5/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -9.29448)
 
-[node name="counter8" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, -1.63359, 1.41504e-05, 7.65398)
+[node name="Label" parent="Environment/Room5/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
 
-[node name="counter9" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, -2.34772, 1.41504e-05, 7.65398)
+[node name="Room6" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 12.5062)
 
-[node name="counter10" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, -3.06735, 1.41504e-05, 7.65398)
+[node name="MeshInstance3D" parent="Environment/Room6/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="counter11" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -3.92507, 1.41504e-05, 6.69765)
+[node name="Camera3D" parent="Environment/Room6/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, 3.19241)
 
-[node name="counter12" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -3.925, 0, 5.985)
+[node name="Label" parent="Environment/Room6/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
 
-[node name="counter13" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -3.925, 0, 5.266)
+[node name="Room7" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 18.2729)
 
-[node name="counter4" parent="Environment/mess hall" instance=ExtResource("8_dx0vw")]
-transform = Transform3D(0.468364, 0, 0, 0, 0.468364, 0, 0, 0, 0.468364, 3.88942, 1.41504e-05, 7.65398)
+[node name="MeshInstance3D" parent="Environment/Room7/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="CornerCounter" parent="Environment/mess hall" instance=ExtResource("9_21ljy")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -3.77846, 1.41504e-05, 7.4459)
+[node name="Camera3D" parent="Environment/Room7/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -3.10759)
 
-[node name="counterSink" parent="Environment/mess hall" instance=ExtResource("10_rkfse")]
-transform = Transform3D(0.468364, 0, -4.087e-05, 0, 0.468364, 0, 4.087e-05, 0, 0.468364, 3.27302, 1.08887, 7.65477)
+[node name="Label" parent="Environment/Room7/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "249"
 
-[node name="AnniversaryGift" parent="Environment/mess hall" instance=ExtResource("14_mxh22")]
-transform = Transform3D(-4.44612e-09, -4.15991e-16, -0.0464741, 0, 0.101715, 0, 0.101715, -1.81836e-23, -2.03145e-09, -2.14305, 0.492535, 7.79684)
-stateString = ""
-prompt_message = "Pickup"
+[node name="PC" parent="Environment/Room7" instance=ExtResource("7_sty5q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.68106, 1.32837, 2.06945)
 
-[node name="CollisionShape3D" parent="Environment/mess hall/AnniversaryGift" index="0"]
-transform = Transform3D(3.72608, 0, 0, 0, 3.72608, 0, 0, 0, 3.72608, 0, 0.805835, 0)
+[node name="Room8" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 11.9729)
 
-[node name="Mesa" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -0.936315, 1.43648e-05, 5.22521)
+[node name="MeshInstance3D" parent="Environment/Room8/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="Mesa2" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, 0.937143, 1.43648e-05, 5.22521)
+[node name="Camera3D" parent="Environment/Room8/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -9.29448)
 
-[node name="Mesa3" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -0.936315, 1.43648e-05, 3.48761)
+[node name="Label" parent="Environment/Room8/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
 
-[node name="Mesa4" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, 0.937143, 1.43648e-05, 3.48761)
+[node name="Room9" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 24.4729)
 
-[node name="Mesa5" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, -0.936315, 1.43648e-05, 1.66984)
+[node name="MeshInstance3D" parent="Environment/Room9/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
 
-[node name="Mesa6" parent="Environment/mess hall" instance=ExtResource("6_5t3ag")]
-transform = Transform3D(-2.04729e-08, 0, -0.468364, 0, 0.468364, 0, 0.468364, 0, -2.04729e-08, 0.937143, 1.43648e-05, 1.66984)
+[node name="Camera3D" parent="Environment/Room9/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, 3.19241)
+
+[node name="Label" parent="Environment/Room9/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
+
+[node name="Room10" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, -0.427132)
+
+[node name="MeshInstance3D" parent="Environment/Room10/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
+
+[node name="Camera3D" parent="Environment/Room10/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -3.10759)
+
+[node name="Label" parent="Environment/Room10/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "249"
+
+[node name="Room11" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, -6.72713)
+
+[node name="MeshInstance3D" parent="Environment/Room11/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
+
+[node name="Camera3D" parent="Environment/Room11/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, -9.29448)
+
+[node name="Label" parent="Environment/Room11/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
+
+[node name="Room12" parent="Environment" instance=ExtResource("4_fpnmi")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 5.77287)
+
+[node name="MeshInstance3D" parent="Environment/Room12/Mirror" index="0"]
+mesh = SubResource("QuadMesh_lgl2f")
+
+[node name="Camera3D" parent="Environment/Room12/Mirror/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, 3.19241)
+
+[node name="Label" parent="Environment/Room12/Door/door/MeshInstance3D/SubViewport" index="0"]
+text = "247"
+
+[node name="EmptyRooms" type="Node3D" parent="Environment"]
+
+[node name="EmptyRoom" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+
+[node name="EmptyRoom2" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 37.0062)
+
+[node name="EmptyRoom3" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 42.0062)
+
+[node name="EmptyRoom4" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 48.0062)
+
+[node name="EmptyRoom5" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 53.0062)
+
+[node name="EmptyRoom6" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 59.0062)
+
+[node name="EmptyRoom7" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 65.0062)
+
+[node name="EmptyRoom8" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 71.0062)
+
+[node name="EmptyRoom9" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 77.0062)
+
+[node name="EmptyRoom10" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 83.0062)
+
+[node name="EmptyRoom11" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 89.0062)
+
+[node name="EmptyRoom12" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 95.0062)
+
+[node name="EmptyRoom13" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 94.8062)
+
+[node name="EmptyRoom14" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 88.8062)
+
+[node name="EmptyRoom15" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 83.8062)
+
+[node name="EmptyRoom16" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 77.8062)
+
+[node name="EmptyRoom17" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 72.8062)
+
+[node name="EmptyRoom18" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 66.8062)
+
+[node name="EmptyRoom19" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 60.8062)
+
+[node name="EmptyRoom20" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 54.8062)
+
+[node name="EmptyRoom21" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 48.8062)
+
+[node name="EmptyRoom22" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 42.8062)
+
+[node name="EmptyRoom23" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 36.8062)
+
+[node name="EmptyRoom24" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 30.8062)
+
+[node name="BigRooms" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8)
+
+[node name="MessHall" parent="Environment/BigRooms" instance=ExtResource("3_060d7")]
+transform = Transform3D(-6.72937e-08, 0, 1.5395, 0, 1.5395, 0, -1.5395, 0, -6.72937e-08, 3.4, 0, -20.4324)
+
+[node name="Mesa" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, 0, 0, 5.19649)
+
+[node name="Mesa2" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, 1.94869, 0, 5.19649)
+
+[node name="Mesa3" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, -1.94869, 0, 5.19649)
+
+[node name="Mesa4" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, 0, 0, 3.24781)
+
+[node name="Mesa5" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, 1.94869, 0, 3.24781)
+
+[node name="Mesa6" parent="Environment/BigRooms/MessHall" instance=ExtResource("6_5t3ag")]
+transform = Transform3D(0.5, 0, 5.32907e-15, 0, 0.5, 0, -5.32907e-15, 0, 0.5, -1.94869, 0, 3.24781)
+
+[node name="office_chair" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(0.339907, 0, -0.553528, 0, 0.649562, 0, 0.553528, 0, 0.339907, -0.496244, 0.0048503, 3.63755)
+
+[node name="office_chair2" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(0.504419, 0, 0.409258, 0, 0.649562, 0, -0.409258, 0, 0.504419, 0.449887, 0.0048503, 5.74719)
+
+[node name="office_chair3" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(-0.627651, 0, 0.167287, 0, 0.649562, 0, -0.167287, 0, -0.627651, 1.95103, 0.0048503, 4.43935)
+
+[node name="office_chair4" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(-0.533491, 0, -0.370565, 0, 0.649562, 0, 0.370565, 0, -0.533491, -2.35698, 0.0048503, 4.77508)
+
+[node name="office_chair5" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(-0.524792, 0, 0.382784, 0, 0.649562, 0, -0.382784, 0, -0.524792, 0.39046, 0.00485053, 2.71161)
+
+[node name="office_chair6" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(-0.624564, 0, 0.178466, 0, 0.649562, 0, -0.178466, 0, -0.624564, 2.46943, 0.00485053, 2.572)
+
+[node name="office_chair7" parent="Environment/BigRooms/MessHall" instance=ExtResource("10_d8813")]
+transform = Transform3D(-0.624564, 0, 0.178466, 0, 0.649562, 0, -0.178466, 0, -0.624564, -2.30717, 0.00485053, 2.67235)
+
+[node name="Kitchen" parent="Environment/BigRooms" instance=ExtResource("3_060d7")]
+transform = Transform3D(2.01881e-07, 0, -1.5395, 0, 1.5395, 0, 1.5395, 0, 2.01881e-07, 0.4, 0, -20.4324)
+
+[node name="counter" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, 2.28155, 0.000649515, 6.31254)
+
+[node name="counter2" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, 1.3072, 0.000649515, 6.31254)
+
+[node name="counter3" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, 0.33286, 0.000649515, 6.31254)
+
+[node name="counter4" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, -0.576527, 0.000649515, 6.31254)
+
+[node name="counter5" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, -0.576527, 0.000649515, 6.31254)
+
+[node name="counter6" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 0.000649515, 4.98744)
+
+[node name="counter7" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 0.000649515, 4.01309)
+
+[node name="counter8" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 0.000649515, 3.03875)
+
+[node name="counter9" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 0.000649515, 2.12937)
+
+[node name="counter10" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 0.000649515, 2.12937)
+
+[node name="counter11" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 2.17326, 2.12937)
+
+[node name="counter14" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 1.51908, 2.12937)
+
+[node name="counter12" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 2.17326, 3.73855)
+
+[node name="counter13" parent="Environment/BigRooms/Kitchen" instance=ExtResource("8_dx0vw")]
+transform = Transform3D(-1.41966e-07, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -1.41966e-07, -2.62914, 1.56656, 3.73855)
+
+[node name="counterSink" parent="Environment/BigRooms/Kitchen" instance=ExtResource("10_rkfse")]
+transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 0, 0.649562, -1.4161, 1.51547, 6.31889)
+
+[node name="CornerCounter" parent="Environment/BigRooms/Kitchen" instance=ExtResource("9_21ljy")]
+transform = Transform3D(-2.83931e-08, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -2.83931e-08, -2.42334, 0.00064936, 5.99726)
 
 [node name="Player" parent="." instance=ExtResource("1_yuldt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4476, 1, 0.708426)
 
 [node name="Skeleton3D" parent="Player/Mesh/Player/RootNode/master/Reference" index="0"]
-bones/0/position = Vector3(0.0560083, 0.928241, -0.0582276)
-bones/0/rotation = Quaternion(-0.685222, -0.246661, -0.271059, 0.629409)
-bones/1/rotation = Quaternion(0.458297, 0.49357, 0.49935, -0.544979)
-bones/2/rotation = Quaternion(0.0812281, 0.0235208, 0.0107755, 0.99636)
-bones/3/rotation = Quaternion(0.0816026, 0.121338, 0.00751915, 0.989223)
-bones/4/rotation = Quaternion(-0.0102984, 0.211152, -0.00312403, 0.977394)
-bones/5/rotation = Quaternion(0.173459, -0.239103, 0.0353828, 0.95472)
-bones/9/rotation = Quaternion(-0.0132044, 0.0751181, -0.787304, 0.611829)
-bones/10/rotation = Quaternion(0.0813967, -0.17107, -0.457966, 0.868549)
-bones/11/rotation = Quaternion(-0.00256056, 0.365503, -0.064689, 0.928556)
-bones/12/rotation = Quaternion(-0.0867625, 0.0316087, -0.113992, 0.989181)
-bones/14/rotation = Quaternion(0.0350091, 0.296579, -0.190007, 0.93526)
-bones/15/rotation = Quaternion(0.0391369, -0.182495, 0.00246407, 0.982425)
+bones/0/position = Vector3(0.05552, 0.924818, -0.0662941)
+bones/0/rotation = Quaternion(-0.682675, -0.248824, -0.270807, 0.631431)
+bones/1/rotation = Quaternion(0.456774, 0.491175, 0.500329, -0.547518)
+bones/2/rotation = Quaternion(0.0817549, 0.0312809, 0.0126926, 0.996081)
+bones/3/rotation = Quaternion(0.0821963, 0.129044, 0.00942016, 0.988181)
+bones/4/rotation = Quaternion(-0.0106944, 0.190859, -0.00355364, 0.981553)
+bones/5/rotation = Quaternion(0.170999, -0.235157, 0.0446922, 0.955753)
+bones/9/rotation = Quaternion(0.000288796, 0.0916048, -0.807962, 0.582071)
+bones/10/rotation = Quaternion(0.105025, -0.172056, -0.428928, 0.880561)
+bones/11/rotation = Quaternion(0.0276107, 0.360039, -0.0461425, 0.931386)
+bones/12/rotation = Quaternion(-0.103211, 0.040329, -0.103378, 0.98845)
+bones/14/rotation = Quaternion(0.0367937, 0.293495, -0.188847, 0.936399)
+bones/15/rotation = Quaternion(0.0395345, -0.18466, -0.00096849, 0.982007)
 bones/16/rotation = Quaternion(0.0203425, -0.0551319, -0.0821203, 0.994888)
-bones/19/rotation = Quaternion(-0.0220273, -0.173088, 0.0100449, 0.984609)
-bones/20/rotation = Quaternion(-0.000538156, -0.000556412, -0.147354, 0.989084)
+bones/19/rotation = Quaternion(-0.0219785, -0.17264, 0.0101569, 0.984687)
+bones/20/rotation = Quaternion(-0.000544259, -0.00059708, -0.147026, 0.989132)
 bones/21/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/23/rotation = Quaternion(0.011564, 0.0447619, -0.105653, 0.993328)
-bones/24/rotation = Quaternion(0.00240246, 0.0349405, -0.306476, 0.951234)
+bones/23/rotation = Quaternion(0.0115271, 0.0445868, -0.104754, 0.993431)
+bones/24/rotation = Quaternion(0.00212316, 0.0287328, -0.261613, 0.964743)
 bones/25/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/27/rotation = Quaternion(-0.0114588, 0.00868322, -0.204458, 0.97877)
-bones/28/rotation = Quaternion(-0.00435916, 0.0535028, -0.340042, 0.938877)
+bones/27/rotation = Quaternion(-0.0119864, 0.00529739, -0.181209, 0.983357)
+bones/28/rotation = Quaternion(-0.00423693, 0.0503267, -0.317479, 0.946919)
 bones/29/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
 bones/32/rotation = Quaternion(-0.0322059, 0.221323, -0.126438, 0.966433)
-bones/33/rotation = Quaternion(-0.00931777, 0.0866088, -0.367889, 0.925781)
+bones/33/rotation = Quaternion(-0.00826755, 0.084131, -0.345176, 0.934723)
 bones/34/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/36/rotation = Quaternion(0.777555, -0.625989, -0.0571266, 0.0168206)
-bones/37/rotation = Quaternion(0.0962139, 0.0619346, -0.47771, 0.871034)
-bones/38/rotation = Quaternion(-0.0652916, 0.420259, 0.0054056, 0.905036)
-bones/39/rotation = Quaternion(-0.162055, -0.0558089, 0.103482, 0.979753)
-bones/41/rotation = Quaternion(-0.731008, 0.360994, -0.010563, 0.578963)
-bones/42/rotation = Quaternion(0.0378774, -0.00679594, -0.00115052, 0.999259)
+bones/36/rotation = Quaternion(0.798615, -0.599485, -0.0432449, 0.0310009)
+bones/37/rotation = Quaternion(0.107717, 0.062315, -0.46065, 0.878815)
+bones/38/rotation = Quaternion(-0.0569106, 0.405759, 0.0124573, 0.912121)
+bones/39/rotation = Quaternion(-0.161846, -0.0533069, 0.163898, 0.971649)
+bones/41/rotation = Quaternion(-0.726744, 0.370648, -0.00309677, 0.578319)
+bones/42/rotation = Quaternion(0.0378664, -0.00722138, -0.000540291, 0.999257)
 bones/43/rotation = Quaternion(0.0203425, 0.0821203, -0.0551319, 0.994888)
-bones/46/rotation = Quaternion(-0.0278775, -0.101275, 0.00134093, 0.994467)
-bones/47/rotation = Quaternion(0.000239996, 0.00432932, -0.155352, 0.98785)
+bones/46/rotation = Quaternion(-0.0302032, -0.102659, 0.0141575, 0.994157)
+bones/47/rotation = Quaternion(-3.29796e-05, 0.00223087, -0.144126, 0.989557)
 bones/48/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/50/rotation = Quaternion(-0.00111327, 0.00169597, -0.133709, 0.991019)
-bones/51/rotation = Quaternion(0.00251192, 0.0329303, -0.252513, 0.96703)
+bones/50/rotation = Quaternion(-0.00363919, -0.0154694, -0.121944, 0.99241)
+bones/51/rotation = Quaternion(0.00206071, 0.0230216, -0.189396, 0.981629)
 bones/52/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/54/rotation = Quaternion(0.0105012, -0.0378129, -0.276428, 0.960233)
-bones/55/rotation = Quaternion(-0.00365096, 0.0399654, -0.287503, 0.956939)
+bones/54/rotation = Quaternion(0.00511488, -0.053817, -0.265875, 0.962491)
+bones/55/rotation = Quaternion(-0.00366115, 0.0384672, -0.274919, 0.960691)
 bones/56/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
-bones/59/rotation = Quaternion(-0.0284065, 0.168956, -0.235163, 0.956737)
-bones/60/rotation = Quaternion(-0.00786812, 0.0653296, -0.347269, 0.935454)
+bones/59/rotation = Quaternion(-0.0305884, 0.153373, -0.222669, 0.962268)
+bones/60/rotation = Quaternion(-0.00734638, 0.0645743, -0.334354, 0.940204)
 bones/61/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/63/rotation = Quaternion(-0.364187, 0.629923, 0.492723, 0.477273)
-bones/64/rotation = Quaternion(0.0766971, -0.301289, -0.00690409, 0.950418)
-bones/65/rotation = Quaternion(-0.443218, 0.580018, 0.418904, 0.540053)
+bones/63/rotation = Quaternion(-0.375027, 0.637818, 0.482561, 0.468697)
+bones/64/rotation = Quaternion(0.0745199, -0.323857, -0.00489192, 0.943154)
+bones/65/rotation = Quaternion(-0.439421, 0.583715, 0.425673, 0.533843)
 bones/66/rotation = Quaternion(0.00361983, -0.00203922, 0.0786054, 0.996897)
-bones/68/rotation = Quaternion(0.362037, -0.395707, 0.687103, 0.490138)
-bones/69/rotation = Quaternion(-0.12044, -0.318793, -0.0621896, 0.938082)
-bones/70/rotation = Quaternion(-0.541685, 0.46417, 0.406238, 0.571047)
-bones/71/rotation = Quaternion(-0.0172432, 0.0238402, 0.0830123, 0.996114)
+bones/68/rotation = Quaternion(0.353397, -0.391379, 0.692159, 0.492798)
+bones/69/rotation = Quaternion(-0.118753, -0.324515, -0.0623577, 0.936322)
+bones/70/rotation = Quaternion(-0.540256, 0.46605, 0.403759, 0.572624)
+bones/71/rotation = Quaternion(-0.0176261, 0.0234595, 0.082775, 0.996136)
 
 [node name="PC2" parent="." instance=ExtResource("8_73htx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.101, 1.408, 1.80676)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.501, 1.408, 2.20676)
 text = "Email:
 From: kenneth76@incognita.com to: neilgarmen@incognita.com
 Hey Neil,
@@ -353,26 +584,32 @@ texture = SubResource("ViewportTexture_ua7r0")
 password = "iluvclaudia"
 
 [node name="Neil" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("9_r0hax")]
-transform = Transform3D(-0.999445, 0, -0.0333123, 0, 1, 0, 0.0333123, 0, -0.999445, -11.9727, 3.02315e-05, 0.676882)
+transform = Transform3D(-0.999445, 0, -0.0333123, 0, 1, 0, 0.0333123, 0, -0.999445, -4.9727, 3.02315e-05, 0.676882)
 textbox = NodePath("../Player/Head/TextBox")
 dialogue_json = ExtResource("10_71wio")
 
 [node name="Claudia" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("12_tf4r3")]
-transform = Transform3D(0.0363995, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0363995, -8.99152, 0.160101, -9.96174)
+transform = Transform3D(0.0363995, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0363995, -8.99152, 0.160101, -6.96174)
 textbox = NodePath("../Player/Head/TextBox")
 dialogue_json = ExtResource("13_bo7eb")
 voiceID = 6
 
 [node name="John" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("16_bcpjj")]
-transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, -0.85453, 3.02124e-05, -8.7717)
+transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, 12.1455, 3.02124e-05, 7.2283)
 textbox = NodePath("../Player/Head/TextBox")
 dialogue_json = ExtResource("17_qcalm")
 voiceID = 5
 
 [node name="PostIt" parent="." instance=ExtResource("15_rbt6d")]
-transform = Transform3D(0.541839, 0, 0, 0, 0.0764146, 0, 0, 0, 0.25556, -11.0124, 0.925467, -9.08535)
+transform = Transform3D(0.25, 0, 0, 0, 0.034996, -0.0017917, 0, 0.000531433, 0.117986, -4.92051, 1.25435, -9.16038)
 PickUpDialogue = "A post-it that says:
     psswd: iluvclaudia"
+
+[node name="CollisionShape3D" parent="PostIt" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0, 7.40235, -0.0313568)
+
+[node name="MeshInstance3D" parent="PostIt" index="1"]
+transform = Transform3D(0.584358, 0, 0, 0, 0.374507, 0, 0, 6.98492e-10, 1.36499, 0, -1.7547, -1.50489)
 
 [node name="Building" type="Node3D" parent="."]
 
@@ -424,15 +661,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.083, -81.49, 55.1875)
 [node name="building_07_1" parent="Building" instance=ExtResource("30_q4x63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9173, -81.49, 55.1875)
 
+[node name="AnniversaryGift" parent="." instance=ExtResource("14_mxh22")]
+transform = Transform3D(-0.217171, -7.7647e-23, -8.67465e-09, 0, 0.217171, 0, 1.89856e-08, -8.88178e-16, -0.0992264, -9.54797, 0.894247, -16.8001)
+stateString = ""
+prompt_message = "Pickup"
+
+[node name="CollisionShape3D" parent="AnniversaryGift" index="0"]
+transform = Transform3D(3.72608, 0, 0, 0, 3.72608, 0, 0, 0, 3.72608, 0, 0.805835, 0)
+
+[node name="TeleportHallway" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.9811)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportHallway"]
+shape = SubResource("BoxShape3D_s8ehr")
+
+[node name="hallwaymarker" type="Marker3D" parent="TeleportHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.1159)
+
 [connection signal="custom_signal_received" from="Player/Head/TextBox/EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
 [connection signal="correctpass" from="PC2/PassWordViewport" to="." method="_on_pass_word_viewport_correctpass"]
+[connection signal="body_entered" from="TeleportHallway" to="." method="_on_teleport_hallway_body_entered"]
 
 [editable path="Environment/Room"]
 [editable path="Environment/Room/Mirror"]
-[editable path="Environment/Room/Door"]
-[editable path="Environment/mess hall/AnniversaryGift"]
+[editable path="Environment/Room2"]
+[editable path="Environment/Room2/Mirror"]
+[editable path="Environment/Room3"]
+[editable path="Environment/Room3/Mirror"]
+[editable path="Environment/Room4"]
+[editable path="Environment/Room4/Mirror"]
+[editable path="Environment/Room5"]
+[editable path="Environment/Room5/Mirror"]
+[editable path="Environment/Room6"]
+[editable path="Environment/Room6/Mirror"]
+[editable path="Environment/Room7"]
+[editable path="Environment/Room7/Mirror"]
+[editable path="Environment/Room8"]
+[editable path="Environment/Room8/Mirror"]
+[editable path="Environment/Room9"]
+[editable path="Environment/Room9/Mirror"]
+[editable path="Environment/Room10"]
+[editable path="Environment/Room10/Mirror"]
+[editable path="Environment/Room11"]
+[editable path="Environment/Room11/Mirror"]
+[editable path="Environment/Room12"]
+[editable path="Environment/Room12/Mirror"]
+[editable path="Environment/EmptyRooms/EmptyRoom"]
+[editable path="Environment/BigRooms/MessHall"]
 [editable path="Player"]
 [editable path="Player/Head/TextBox"]
 [editable path="PC2"]
 [editable path="PC2/TextSubViewport"]
 [editable path="PostIt"]
+[editable path="AnniversaryGift"]

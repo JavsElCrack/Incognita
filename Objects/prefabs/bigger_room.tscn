@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://3xaaf4drjjqi"]
+
+[ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="1_juyt5"]
+[ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="2_wymwi"]
+[ext_resource type="Texture2D" uid="uid://b1uwn5ukjt1fl" path="res://Models/itch/Models pack psx/Texture/Paper.jpg" id="3_3glad"]
+[ext_resource type="PackedScene" uid="uid://2ovq6m2drpi5" path="res://Objects/window.tscn" id="4_b74ad"]
+[ext_resource type="PackedScene" uid="uid://b2prtugoh0y0x" path="res://Objects/door.tscn" id="5_wfr6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmn3f"]
+albedo_texture = ExtResource("1_juyt5")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prmny"]
+render_priority = 0
+shader = ExtResource("2_wymwi")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = null
+shader_parameter/emission_energy = null
+shader_parameter/uv1_scale = Vector3(3, 3, 3)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/texture_albedo = ExtResource("1_juyt5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mnqu"]
+albedo_texture = ExtResource("3_3glad")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjhwy"]
+size = Vector3(5.48951, 1.96587, 0.138639)
+
+[node name="Room" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 4.41374e-16, 2.8652, -8.70971e-08, 9.97721e-25, 4.23516e-22, 7.10543e-15, 0.123773, 1.92321, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.19287, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 0.0348804, 2.25604, 0.871853)
+use_collision = true
+size = Vector3(0.40779, 1.01487, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, -1.87374, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.11731, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, -3.03553, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 0.317, 6.81951)
+use_collision = true
+size = Vector3(0.252487, 1, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 3.05651, 1.51681, 6.81951)
+use_collision = true
+size = Vector3(0.122187, 0.47787, 1)
+material = SubResource("ShaderMaterial_prmny")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, -2.70537, 1.51681, 6.81951)
+use_collision = true
+size = Vector3(0.197944, 0.47787, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, 3.16962, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043093, 2.84948, 3.84695)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
+
+[node name="WindowWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98955e-07, 1.49843, 6.88274)
+shape = SubResource("BoxShape3D_xjhwy")
+
+[node name="Window" parent="WindowWall" instance=ExtResource("4_b74ad")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.92758, 1.55464, 6.94335)
+
+[node name="Window2" parent="WindowWall" instance=ExtResource("4_b74ad")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.160252, 1.55464, 6.94335)
+
+[node name="Window3" parent="WindowWall" instance=ExtResource("4_b74ad")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.888126, 1.55464, 6.94335)
+
+[node name="Window4" parent="WindowWall" instance=ExtResource("4_b74ad")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.19245, 1.55464, 6.94335)
+
+[node name="Window5" parent="WindowWall" instance=ExtResource("4_b74ad")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.22825, 1.55464, 6.94335)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 2.70292, 6.81951)
+use_collision = true
+size = Vector3(0.189431, 1, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 2.75651, 1.51681, 6.81951)
+use_collision = true
+size = Vector3(0.122187, 0.47787, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="Door" parent="." instance=ExtResource("5_wfr6k")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.716033, 0, 0.910242)
+
+[node name="Door2" parent="." instance=ExtResource("5_wfr6k")]
+transform = Transform3D(-0.75, 0, -1.13247e-07, 0, 0.75, 0, 1.13247e-07, 0, -0.75, 0.705066, 0, 0.910242)
