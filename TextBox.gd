@@ -8,6 +8,7 @@ class_name Textbox extends MarginContainer
 @onready var choicebuttonscene = preload("res://UI/ChoiceButton.tscn")
 @onready var initialsize = size
 var buttons_size = 50 
+@export var audioclips : Array[Array]
 @export var audioclipsjavs : Array[AudioStreamWAV]
 @export var audioclipsogro : Array[AudioStreamWAV]
 @export var audioclipsma : Array[AudioStreamWAV]
@@ -78,21 +79,7 @@ func on_choice_selected(choice_index: int):
 func _display_letter():
 	if letter_index < text.length():
 		label.text += text[letter_index]
-		match voiceid:
-			0:
-				play_sound_hash(text[letter_index], audioclipsjavs)
-			1:
-				play_sound_hash(text[letter_index], audioclipsaletonota)
-			2:
-				play_sound_hash(text[letter_index], audioclipsogro)
-			3:
-				play_sound_hash(text[letter_index], audioclipsma)
-			4:
-				play_sound_hash(text[letter_index], audioclipspa)
-			5:
-				play_sound_hash(text[letter_index], audioclipsgabo)
-			6:
-				play_sound_hash(text[letter_index], audioclipsmaria)
+		play_sound_hash(text[letter_index], audioclips[voiceid])
 		
 		letter_index += 1
 		if letter_index >= text.length():

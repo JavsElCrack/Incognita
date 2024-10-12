@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnqx6y7s5vwid"]
+
+[ext_resource type="Script" path="res://jumpscareTrigger.gd" id="1_ps6dw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bduq1"]
+size = Vector3(1, 1.93454, 2.67)
+
+[node name="jumpscareTrigger" type="Area3D"]
+script = ExtResource("1_ps6dw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bduq1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+cull_mask = 1048573
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

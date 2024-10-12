@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://buk1mwkjg5qs5"]
+[gd_scene load_steps=51 format=3 uid="uid://buk1mwkjg5qs5"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_8beko"]
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_yuldt"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://dtlh5nrugce2d" path="res://Objects/buildings/building_03_1.tscn" id="28_70ipc"]
 [ext_resource type="PackedScene" uid="uid://d03dgrmeh3i8n" path="res://Objects/buildings/building_07.1.tscn" id="30_q4x63"]
 [ext_resource type="PackedScene" uid="uid://dirhjdtal4hm" path="res://Objects/text_trigger.tscn" id="33_ehm1d"]
+[ext_resource type="PackedScene" uid="uid://cnqx6y7s5vwid" path="res://Objects/jumpscare_trigger.tscn" id="34_ps261"]
+[ext_resource type="PackedScene" uid="uid://dtt7m4ionqwv4" path="res://NPC/Kenneth.tscn" id="35_y76t7"]
+[ext_resource type="JSON" path="res://Dialogue/JSONS/kennethIntro.json" id="36_n0ikk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_053ir"]
 panorama = ExtResource("2_0v5hf")
@@ -187,13 +190,13 @@ size = Vector3(6.27002, 0.123099, 5.89109)
 material = SubResource("StandardMaterial3D_6mnqu")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Ceiling"]
-transform = Transform3D(2.26396, 0, 0, 0, -4.37114e-08, 2.32545, 0, -1, -1.01649e-07, -1.95691, -7.39883, 65.9246)
+transform = Transform3D(2.26396, 0, 0, 0, -4.37114e-08, 2.32545, 0, -1, -1.01649e-07, -0.744092, -6.51683, 48.1832)
 use_collision = true
-size = Vector3(6.27002, 0.123099, 5.89109)
+size = Vector3(11.0565, 0.123099, 5.89109)
 material = SubResource("StandardMaterial3D_6mnqu")
 
 [node name="Room" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 0.00619888)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, -0.493801)
 
 [node name="MeshInstance3D" parent="Environment/Room/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
@@ -208,7 +211,7 @@ text = "249"
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.68106, 1.32837, 2.06945)
 
 [node name="Room2" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 6.3062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 5.8062)
 
 [node name="MeshInstance3D" parent="Environment/Room2/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
@@ -220,7 +223,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.140
 text = "247"
 
 [node name="Room3" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, -6.1938)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, -6.6938)
 
 [node name="MeshInstance3D" parent="Environment/Room3/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
@@ -232,7 +235,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.140
 text = "247"
 
 [node name="Room4" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 18.7062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 18.2062)
 
 [node name="MeshInstance3D" parent="Environment/Room4/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
@@ -244,7 +247,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.140
 text = "249"
 
 [node name="Room5" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 25.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 24.5062)
 
 [node name="MeshInstance3D" parent="Environment/Room5/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
@@ -256,13 +259,16 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.140
 text = "247"
 
 [node name="Room6" parent="Environment" instance=ExtResource("4_fpnmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 12.5062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 12.0062)
 
 [node name="MeshInstance3D" parent="Environment/Room6/Mirror" index="0"]
 mesh = SubResource("QuadMesh_lgl2f")
 
 [node name="Camera3D" parent="Environment/Room6/Mirror/SubViewport" index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.1405, 1.37143, 3.19241)
+
+[node name="door" parent="Environment/Room6/Door" index="0"]
+checkFlag = true
 
 [node name="Label" parent="Environment/Room6/Door/door/MeshInstance3D/SubViewport" index="0"]
 text = "247"
@@ -345,39 +351,40 @@ text = "247"
 [node name="EmptyRooms" type="Node3D" parent="Environment"]
 
 [node name="EmptyRoom" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 30.6062)
 
 [node name="EmptyRoom2" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 37.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 36.6062)
 
 [node name="EmptyRoom3" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 42.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 41.6062)
 
 [node name="EmptyRoom4" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 48.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 47.6062)
 
 [node name="EmptyRoom5" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 53.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 52.6062)
 
 [node name="EmptyRoom6" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 59.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 58.6062)
 
 [node name="EmptyRoom7" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 65.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 64.6062)
 
 [node name="EmptyRoom8" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 71.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 70.6062)
 
 [node name="EmptyRoom9" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 77.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 76.6062)
 
 [node name="EmptyRoom10" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 83.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 82.6062)
 
 [node name="EmptyRoom11" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 89.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 88.6062)
 
 [node name="EmptyRoom12" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 95.0062)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.28896, 0, 94.6062)
 
 [node name="EmptyRoom13" parent="Environment/EmptyRooms" instance=ExtResource("8_3d7vh")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.71104, 0, 94.8062)
@@ -512,62 +519,50 @@ transform = Transform3D(0.649562, 0, -1.13573e-07, 0, 0.649562, 0, 1.13573e-07, 
 transform = Transform3D(-2.83931e-08, 0, -0.649562, 0, 0.649562, 0, 0.649562, 0, -2.83931e-08, -2.42334, 0.00064936, 5.99726)
 
 [node name="Player" parent="." instance=ExtResource("1_yuldt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4476, 1, 0.708426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4476, 1, 0.708426)
 
 [node name="Skeleton3D" parent="Player/Mesh/Player/RootNode/master/Reference" index="0"]
-bones/0/position = Vector3(0.0558217, 0.928075, -0.0583519)
-bones/0/rotation = Quaternion(-0.684946, -0.246818, -0.271078, 0.62964)
-bones/1/rotation = Quaternion(0.458124, 0.493324, 0.499471, -0.545237)
-bones/2/rotation = Quaternion(0.0813622, 0.0238598, 0.0109505, 0.996339)
-bones/3/rotation = Quaternion(0.0817345, 0.121685, 0.00769507, 0.989168)
-bones/4/rotation = Quaternion(-0.0102188, 0.210423, -0.00321553, 0.977552)
-bones/5/rotation = Quaternion(0.174556, -0.250398, 0.0343455, 0.951657)
-bones/9/rotation = Quaternion(-0.011944, 0.0767414, -0.789374, 0.60898)
-bones/10/rotation = Quaternion(0.0817647, -0.171486, -0.457531, 0.868661)
-bones/11/rotation = Quaternion(-0.00238313, 0.365045, -0.0644944, 0.92875)
-bones/12/rotation = Quaternion(-0.0872043, 0.0321566, -0.115809, 0.988913)
-bones/14/rotation = Quaternion(0.0344598, 0.297826, -0.190757, 0.934732)
-bones/15/rotation = Quaternion(0.039497, -0.181392, 0.00263526, 0.982614)
-bones/16/rotation = Quaternion(0.0203425, -0.0551319, -0.0821203, 0.994888)
-bones/19/rotation = Quaternion(-0.0213938, -0.171171, 0.00827752, 0.984974)
-bones/20/rotation = Quaternion(-0.000550033, -0.000633595, -0.146831, 0.989161)
-bones/21/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/23/rotation = Quaternion(0.0115362, 0.04405, -0.104641, 0.993467)
-bones/24/rotation = Quaternion(0.00242294, 0.0355957, -0.311317, 0.949636)
-bones/25/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/27/rotation = Quaternion(-0.0114508, 0.00863984, -0.206236, 0.978397)
-bones/28/rotation = Quaternion(-0.00437063, 0.0537136, -0.341559, 0.938314)
-bones/29/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
-bones/32/rotation = Quaternion(-0.0322059, 0.221323, -0.126438, 0.966433)
-bones/33/rotation = Quaternion(-0.00938211, 0.0867531, -0.369099, 0.925285)
-bones/34/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/36/rotation = Quaternion(0.779078, -0.624102, -0.0569304, 0.0171294)
-bones/37/rotation = Quaternion(0.0964605, 0.0619686, -0.47729, 0.871235)
-bones/38/rotation = Quaternion(-0.0650329, 0.420073, 0.00551893, 0.90514)
-bones/39/rotation = Quaternion(-0.162009, -0.0555316, 0.102224, 0.979908)
-bones/41/rotation = Quaternion(-0.730237, 0.361643, -0.00823377, 0.57957)
-bones/42/rotation = Quaternion(0.0380361, -0.00721648, -0.00106723, 0.99925)
-bones/43/rotation = Quaternion(0.0203425, 0.0821203, -0.0551319, 0.994888)
-bones/46/rotation = Quaternion(-0.0268219, -0.0994176, -0.0105596, 0.994628)
-bones/47/rotation = Quaternion(0.000760972, 0.0080386, -0.175183, 0.984503)
-bones/48/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/50/rotation = Quaternion(-0.00105591, 0.00194792, -0.133598, 0.991033)
-bones/51/rotation = Quaternion(0.00229554, 0.0280409, -0.221494, 0.974756)
-bones/52/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/54/rotation = Quaternion(0.010445, -0.0380991, -0.276086, 0.960321)
-bones/55/rotation = Quaternion(-0.00365092, 0.0399102, -0.287115, 0.957057)
-bones/56/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
-bones/59/rotation = Quaternion(-0.0284366, 0.168403, -0.234776, 0.956928)
-bones/60/rotation = Quaternion(-0.00786091, 0.0652998, -0.346933, 0.935581)
-bones/61/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/63/rotation = Quaternion(-0.363982, 0.629778, 0.492933, 0.477404)
-bones/64/rotation = Quaternion(0.0764413, -0.299291, -0.00704957, 0.951069)
-bones/65/rotation = Quaternion(-0.44317, 0.580063, 0.418745, 0.540167)
-bones/66/rotation = Quaternion(0.00361983, -0.00203922, 0.0786054, 0.996897)
-bones/68/rotation = Quaternion(0.362149, -0.395646, 0.687165, 0.490017)
-bones/69/rotation = Quaternion(-0.120355, -0.319257, -0.0623835, 0.937922)
-bones/70/rotation = Quaternion(-0.541562, 0.46434, 0.406164, 0.571078)
-bones/71/rotation = Quaternion(-0.0171086, 0.0239176, 0.0830873, 0.996108)
+bones/0/position = Vector3(0.0556649, 0.927846, -0.0587076)
+bones/0/rotation = Quaternion(-0.684697, -0.246958, -0.271095, 0.629848)
+bones/1/rotation = Quaternion(0.457969, 0.493102, 0.499579, -0.545469)
+bones/2/rotation = Quaternion(0.0814621, 0.0245195, 0.0111614, 0.996312)
+bones/3/rotation = Quaternion(0.0818426, 0.122338, 0.00790189, 0.989077)
+bones/4/rotation = Quaternion(-0.0102496, 0.208778, -0.00319018, 0.977904)
+bones/5/rotation = Quaternion(0.174274, -0.253832, 0.0341015, 0.950808)
+bones/9/rotation = Quaternion(-0.0101023, 0.0790809, -0.792093, 0.605172)
+bones/10/rotation = Quaternion(0.0825748, -0.171509, -0.456622, 0.869059)
+bones/11/rotation = Quaternion(-0.000650491, 0.365476, -0.0630926, 0.92868)
+bones/12/rotation = Quaternion(-0.0883335, 0.0348088, -0.116296, 0.988666)
+bones/14/rotation = Quaternion(0.0340574, 0.298989, -0.191298, 0.934265)
+bones/15/rotation = Quaternion(0.0400147, -0.181131, 0.00261552, 0.982641)
+bones/19/rotation = Quaternion(-0.0205756, -0.169272, 0.00568428, 0.985338)
+bones/20/rotation = Quaternion(-0.000553829, -0.000658445, -0.146647, 0.989189)
+bones/23/rotation = Quaternion(0.0114813, 0.0433692, -0.104242, 0.99354)
+bones/24/rotation = Quaternion(0.0024225, 0.0354954, -0.310498, 0.949908)
+bones/27/rotation = Quaternion(-0.0114951, 0.00822572, -0.205716, 0.97851)
+bones/28/rotation = Quaternion(-0.00437319, 0.0536223, -0.340923, 0.93855)
+bones/33/rotation = Quaternion(-0.00934921, 0.0866901, -0.368603, 0.925489)
+bones/36/rotation = Quaternion(0.782559, -0.619901, -0.0539803, 0.020232)
+bones/37/rotation = Quaternion(0.0970104, 0.0614555, -0.475071, 0.872422)
+bones/38/rotation = Quaternion(-0.0646707, 0.419494, 0.00576447, 0.905433)
+bones/39/rotation = Quaternion(-0.16198, -0.0550445, 0.103447, 0.979812)
+bones/41/rotation = Quaternion(-0.72986, 0.362812, -0.00653999, 0.579335)
+bones/42/rotation = Quaternion(0.0381532, -0.00753876, -0.000991436, 0.999243)
+bones/46/rotation = Quaternion(-0.0250164, -0.0966426, -0.0298004, 0.994558)
+bones/47/rotation = Quaternion(0.00155326, 0.0139302, -0.206541, 0.978338)
+bones/50/rotation = Quaternion(-0.00123495, 0.000841908, -0.132605, 0.991168)
+bones/51/rotation = Quaternion(0.00215959, 0.0249627, -0.201984, 0.979068)
+bones/54/rotation = Quaternion(0.0103944, -0.0383569, -0.275778, 0.960399)
+bones/55/rotation = Quaternion(-0.00365088, 0.0398605, -0.286765, 0.957164)
+bones/59/rotation = Quaternion(-0.0284638, 0.167904, -0.234427, 0.957101)
+bones/60/rotation = Quaternion(-0.00784742, 0.0652532, -0.346417, 0.935776)
+bones/63/rotation = Quaternion(-0.364466, 0.630214, 0.492428, 0.47698)
+bones/64/rotation = Quaternion(0.0761551, -0.301436, -0.00713071, 0.950414)
+bones/65/rotation = Quaternion(-0.442984, 0.580239, 0.419162, 0.539806)
+bones/68/rotation = Quaternion(0.36156, -0.395329, 0.687648, 0.490031)
+bones/69/rotation = Quaternion(-0.12025, -0.319808, -0.0625659, 0.937736)
+bones/70/rotation = Quaternion(-0.541415, 0.464548, 0.405964, 0.571191)
+bones/71/rotation = Quaternion(-0.0170562, 0.0238883, 0.083111, 0.996108)
 
 [node name="PC2" parent="." instance=ExtResource("8_73htx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.501, 1.408, 2.20676)
@@ -685,6 +680,25 @@ Dialogue = "This is your computer
 	The password is password
 	DON'T FORGET TO WORK"
 
+[node name="jumpscareTrigger" parent="." node_paths=PackedStringArray("npc") instance=ExtResource("34_ps261")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.14527, -0.491047)
+npc = NodePath("../Kenneth")
+
+[node name="CollisionShape3D" parent="jumpscareTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935411, 0, 0)
+
+[node name="Camera3D" parent="jumpscareTrigger" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.370526, 0.344429, 0.140175)
+
+[node name="Marker3D" parent="jumpscareTrigger" index="2"]
+transform = Transform3D(-0.055595, 0, 0.998453, 0, 1, 0, -0.998453, 0, -0.055595, 0, -1.5, 0.14)
+
+[node name="Kenneth" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("35_y76t7")]
+transform = Transform3D(-0.055595, 0, 0.998453, 0, 1, 0, -0.998453, 0, -0.055595, 10.3486, 0.000999928, 12.4441)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("36_n0ikk")
+voiceID = 7
+
 [connection signal="custom_signal_received" from="Player/Head/TextBox/EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
 [connection signal="correctpass" from="PC2/PassWordViewport" to="." method="_on_pass_word_viewport_correctpass"]
 [connection signal="body_entered" from="TeleportHallway" to="." method="_on_teleport_hallway_body_entered"]
@@ -722,3 +736,4 @@ Dialogue = "This is your computer
 [editable path="PostIt"]
 [editable path="AnniversaryGift"]
 [editable path="textTrigger"]
+[editable path="jumpscareTrigger"]
