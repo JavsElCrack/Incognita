@@ -1,5 +1,5 @@
 extends Node3D
-@onready var introNPC = $Juan
+@onready var introNPC = $Host
 @onready var player = $Player
 
 func _ready():
