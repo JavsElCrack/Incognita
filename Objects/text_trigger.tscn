@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dirhjdtal4hm"]
+
+[ext_resource type="Script" path="res://textTrigger.gd" id="1_jmt2o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lq1pe"]
+size = Vector3(1, 1.84887, 5.94817)
+
+[node name="textTrigger" type="Area3D"]
+script = ExtResource("1_jmt2o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lq1pe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
