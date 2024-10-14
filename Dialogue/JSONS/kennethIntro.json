@@ -1,1 +1,22 @@
-[{"commands_raw":"Keloke mamawebo\nAAAAAAAAAAAAAAAAAAAAAAAAAA\nTe asuste?","gnode_name":"start","id":0,"name":"start","position":[420,380]}]
+[
+	{
+		"commands_raw": "Keloke mamawebo\nAAAAAAAAAAAAAAAAAAAAAAAAAA\nTe asuste?\n?> Stop Talking -> Diag Node",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			420,
+			380
+		]
+	},
+	{
+		"commands_raw": "signal(kennethStop)",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			700,
+			360
+		]
+	}
+]

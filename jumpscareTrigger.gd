@@ -20,7 +20,6 @@ func _process(delta):
 func changeCamera(body):
 		if body.is_in_group("player"):
 			npc.global_transform = marker_3d.global_transform
-
 			playercam = (body as Player).camera
 			player = body
 			if toggle == false:
@@ -38,6 +37,11 @@ func changeCamera(body):
 				checkTransition = true
 				(body as Player).crosshair.visible = true
 				toggle = false
+				npc.textbox.visible = false
+				npc.textbox.islastdialogue = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				npc.textbox.clear_dialogue_box()
+				npc.textbox.dialogue_ended.emit()
 
 func rotateNPC():
 	var initialrot = npc.rotation
