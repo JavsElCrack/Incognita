@@ -24,6 +24,9 @@ var state := {
 		"John": {
 			"readNeilEmail": false
 		},
+		"Kenneth": {
+			"jumpscare": true
+		},
 		"firsttimedialog" : true
 	}
 }

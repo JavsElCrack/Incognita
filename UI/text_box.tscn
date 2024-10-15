@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://lh7lh0wobtoe"]
+[gd_scene load_steps=47 format=3 uid="uid://lh7lh0wobtoe"]
 
 [ext_resource type="Script" path="res://TextBox.gd" id="1_jbin6"]
 [ext_resource type="AudioStream" uid="uid://duf21oeb233l5" path="res://Sound/vocales_javs/javs_a.wav" id="2_ndum5"]
@@ -40,6 +40,11 @@
 [ext_resource type="AudioStream" uid="uid://baonrck3un4up" path="res://Sound/vocales_maria/maria_i.wav" id="34_jvbri"]
 [ext_resource type="AudioStream" uid="uid://chpmk1t18rwvd" path="res://Sound/vocales_maria/maria_o.wav" id="35_8drnd"]
 [ext_resource type="AudioStream" uid="uid://c1dphn57bvcq0" path="res://Sound/vocales_maria/maria_u.wav" id="36_nii2m"]
+[ext_resource type="AudioStream" uid="uid://cqlku1x3ng3m1" path="res://Sound/vocales_kojiEnojao/a.wav" id="37_mp6h2"]
+[ext_resource type="AudioStream" uid="uid://2dwcmcp7g251" path="res://Sound/vocales_kojiEnojao/e.wav" id="38_3m126"]
+[ext_resource type="AudioStream" uid="uid://bugc7jn172qwi" path="res://Sound/vocales_kojiEnojao/i.wav" id="39_en0re"]
+[ext_resource type="AudioStream" uid="uid://ctssf3ctdh1uy" path="res://Sound/vocales_kojiEnojao/O.wav" id="40_pklug"]
+[ext_resource type="AudioStream" uid="uid://d3sbjw7j4drks" path="res://Sound/vocales_kojiEnojao/u.wav" id="41_4x3of"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj52l"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 0.545098)
@@ -59,7 +64,8 @@ anchor_bottom = 0.129
 offset_right = -8.55199
 offset_bottom = -17.592
 script = ExtResource("1_jbin6")
-audioclipsjavs = Array[AudioStreamWAV]([ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")])
+audioclips = Array[Array]([Array[AudioStreamWAV]([ExtResource("2_ndum5"), ExtResource("3_0lrul"), ExtResource("4_43dvh"), ExtResource("5_kgajb"), ExtResource("6_2nw1j")]), Array[AudioStreamWAV]([ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")]), Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")]), Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")]), Array[AudioStreamWAV]([ExtResource("22_suag6"), ExtResource("23_j07h2"), ExtResource("24_pqql6"), ExtResource("25_ixosp"), ExtResource("26_07bjt")]), Array[AudioStreamWAV]([ExtResource("27_q3biv"), ExtResource("28_dribo"), ExtResource("29_lgj7u"), ExtResource("30_vk1n0"), ExtResource("31_ntp74")]), Array[AudioStreamWAV]([ExtResource("32_kw1i3"), ExtResource("33_g844q"), ExtResource("34_jvbri"), ExtResource("35_8drnd"), ExtResource("36_nii2m")]), Array[AudioStreamWAV]([ExtResource("37_mp6h2"), ExtResource("38_3m126"), ExtResource("39_en0re"), ExtResource("40_pklug"), ExtResource("41_4x3of")])])
+audioclipsjavs = Array[AudioStreamWAV]([ExtResource("37_mp6h2"), ExtResource("38_3m126"), ExtResource("39_en0re"), ExtResource("40_pklug"), ExtResource("41_4x3of")])
 audioclipsogro = Array[AudioStreamWAV]([ExtResource("7_pwme1"), ExtResource("8_lud13"), ExtResource("9_2nx45"), ExtResource("10_6tyq1"), ExtResource("11_q27ex")])
 audioclipsma = Array[AudioStreamWAV]([ExtResource("17_0modk"), ExtResource("18_7pue1"), ExtResource("19_tvuo1"), ExtResource("20_48vvt"), ExtResource("21_ppish")])
 audioclipsaletonota = Array[AudioStreamWAV]([ExtResource("12_m07b6"), ExtResource("13_pn2ak"), ExtResource("14_c60lf"), ExtResource("15_2tcpg"), ExtResource("16_8m47r")])

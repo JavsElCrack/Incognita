@@ -42,6 +42,7 @@ func changeCamera(body):
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				npc.textbox.clear_dialogue_box()
 				npc.textbox.dialogue_ended.emit()
+				GameState.state["flags"]["Kenneth"]["jumpscare"] = false
 
 func rotateNPC():
 	var initialrot = npc.rotation
@@ -52,4 +53,5 @@ func rotateNPC():
 	npc.rotation.y = lookatRot.y
 
 func _on_body_entered(body):
-	changeCamera(body)
+	if GameState.state["flags"]["Kenneth"]["jumpscare"]:
+		changeCamera(body)
