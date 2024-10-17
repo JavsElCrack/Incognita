@@ -45,3 +45,5 @@ func neilFirstTime():
 	GameState.state["flags"]["Neil"]["firsttime"] = false
 func kennethStop():
 	jumpscare_trigger.changeCamera(player)
+func triggerJumpscare():
+	GameState.state["flags"]["Kenneth"]["jumpscare"] = true

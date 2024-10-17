@@ -1,1 +1,52 @@
-[{"commands_raw":"Hey new guy, I’m John\n?>  Ask about Job. -> Diag Node\n$if flags[\"John\"][\"readNeilEmail\"]{\n    ?>Ask about Kenneth-> Diag Node_1\n}\n","gnode_name":"start","id":0,"name":"start","position":[0,0]},{"commands_raw":"I’m a recruiter! The same as you, I think.\n","gnode_name":"diag node","id":1,"name":"Diag Node","position":[460,-200]},{"commands_raw":"He is my neighbor. \nReal nice guy,\nanything happen to him?\n?> Mention Email -> Diag Node_2","gnode_name":"diag node_1","id":2,"name":"Diag Node_1","position":[500,-20]},{"commands_raw":"To Neil, oh no, no, \nthat’s bad news.\n?> Why -> Diag Node_3","gnode_name":"diag node_2","id":3,"name":"Diag Node_2","position":[880,-20]},{"commands_raw":"Don’t worry about it. Thanks for the intel.","gnode_name":"diag node_3","id":4,"name":"Diag Node_3","position":[1220,-60]}]
+[
+	{
+		"commands_raw": "Hey new guy, I’m John\n?>  Ask about Job. -> Diag Node\n$if flags[\"John\"][\"readNeilEmail\"]{\n    ?>Ask about Kenneth-> Diag Node_1\n}\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "I’m a recruiter! The same as you, I think.\n",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			460,
+			-200
+		]
+	},
+	{
+		"commands_raw": "He is my neighbor. \nReal nice guy,\nanything happen to him?\n?> Mention Email -> Diag Node_2",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			500,
+			-20
+		]
+	},
+	{
+		"commands_raw": "To Neil, oh no, no, \nthat’s bad news.\n?> Why -> Diag Node_3",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			880,
+			-20
+		]
+	},
+	{
+		"commands_raw": "Don’t worry about it. Thanks for the intel.\nsignal(triggerJumpscare)",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			1220,
+			-60
+		]
+	}
+]
