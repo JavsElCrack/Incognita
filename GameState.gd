@@ -17,6 +17,7 @@ var state := {
 		"Door": {
 			"locked": false,
 			"kennethdoor": false,
+			"playerDoor": false,
 			"laylaDoor": false,
 		},
 		"Claudia": {
@@ -26,7 +27,7 @@ var state := {
 			"readNeilEmail": false
 		},
 		"Kenneth": {
-			"jumpscare": true
+			"jumpscare": false
 		},
 		"firsttimedialog" : true
 	}

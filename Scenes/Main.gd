@@ -3,15 +3,17 @@ var player
 var flag1 = true
 var flag2 = true
 var playerInArea = false
+@export var kennethdDiag : JSON
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
 @onready var kenneth: NPC = $Kenneth 
 
 
 func _ready():
-	GameState.mask_dialogue("Use WASD to move
-		 and E to interact")
 	player = get_tree().get_first_node_in_group("player")
+	maskDialogueInitial()
+
+
 
 func _on_ez_dialogue_custom_signal_received(value):
 	if has_method(value):
@@ -55,9 +57,19 @@ func triggerJumpscare():
 func changeKennethVoice():
 	kenneth.voiceID = 8
 func moveKenneth():
+	kenneth.dialogue_json = kennethdDiag
 	kenneth.global_position.z += 1
 	kenneth.rotation.y = 90
 	GameState.state["flags"]["Kenneth"]["jumpscare"] = false
 	GameState.state["flags"]["Door"]["laylaDoor"] = true
+	
 
-
+func maskDialogueInitial():
+	GameState.mask_dialogue("Use WASD to move
+		 and E to interact")
+	await get_tree().create_timer(4).timeout
+	GameState.mask_dialogue("This is your computer
+	The password is password
+	DON'T FORGET TO WORK")
+	await get_tree().create_timer(3).timeout
+	GameState.state["flags"]["Door"]["playerDoor"] = true
