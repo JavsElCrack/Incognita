@@ -5,7 +5,9 @@ var flag2 = true
 var playerInArea = false
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
-@onready var kenneth = $Kenneth
+@onready var kenneth: NPC = $Kenneth 
+
+
 func _ready():
 	GameState.mask_dialogue("Use WASD to move
 		 and E to interact")
@@ -39,6 +41,9 @@ func _on_teleport_hallway_body_entered(body):
 	if body.is_in_group("player"):
 		body.global_position.z = hallwaymarker.global_position.z
 
+
+
+
 func removeGift():
 	GameState.state["flags"]["Neil"]["gift"] = false
 func neilFirstTime():
@@ -48,4 +53,11 @@ func kennethStop():
 func triggerJumpscare():
 	GameState.state["flags"]["Kenneth"]["jumpscare"] = true
 func changeKennethVoice():
-	pass
+	kenneth.voiceID = 8
+func moveKenneth():
+	kenneth.global_position.z += 1
+	kenneth.rotation.y = 90
+	GameState.state["flags"]["Kenneth"]["jumpscare"] = false
+	GameState.state["flags"]["Door"]["laylaDoor"] = true
+
+

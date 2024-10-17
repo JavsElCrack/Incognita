@@ -1,1 +1,72 @@
-[{"commands_raw":"WHY?! WHY DID YOU TELL JOHN?!\n?>Ummm-> Diag Node","gnode_name":"start","id":0,"name":"start","position":[420,380]},{"commands_raw":"signal(kennethStop)\n?> Stop Talking -> END","gnode_name":"end","id":1,"name":"END","position":[2160,360]},{"commands_raw":"YOU'RE NEW HERE!\nYOU SHOULDN'T BE SO NOSY!\n?> Say Nothing -> Diag Node_1\n?> Calm Down -> Diag Node_1\n?> I'm sorry -> Diag Node_1","gnode_name":"diag node","id":2,"name":"Diag Node","position":[580,220]},{"commands_raw":"IT WASN'T SUPPOSED TO TURN OUT LIKE THIS! \nYOU DON'T KNOW WHAT YOU'RE DOING!\n STOP SNOOPING AND KEEP WORKING.\n?> Why did you report John -> Diag Node_2","gnode_name":"diag node_1","id":3,"name":"Diag Node_1","position":[880,140]},{"commands_raw":"signal(changeKennethVoice)\nPeople that act like John go missing here.\n I've seen it. They just disappear.\n I can't think straight anymore. \nI was hoping Neil could help.\n Calm him down. I don't know.\n?> Continue Listening ->Diag Node_3","gnode_name":"diag node_2","id":4,"name":"Diag Node_2","position":[1200,80]},{"commands_raw":"You know, I haven't seen him. \nWe talked after you told him. \nI felt guilty and wanted to apologize \nbut his room was empty.\n?> We need to help him. -> Diag Node_4\n?> Stop Talking -> END","gnode_name":"diag node_3","id":5,"name":"Diag Node_3","position":[1560,80]},{"commands_raw":"Ok, you need to talk to Layla. \nIf someone knows where he is, it's her. \nShe is in room the room accross from John's.\nHurry!\n?> Stop Talking -> END","gnode_name":"diag node_4","id":6,"name":"Diag Node_4","position":[1860,60]}]
+[
+	{
+		"commands_raw": "WHY?! WHY DID YOU TELL JOHN?!\n?>Ummm-> Diag Node",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			420,
+			380
+		]
+	},
+	{
+		"commands_raw": "signal(kennethStop)\nsignal(moveKenneth)\n?> Stop Talking -> END",
+		"gnode_name": "end",
+		"id": 1,
+		"name": "END",
+		"position": [
+			2160,
+			360
+		]
+	},
+	{
+		"commands_raw": "YOU'RE NEW HERE!\nYOU SHOULDN'T BE SO NOSY!\n?> Say Nothing -> Diag Node_1\n?> Calm Down -> Diag Node_1\n?> I'm sorry -> Diag Node_1",
+		"gnode_name": "diag node",
+		"id": 2,
+		"name": "Diag Node",
+		"position": [
+			580,
+			220
+		]
+	},
+	{
+		"commands_raw": "IT WASN'T SUPPOSED TO TURN OUT LIKE THIS! \nYOU DON'T KNOW WHAT YOU'RE DOING!\n STOP SNOOPING AND KEEP WORKING.\n?> Why did you report John -> Diag Node_2",
+		"gnode_name": "diag node_1",
+		"id": 3,
+		"name": "Diag Node_1",
+		"position": [
+			880,
+			140
+		]
+	},
+	{
+		"commands_raw": "signal(changeKennethVoice)\nPeople that act like John go missing here.\n I've seen it. They just disappear.\n I can't think straight anymore. \nI was hoping Neil could help.\n Calm him down. I don't know.\n?> Continue Listening ->Diag Node_3",
+		"gnode_name": "diag node_2",
+		"id": 4,
+		"name": "Diag Node_2",
+		"position": [
+			1200,
+			80
+		]
+	},
+	{
+		"commands_raw": "You know, I haven't seen him. \nWe talked after you told him. \nI felt guilty and wanted to apologize \nbut his room was empty.\n?> We need to help him. -> Diag Node_4\n?> Stop Talking -> END",
+		"gnode_name": "diag node_3",
+		"id": 5,
+		"name": "Diag Node_3",
+		"position": [
+			1560,
+			80
+		]
+	},
+	{
+		"commands_raw": "Ok, you need to talk to Layla. \nIf someone knows where he is, it's her. \nShe is in room the room accross from John's.\nHurry!\n?> Stop Talking -> END",
+		"gnode_name": "diag node_4",
+		"id": 6,
+		"name": "Diag Node_4",
+		"position": [
+			1860,
+			60
+		]
+	}
+]

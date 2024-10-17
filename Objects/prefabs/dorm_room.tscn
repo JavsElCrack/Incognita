@@ -369,10 +369,10 @@ use_collision = true
 size = Vector3(0.122187, 0.47787, 1)
 material = SubResource("StandardMaterial3D_d356m")
 
-[node name="Door" type="Node3D" parent="."]
+[node name="Door" type="Node3D" parent="." groups=["door"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.470622, -0.0456725, 0.877486)
 
-[node name="door" type="StaticBody3D" parent="Door"]
+[node name="door" type="StaticBody3D" parent="Door" groups=["door"]]
 script = ExtResource("10_ms05s")
 flagString = "locked"
 doorNumber = "245"

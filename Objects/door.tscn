@@ -155,7 +155,7 @@ size = Vector2(0.2, 0.2)
 
 [node name="Door" type="Node3D"]
 
-[node name="door" type="StaticBody3D" parent="."]
+[node name="door" type="StaticBody3D" parent="." groups=["door"]]
 script = ExtResource("1_oqnjt")
 doorNumber = "200"
 prompt_message = "Open Door"
