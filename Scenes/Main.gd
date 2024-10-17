@@ -5,7 +5,7 @@ var flag2 = true
 var playerInArea = false
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
-
+@onready var kenneth = $Kenneth
 func _ready():
 	GameState.mask_dialogue("Use WASD to move
 		 and E to interact")
@@ -47,3 +47,5 @@ func kennethStop():
 	jumpscare_trigger.changeCamera(player)
 func triggerJumpscare():
 	GameState.state["flags"]["Kenneth"]["jumpscare"] = true
+func changeKennethVoice():
+	pass
