@@ -79,6 +79,9 @@ func onDialogueEnded():
 		textbox.disconnect("dialogue_ended",onDialogueEnded)
 		
 
+func updateVoiceID(ID :int):
+	textbox.updateVoiceID(ID)
+	voiceID = ID
 
 func _on_navigation_agent_3d_target_reached():
 	follow_target = false

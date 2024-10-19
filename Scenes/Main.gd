@@ -55,7 +55,7 @@ func kennethStop():
 func triggerJumpscare():
 	GameState.state["flags"]["Kenneth"]["jumpscare"] = true
 func changeKennethVoice():
-	kenneth.voiceID = 8
+	kenneth.updateVoiceID(9)
 func moveKenneth():
 	kenneth.dialogue_json = kennethdDiag
 	kenneth.global_position.z += 1

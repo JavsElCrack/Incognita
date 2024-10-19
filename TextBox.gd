@@ -152,3 +152,6 @@ func _on_finish_button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	clear_dialogue_box()
 	dialogue_ended.emit()
+
+func updateVoiceID(ID :int):
+	voiceid = ID
