@@ -1,0 +1,82 @@
+[
+	{
+		"commands_raw": "Are you new here? \nI don't think I've seen you before.\n$if flags[\"Neil\"][\"firsttime\"]{\n    ?> Introduce Yourself -> Diag Node_6\n    }\n?> Ask about relationship with John -> Diag Node_1",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			-60,
+			400
+		]
+	},
+	{
+		"commands_raw": "Why are you asking about me and John?\n?> I think John's in trouble. -> Diag Node",
+		"gnode_name": "diag node_1",
+		"id": 1,
+		"name": "Diag Node_1",
+		"position": [
+			640,
+			440
+		]
+	},
+	{
+		"commands_raw": "What do you mean? What happened?\n?> Tell her about John ->Diag Node_2",
+		"gnode_name": "diag node",
+		"id": 2,
+		"name": "Diag Node",
+		"position": [
+			900,
+			420
+		]
+	},
+	{
+		"commands_raw": "Where is he?\n?> I don't know -> Diag Node_3",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			1140,
+			400
+		]
+	},
+	{
+		"commands_raw": "Oh, oh no. This is bad. \nOkay, we need a plan. \nWe need to do something. \nWe gotta find him before it's too late,\nI know people go missing here. \nWhat do we do? What do we do?!\n?> Let's go look for him -> Diag Node_4\n?> Keep it together! -> Diag Node_4",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			1400,
+			380
+		]
+	},
+	{
+		"commands_raw": "I have an idea. Let's split up. \nI will look for him and you talk to someone \nwho might be able to help. \nTake my smokers' permit. \nIn the smoker's lounge, \nthere is a person that goes by Gaucho.\n?> Continue Listening -> Diag Node_5",
+		"gnode_name": "diag node_4",
+		"id": 5,
+		"name": "Diag Node_4",
+		"position": [
+			1700,
+			380
+		]
+	},
+	{
+		"commands_raw": "Be careful asking questions in the smokers'\n lounge. If they find you suspicious, \nthey will report you. \nAnd no one will be able to help you if they do.",
+		"gnode_name": "diag node_5",
+		"id": 6,
+		"name": "Diag Node_5",
+		"position": [
+			2020,
+			380
+		]
+	},
+	{
+		"commands_raw": "Nice to meet you, I'm Layla!\n",
+		"gnode_name": "diag node_6",
+		"id": 7,
+		"name": "Diag Node_6",
+		"position": [
+			380,
+			300
+		]
+	}
+]

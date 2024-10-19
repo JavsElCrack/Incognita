@@ -7,6 +7,7 @@ var playerInArea = false
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
 @onready var kenneth: NPC = $Kenneth 
+@onready var hide_john_marker = $John/HideJohnMarker
 
 
 func _ready():
