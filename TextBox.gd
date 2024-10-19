@@ -16,7 +16,7 @@ var buttons_size = 50
 @export var audioclipspa : Array[AudioStreamWAV]
 @export var audioclipsgabo : Array[AudioStreamWAV]
 @export var audioclipsmaria : Array[AudioStreamWAV]
-
+@export var moveTextbox : bool = true
 
 var StopAudioSource = true
 const MAX_WIDTH = 700
@@ -40,15 +40,16 @@ signal dialogue_started()
 signal dialogue_ended()
 
 func _ready():
-	pass
+	print(self.position)
 
 func display_text(text_to_display: String):
 	if GameState.state["flags"]["firsttimedialog"]:
 		GameState.dialgpos = self.position
 		GameState.state["flags"]["firsttimedialog"] = false
 		
-	self.position = GameState.dialgpos
-	self.size = Vector2(0,0)
+	if moveTextbox:
+		self.position = GameState.dialgpos
+		self.size = Vector2(0,0)
 	count += 1
 	letter_index = 0
 	text = text_to_display

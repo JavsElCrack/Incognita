@@ -24,12 +24,12 @@ var space_time = 0.06
 var punctuation_time = 0.2
 var count = 0
 var initialsizetext = Vector2(36,55)
+var initialPos = Vector2(322,135)
 signal finished_displaying()
 signal dialogue_started()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(initialsize)
 	visible = false
 
 	
@@ -40,6 +40,7 @@ func _process(delta):
 	pass
 
 func display_text(text_to_display: String):
+	position = initialPos
 	clear_dialogue_box()
 	visible = true
 	count += 1

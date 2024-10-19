@@ -6,7 +6,7 @@ func _ready():
 var state := {
 	"null" : null,
 	"enableMinigame": false,
-	"MinigameProgress": 0,
+	"MinigameProgress": 120,
 	"TestPickup": 0,
 	"TestPickupFlag": true, 
 	"flags": {
@@ -33,7 +33,7 @@ var state := {
 	}
 }
 
-var dialgpos : Vector2
+var dialgpos = Vector2(1262, 747.8)
 func mask_dialogue(text:String):
 	player = get_tree().get_nodes_in_group("player")
 	(player[0] as Player).mask_dialogue(text)
