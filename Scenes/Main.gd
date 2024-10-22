@@ -8,6 +8,7 @@ var playerInArea = false
 @onready var jumpscare_trigger = $jumpscareTrigger
 @onready var kenneth: NPC = $Kenneth 
 @onready var hide_john_marker = $John/HideJohnMarker
+@onready var john = $John
 
 
 func _ready():
@@ -60,15 +61,14 @@ func changeKennethVoice():
 func moveKenneth():
 	kenneth.dialogue_json = kennethdDiag
 	kenneth.global_position.z += 1
+	john.global_position =hide_john_marker.global_position
 	kenneth.rotation.y = 90
 	GameState.state["flags"]["Kenneth"]["jumpscare"] = false
 	GameState.state["flags"]["Door"]["laylaDoor"] = true
-	
-
 func maskDialogueInitial():
 	GameState.mask_dialogue("Use WASD to move
 		 and E to interact")
-	await get_tree().create_timer(4).timeout
+#	await get_tree().create_timer(4).timeout
 	GameState.mask_dialogue("This is your computer
 	The password is password
 	DON'T FORGET TO WORK")

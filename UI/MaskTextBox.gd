@@ -27,7 +27,7 @@ var initialsizetext = Vector2(36,55)
 var initialPos = Vector2(322,135)
 signal finished_displaying()
 signal dialogue_started()
-
+signal dialogue_ended()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
@@ -39,7 +39,9 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func display_text(text_to_display: String):
+	dialogue_started.emit()
 	position = initialPos
 	clear_dialogue_box()
 	visible = true
@@ -96,6 +98,8 @@ func clear_dialogue_box():
 	label.text = ""
 	size = initialsizetext
 	visible = false
+
+
 func _on_letter_display_timer_timeout():
 	_display_letter()
 
@@ -103,3 +107,4 @@ func _on_letter_display_timer_timeout():
 func _on_finished_displaying():
 	await get_tree().create_timer(2.0).timeout
 	clear_dialogue_box()
+	dialogue_ended.emit()

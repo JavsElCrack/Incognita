@@ -222,6 +222,8 @@ light_energy = 0.416
 transform = Transform3D(1, -6.70551e-08, -2.68221e-07, 6.70552e-08, 1, 2.38419e-07, 2.68221e-07, -2.38419e-07, 1, 0, 0, 0)
 current = true
 
+[connection signal="dialogue_ended" from="Control/TextureRect/TextBox" to="." method="_on_text_box_dialogue_ended"]
+[connection signal="dialogue_started" from="Control/TextureRect/TextBox" to="." method="_on_text_box_dialogue_started"]
 [connection signal="finished_displaying" from="Control/TextureRect/TextBox" to="Control/TextureRect/TextBox" method="_on_finished_displaying" flags=18]
 [connection signal="timeout" from="Control/TextureRect/TextBox/Control/LetterDisplayTimer" to="Control/TextureRect/TextBox" method="_on_letter_display_timer_timeout" flags=18]
 [connection signal="dialogue_generated" from="Control/TextureRect/TextBox/EzDialogue" to="Control/TextureRect/TextBox" method="_on_ez_dialogue_dialogue_generated" flags=18]
