@@ -7,7 +7,7 @@ var playerInArea = false
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
 @onready var kenneth: NPC = $Kenneth 
-@onready var hide_john_marker = $John/HideJohnMarker
+@onready var hide_john_marker = $HideJohnMarker
 @onready var john = $John
 
 
@@ -68,9 +68,10 @@ func moveKenneth():
 func maskDialogueInitial():
 	GameState.mask_dialogue("Use WASD to move
 		 and E to interact")
-#	await get_tree().create_timer(4).timeout
 	GameState.mask_dialogue("This is your computer
 	The password is password
 	DON'T FORGET TO WORK")
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(7).timeout
 	GameState.state["flags"]["Door"]["playerDoor"] = true
+func openSmokeLounge():
+	GameState.state["flags"]["Door"]["smokeLounge"] = true

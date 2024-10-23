@@ -60,7 +60,7 @@
 		]
 	},
 	{
-		"commands_raw": "Be careful asking questions in the smokers'\n lounge. If they find you suspicious, \nthey will report you. \nAnd no one will be able to help you if they do.",
+		"commands_raw": "Be careful asking questions in the smokers'\n lounge. If they find you suspicious, \nthey will report you. \nAnd no one will be able to help you if they do.\nsignal(openSmokeLounge)",
 		"gnode_name": "diag node_5",
 		"id": 6,
 		"name": "Diag Node_5",

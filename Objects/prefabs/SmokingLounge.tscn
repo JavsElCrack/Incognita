@@ -1,0 +1,150 @@
+[gd_scene load_steps=15 format=3 uid="uid://jfnbsq720sea"]
+
+[ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="1_ftcqc"]
+[ext_resource type="Texture2D" uid="uid://b1uwn5ukjt1fl" path="res://Models/itch/Models pack psx/Texture/Paper.jpg" id="2_d4y71"]
+[ext_resource type="PackedScene" uid="uid://2ovq6m2drpi5" path="res://Objects/window.tscn" id="3_iei6j"]
+[ext_resource type="PackedScene" uid="uid://b2prtugoh0y0x" path="res://Objects/door.tscn" id="4_yjjyf"]
+[ext_resource type="Texture2D" uid="uid://c5eun8wml857k" path="res://Textures/SmokeSign.png" id="5_wlgvc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmn3f"]
+albedo_texture = ExtResource("1_ftcqc")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mnqu"]
+albedo_texture = ExtResource("2_d4y71")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjhwy"]
+size = Vector3(5.48951, 1.96587, 0.138639)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pd6n"]
+albedo_texture = ExtResource("5_wlgvc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bnctr"]
+material = SubResource("StandardMaterial3D_1pd6n")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Gradient" id="Gradient_vw3ho"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_htsl2"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_7lcqk"]
+color_ramp = SubResource("Gradient_vw3ho")
+noise = SubResource("FastNoiseLite_htsl2")
+
+[sub_resource type="FogMaterial" id="FogMaterial_c8eew"]
+density = 0.95
+emission = Color(0.388235, 0.388235, 0.388235, 1)
+density_texture = SubResource("NoiseTexture3D_7lcqk")
+
+[node name="Room" type="Node3D"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0.368005, 0.0444064, -30.0456)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 4.41374e-16, 2.8652, -8.70971e-08, 9.97721e-25, 4.23516e-22, 7.10543e-15, 0.123773, 1.92321, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.19287, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 0.0348804, 2.25604, 0.871853)
+use_collision = true
+size = Vector3(0.40779, 1.01487, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, -1.87374, 1.39752, 0.871853)
+use_collision = true
+size = Vector3(1, 1.11731, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, -3.03553, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 0.317, 6.81951)
+use_collision = true
+size = Vector3(0.252487, 1, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, -2.70537, 1.51681, 6.81951)
+use_collision = true
+size = Vector3(0.197944, 0.47787, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(5.4745e-15, 2.6399e-07, 0.123773, 2.8652, -2.6399e-07, 0, 1.25242e-07, 6.03938, -5.41031e-09, 3.16962, 1.39752, 3.81951)
+use_collision = true
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043093, 2.84948, 3.84695)
+use_collision = true
+size = Vector3(6.27002, 0.123099, 5.89109)
+material = SubResource("StandardMaterial3D_6mnqu")
+
+[node name="WindowWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98955e-07, 1.49843, 6.88274)
+shape = SubResource("BoxShape3D_xjhwy")
+
+[node name="Window" parent="WindowWall" instance=ExtResource("3_iei6j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.92758, 1.55464, 6.94335)
+
+[node name="Window2" parent="WindowWall" instance=ExtResource("3_iei6j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.160252, 1.55464, 6.94335)
+
+[node name="Window3" parent="WindowWall" instance=ExtResource("3_iei6j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.888126, 1.55464, 6.94335)
+
+[node name="Window4" parent="WindowWall" instance=ExtResource("3_iei6j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.19245, 1.55464, 6.94335)
+
+[node name="Window5" parent="WindowWall" instance=ExtResource("3_iei6j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.22825, 1.55464, 6.94335)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1.25242e-07, 6.03938, -1.08206e-08, 2.8652, -2.6399e-07, 1.92213e-23, -2.11283e-14, -5.27979e-07, -0.123773, -0.0355263, 2.70292, 6.81951)
+use_collision = true
+size = Vector3(0.189431, 1, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.8652, 0, -1.08206e-08, 0, 6.03938, 0, 2.50484e-07, 0, -0.123773, 2.95615, 1.37836, 6.81951)
+use_collision = true
+size = Vector3(0.122187, 0.47787, 1)
+material = SubResource("StandardMaterial3D_rmn3f")
+
+[node name="Door" parent="." instance=ExtResource("4_yjjyf")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.716033, 0, 0.910242)
+
+[node name="door" parent="Door" index="0"]
+checkFlag = true
+flagString = "smokeLounge"
+
+[node name="Door2" parent="." instance=ExtResource("4_yjjyf")]
+transform = Transform3D(-0.75, 0, -1.13247e-07, 0, 0.75, 0, 1.13247e-07, 0, -0.75, 0.705066, 0, 0.910242)
+
+[node name="door" parent="Door2" index="0"]
+checkFlag = true
+flagString = "smokeLounge"
+
+[node name="sign" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.947042, 1.33138, 0.808043)
+mesh = SubResource("QuadMesh_bnctr")
+
+[node name="sign2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.894516, 1.33138, 0.808043)
+mesh = SubResource("QuadMesh_bnctr")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0430622, 1.36356, 3.82719)
+size = Vector3(6.13186, 3.20829, 5.62616)
+material = SubResource("FogMaterial_c8eew")
+
+[editable path="Door"]
+[editable path="Door2"]

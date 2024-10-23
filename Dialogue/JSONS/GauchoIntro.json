@@ -1,0 +1,112 @@
+[
+	{
+		"commands_raw": "Who are you?\n?> A worker -> Diag Node_6\n?> I don't know -> Diag Node",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "Is that why you are here?\n?> Yes -> Diag Node_1\n?> No -> Diag Node_2",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			740,
+			0
+		]
+	},
+	{
+		"commands_raw": "Identity is trivial here. \nYou should focus on more important things.\n?> Continue Listening -> Diag Node_2",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			1000,
+			80
+		]
+	},
+	{
+		"commands_raw": "Do you know why I smoke?\n?> Stress -> Diag Node_3\n?> Socially -> Diag Node_3",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			1280,
+			-80
+		]
+	},
+	{
+		"commands_raw": "I smoke because the smoking \nlounge is a safe space. \nThe cameras can't see because of the smoke.\n?> Continue Listening -> Diag Node_4",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			1420,
+			380
+		]
+	},
+	{
+		"commands_raw": "Inc[o]gnita is monitoring us. \nWatching our every move.\nEven our thoughts are not safe. \nWhat have you come here for?\n?> Ask about John. -> Diag Node_5",
+		"gnode_name": "diag node_4",
+		"id": 5,
+		"name": "Diag Node_4",
+		"position": [
+			1640,
+			360
+		]
+	},
+	{
+		"commands_raw": "He came here recently, \nhe asked me questions I didn't know the answers of. \nHe is planning on leaving this place very soon. \nIf you want to see him you should hurry up.",
+		"gnode_name": "diag node_5",
+		"id": 6,
+		"name": "Diag Node_5",
+		"position": [
+			1880,
+			360
+		]
+	},
+	{
+		"commands_raw": "Do you wish to stay that way?\n?> Yes -> Diag Node_8\n?> No -> Diag Node_7",
+		"gnode_name": "diag node_6",
+		"id": 7,
+		"name": "Diag Node_6",
+		"position": [
+			540,
+			560
+		]
+	},
+	{
+		"commands_raw": "Why do you seek \nchange?\n?> I am scared -> Diag Node_9\n?> Not Satisfied -> Diag Node_9",
+		"gnode_name": "diag node_7",
+		"id": 8,
+		"name": "Diag Node_7",
+		"position": [
+			840,
+			420
+		]
+	},
+	{
+		"commands_raw": "Don't talk to me then",
+		"gnode_name": "diag node_8",
+		"id": 9,
+		"name": "Diag Node_8",
+		"position": [
+			820,
+			700
+		]
+	},
+	{
+		"commands_raw": "Very valid reason. \nDo you know why I smoke?\n?> Stress -> Diag Node_3\n?> Socially -> Diag Node_3",
+		"gnode_name": "diag node_9",
+		"id": 10,
+		"name": "Diag Node_9",
+		"position": [
+			1140,
+			480
+		]
+	}
+]

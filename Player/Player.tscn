@@ -16,7 +16,7 @@
 [ext_resource type="Animation" uid="uid://c0o2011t7g8ee" path="res://Animations/Player/player_anims/Dance.res" id="15_4tdug"]
 [ext_resource type="Animation" uid="uid://detqy6jkk520q" path="res://Animations/Player/player_anims/Fall.res" id="16_eu3g5"]
 [ext_resource type="Animation" uid="uid://d2mwmh2bykjt0" path="res://Animations/Player/player_anims/Idle2.res" id="17_5h80u"]
-[ext_resource type="Animation" uid="uid://dkuniraugmyoh" path="res://Animations/Player/player_anims/Walking.res" id="18_fpmbc"]
+[ext_resource type="Animation" uid="uid://dkuniraugmyoh" path="res://Animations/anims/NPC/Walking.res" id="18_fpmbc"]
 [ext_resource type="Animation" uid="uid://bmu46sffxs1od" path="res://Animations/Player/player_anims/FallIdle.res" id="18_tx8lg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1c7cj"]

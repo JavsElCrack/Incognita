@@ -77,6 +77,7 @@ func onDialogueEnded():
 	if addMaskComment == true:
 		GameState.mask_dialogue(MaskComment)
 		textbox.disconnect("dialogue_ended",onDialogueEnded)
+		addMaskComment = false
 		
 
 func updateVoiceID(ID :int):
