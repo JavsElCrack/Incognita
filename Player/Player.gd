@@ -73,11 +73,12 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time*BOB_FREQ/2)*BOB_AMP
 	return pos
 
-func lockmovement_and_look(body :Object):
+func lockmovement_and_look(body :Object,rotateplayer : bool):
 	initialHeadRot = $Head/Camera3D.rotation
 	#$Head/Camera3D.look_at(body.position)
 	#$Head/Camera3D.rotate_object_local(Vector3(0,1,0), 3.14)
-	$Head/Camera3D.rotation.x = 0
+	if rotateplayer:
+		$Head/Camera3D.rotation.x = 0
 	lockmovement = true
 	isinDialogue = true
 	raycast.isInDialogue = true
