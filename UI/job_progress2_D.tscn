@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://covxwfa4xcurc"]
+
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_cwd3p"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 516.0
+offset_bottom = 516.0
+color = Color(0.25098, 0.52549, 0, 0.678431)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 516.0
+offset_bottom = 516.0
+theme_override_fonts/font = ExtResource("1_cwd3p")
+theme_override_font_sizes/font_size = 90
+text = "BOSS: GET BACK TO WORK
+BOSS: WORKKK!"
+autowrap_mode = 3

@@ -39,7 +39,7 @@ func _ready():
 
 func _physics_process(delta):
 	if GameState.state["MinigameProgress"] > 0:
-		GameState.state["MinigameProgress"] -= 0.4 * get_physics_process_delta_time()
+		GameState.state["MinigameProgress"] -= 0.2 * get_physics_process_delta_time()
 	# Decrease cooldown over time
 	if cooldown > 0:
 		cooldown -= delta

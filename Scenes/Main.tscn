@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://buk1mwkjg5qs5"]
+[gd_scene load_steps=62 format=3 uid="uid://buk1mwkjg5qs5"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_8beko"]
 [ext_resource type="PackedScene" uid="uid://dmo4f5etms210" path="res://Player/Player.tscn" id="1_yuldt"]
@@ -60,6 +60,19 @@ fog_enabled = true
 fog_density = 0.007
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.025
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_irllj"]
+viewport_path = NodePath("Gold Apollo AR924/MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foff0"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_irllj")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ua7r0"]
+viewport_path = NodePath("SubViewport/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8ehr"]
+size = Vector3(14.4841, 7.19739, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfp1p"]
 albedo_color = Color(0.494118, 0.494118, 0.494118, 1)
@@ -148,12 +161,6 @@ shader_parameter/texture_albedo = SubResource("ViewportTexture_c2m1x")
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_rv3dm")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ua7r0"]
-viewport_path = NodePath("SubViewport/SubViewport")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_s8ehr"]
-size = Vector3(14.4841, 7.19739, 1)
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_8beko")
 kennethdDiag = ExtResource("2_vd0nn")
@@ -164,6 +171,274 @@ environment = SubResource("Environment_0w227")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_yuldt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7078, 1, 0.708426)
+
+[node name="CanvasLayer@pager@Node3D@Gold Apollo AR924@MeshInstance3D" parent="Player" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_foff0")
+
+[node name="Skeleton3D" parent="Player/Mesh/Player/RootNode/master/Reference" index="0"]
+bones/0/position = Vector3(0.0551137, 0.925742, -0.0636895)
+bones/0/rotation = Quaternion(-0.683485, -0.248243, -0.270924, 0.630733)
+bones/1/rotation = Quaternion(0.457022, 0.491727, 0.500063, -0.547058)
+bones/2/rotation = Quaternion(0.0818604, 0.0295829, 0.0123129, 0.996129)
+bones/3/rotation = Quaternion(0.0823186, 0.127346, 0.00904033, 0.988395)
+bones/4/rotation = Quaternion(-0.0103859, 0.196233, -0.00337258, 0.980497)
+bones/5/rotation = Quaternion(0.172511, -0.245387, 0.0414263, 0.953052)
+bones/9/rotation = Quaternion(-0.00248887, 0.0883522, -0.803633, 0.588526)
+bones/10/rotation = Quaternion(0.0967553, -0.173085, -0.438924, 0.876371)
+bones/11/rotation = Quaternion(0.0173262, 0.362488, -0.0509057, 0.930436)
+bones/12/rotation = Quaternion(-0.100046, 0.0436016, -0.111736, 0.987727)
+bones/14/rotation = Quaternion(0.0340862, 0.298813, -0.191023, 0.934377)
+bones/15/rotation = Quaternion(0.039922, -0.181703, 0.00189136, 0.982541)
+bones/19/rotation = Quaternion(-0.0194861, -0.170479, -0.0029556, 0.985164)
+bones/20/rotation = Quaternion(0.000155114, 0.00425767, -0.176261, 0.984334)
+bones/23/rotation = Quaternion(0.0115606, 0.0441331, -0.104301, 0.993499)
+bones/24/rotation = Quaternion(0.0022514, 0.0316129, -0.282404, 0.958772)
+bones/27/rotation = Quaternion(-0.0117965, 0.00667702, -0.191529, 0.981393)
+bones/28/rotation = Quaternion(-0.00429705, 0.0518265, -0.327884, 0.943286)
+bones/33/rotation = Quaternion(-0.00870545, 0.0852155, -0.355042, 0.930918)
+bones/36/rotation = Quaternion(0.794107, -0.605362, -0.0465161, 0.0276947)
+bones/37/rotation = Quaternion(0.103555, 0.0617584, -0.464869, 0.877131)
+bones/38/rotation = Quaternion(-0.0603665, 0.411218, 0.00995076, 0.909482)
+bones/39/rotation = Quaternion(-0.162392, -0.0542076, 0.135365, 0.975893)
+bones/41/rotation = Quaternion(-0.726946, 0.36858, -0.00174068, 0.579393)
+bones/42/rotation = Quaternion(0.0379943, -0.00745233, -0.00067222, 0.99925)
+bones/46/rotation = Quaternion(-0.0295871, -0.101983, 0.010837, 0.994287)
+bones/47/rotation = Quaternion(8.21739e-05, 0.00268271, -0.146594, 0.989193)
+bones/50/rotation = Quaternion(-0.00289926, -0.00967863, -0.125563, 0.992034)
+bones/51/rotation = Quaternion(0.00214709, 0.0236469, -0.193579, 0.980797)
+bones/54/rotation = Quaternion(0.00694341, -0.0482603, -0.269173, 0.961857)
+bones/55/rotation = Quaternion(-0.00365989, 0.0389935, -0.279058, 0.959475)
+bones/59/rotation = Quaternion(-0.0297461, 0.158321, -0.226532, 0.96059)
+bones/60/rotation = Quaternion(-0.0074836, 0.0648224, -0.338424, 0.938729)
+bones/63/rotation = Quaternion(-0.37162, 0.635088, 0.485974, 0.471584)
+bones/64/rotation = Quaternion(0.0750564, -0.317099, -0.00537721, 0.945403)
+bones/65/rotation = Quaternion(-0.440263, 0.582915, 0.423787, 0.535521)
+bones/68/rotation = Quaternion(0.356135, -0.392987, 0.690601, 0.491731)
+bones/69/rotation = Quaternion(-0.119506, -0.323249, -0.0623486, 0.936665)
+bones/70/rotation = Quaternion(-0.540317, 0.466046, 0.404641, 0.571948)
+bones/71/rotation = Quaternion(-0.0168483, 0.0237719, 0.083205, 0.996106)
+
+[node name="PC2" parent="." instance=ExtResource("8_73htx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.501, 1.408, 2.20676)
+text = "Email:
+From: kenneth76@incognita.com to: neilgarmen@incognita.com
+Hey Neil,
+I am messaging you to ask to check in with John. He has been very anxious lately. I feel he may want to do something rash. PLEASE talk to him before reporting ANYTHING. I hope he calms down in the next few days but please do speak to him QUICK.
+Regards,
+Kenneth"
+
+[node name="pCube14" parent="PC2/Computer/Computer/RootNode/kEYBOARD_aND_MOUSE" index="0"]
+surface_material_override/0 = null
+
+[node name="pCube12" parent="PC2/Computer/Computer/RootNode/kEYBOARD_aND_MOUSE" index="1"]
+surface_material_override/0 = null
+
+[node name="Sprite3D" parent="PC2/Computer/Computer/RootNode/PC" index="5"]
+texture = SubResource("ViewportTexture_ua7r0")
+
+[node name="PassWordViewport" parent="PC2" index="3"]
+password = "iluvclaudia"
+
+[node name="Neil" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("9_r0hax")]
+transform = Transform3D(-0.999445, 0, -0.0333123, 0, 1, 0, 0.0333123, 0, -0.999445, -4.9727, 3.02315e-05, 0.676882)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("10_71wio")
+
+[node name="Claudia" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("12_tf4r3")]
+transform = Transform3D(0.0363995, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0363995, -8.99152, 0.160101, -6.96174)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("13_bo7eb")
+voiceID = 6
+
+[node name="John" parent="." instance=ExtResource("16_bcpjj")]
+transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, 12.1455, 3.02124e-05, 7.2283)
+dialogue_json = ExtResource("17_qcalm")
+voiceID = 5
+
+[node name="PostIt" parent="." instance=ExtResource("15_rbt6d")]
+transform = Transform3D(0.25, 0, 0, 0, 0.034996, -0.0017917, 0, 0.000531433, 0.117986, -4.92051, 1.25435, -9.16038)
+PickUpDialogue = "A post-it that says:
+    psswd: iluvclaudia"
+
+[node name="CollisionShape3D" parent="PostIt" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0, 7.40235, -0.0313568)
+
+[node name="MeshInstance3D" parent="PostIt" index="1"]
+transform = Transform3D(0.584358, 0, 0, 0, 0.374507, 0, 0, 6.98492e-10, 1.36499, 0, -1.7547, -1.50489)
+
+[node name="Building" type="Node3D" parent="."]
+
+[node name="building_01_1" parent="Building" instance=ExtResource("25_2fapa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2999, -81.49, 0)
+
+[node name="building_02_2" parent="Building" instance=ExtResource("27_kbk06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4843, -81.49, -55)
+
+[node name="building_03_1" parent="Building" instance=ExtResource("28_70ipc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.484, -81.49, -55)
+
+[node name="building_04_2" parent="Building" instance=ExtResource("25_xsvuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.015, -81.49, 0)
+
+[node name="building_05_2" parent="Building" instance=ExtResource("26_5v0h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.015, -81.49, 0)
+
+[node name="building_06_2" parent="Building" instance=ExtResource("27_pa51l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.015, -81.49, -136)
+
+[node name="building_08_2" parent="Building" instance=ExtResource("28_4p0f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9173, -81.49, -136)
+
+[node name="building_01_2" parent="Building" instance=ExtResource("25_2fapa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.7, -81.49, 0)
+
+[node name="building_02_3" parent="Building" instance=ExtResource("27_kbk06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.516, -81.49, -55)
+
+[node name="building_03_2" parent="Building" instance=ExtResource("28_70ipc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.516, -81.49, -55)
+
+[node name="building_04_3" parent="Building" instance=ExtResource("25_xsvuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.985, -81.49, 0)
+
+[node name="building_05_3" parent="Building" instance=ExtResource("26_5v0h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.985, -81.49, 0)
+
+[node name="building_06_3" parent="Building" instance=ExtResource("27_pa51l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.985, -81.49, -136)
+
+[node name="building_08_3" parent="Building" instance=ExtResource("28_4p0f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.083, -81.49, -136)
+
+[node name="building_07_2" parent="Building" instance=ExtResource("30_q4x63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.083, -81.49, 55.1875)
+
+[node name="building_07_1" parent="Building" instance=ExtResource("30_q4x63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9173, -81.49, 55.1875)
+
+[node name="AnniversaryGift" parent="." instance=ExtResource("14_mxh22")]
+transform = Transform3D(-0.217171, -7.7647e-23, -8.67465e-09, 0, 0.217171, 0, 1.89856e-08, -8.88178e-16, -0.0992264, -9.54797, 0.894247, -16.8001)
+stateString = ""
+prompt_message = "Pickup"
+
+[node name="CollisionShape3D" parent="AnniversaryGift" index="0"]
+transform = Transform3D(3.72608, 0, 0, 0, 3.72608, 0, 0, 0, 3.72608, 0, 0.805835, 0)
+
+[node name="TeleportHallway" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.9811)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33871, 0, 0)
+shape = SubResource("BoxShape3D_s8ehr")
+
+[node name="hallwaymarker" type="Marker3D" parent="TeleportHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.1159)
+
+[node name="jumpscareTrigger" parent="." node_paths=PackedStringArray("npc") instance=ExtResource("34_ps261")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.14527, -0.491047)
+npc = NodePath("../Kenneth")
+
+[node name="CollisionShape3D" parent="jumpscareTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935411, 0, 0)
+
+[node name="Camera3D" parent="jumpscareTrigger" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.370526, 0.344429, 0.140175)
+
+[node name="Marker3D" parent="jumpscareTrigger" index="2"]
+transform = Transform3D(-0.055595, 0, 0.998453, 0, 1, 0, -0.998453, 0, -0.055595, 0, -1.5, 0.14)
+
+[node name="Kenneth" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("35_y76t7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.3486, 0.000999928, 12.4441)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("36_n0ikk")
+voiceID = 7
+
+[node name="Layla" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("37_d3iy8")]
+transform = Transform3D(0.480836, 0, -0.876811, 0, 1, 0, 0.876811, 0, 0.480836, -7.76859, 0.000999808, 5.92618)
+textbox = NodePath("../Player/Head/TextBox")
+
+[node name="LooseTimer" type="Timer" parent="."]
+wait_time = 18.0
+script = ExtResource("38_lf5e1")
+
+[node name="Gaucho" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("40_l575m")]
+transform = Transform3D(-0.952252, 0, 0.305313, 0, 1, 0, -0.305313, 0, -0.952252, -3.84675, 0.000999928, -28.1345)
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("43_wyryu")
+addMaskComment = true
+MaskComment = "...."
+
+[node name="HideJohnMarker" type="Marker3D" parent="."]
+transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, 12.1512, -0.109103, 68.7501)
+
+[node name="OfficeNPC" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("44_w4mpy")]
+transform = Transform3D(-0.533954, 0, 0.845514, 0, 1, 0, -0.845514, 0, -0.533954, -6.73891, 0.00100017, -23.2604)
+sitting = true
+textbox = NodePath("../Player/Head/TextBox")
+dialogue_json = ExtResource("45_t8ujh")
+voiceID = 5
+lookatplayerindialogue = false
+
+[node name="RootNode" parent="OfficeNPC" index="0"]
+transform = Transform3D(0.669831, 0, -0.742514, 0, 1, 0, 0.742514, 0, 0.669831, -0.0853748, 0.0228505, -0.131001)
+
+[node name="Skeleton3D" parent="OfficeNPC/RootNode/master/Reference" index="0"]
+bones/0/position = Vector3(-0.0521274, 1.04058, -0.0448118)
+bones/0/rotation = Quaternion(-0.713595, -0.0174204, -0.00454683, 0.700327)
+bones/1/rotation = Quaternion(0.498774, 0.497975, 0.503283, -0.499952)
+bones/2/rotation = Quaternion(-0.0219638, -0.043859, -0.00410566, 0.998788)
+bones/3/rotation = Quaternion(-0.0222375, -0.0653573, -0.00185586, 0.997612)
+bones/4/rotation = Quaternion(0.0185884, 0.198412, 0.0191592, 0.979755)
+bones/5/rotation = Quaternion(0.00553412, -0.0942635, -0.020641, 0.995318)
+bones/9/rotation = Quaternion(-0.0840619, 0.0732325, -0.68085, 0.723888)
+bones/10/rotation = Quaternion(-0.124358, 0.177328, -0.574222, 0.789531)
+bones/11/rotation = Quaternion(-0.000310699, 0.22859, 0.000273666, 0.973523)
+bones/12/rotation = Quaternion(-0.0290537, -0.193227, -0.014177, 0.980621)
+bones/14/rotation = Quaternion(-0.0727639, 0.118716, -0.167472, 0.975995)
+bones/15/rotation = Quaternion(0.0341452, -0.0155243, -0.0233935, 0.999023)
+bones/16/rotation = Quaternion(-0.0408804, 0.0102421, 0.0299679, 0.998662)
+bones/19/rotation = Quaternion(-0.0322652, -0.209439, -0.0406698, 0.976443)
+bones/20/rotation = Quaternion(9.12971e-05, -0.0227997, -0.292607, 0.955961)
+bones/21/rotation = Quaternion(0.0062182, -0.00678756, -0.0805222, 0.99671)
+bones/23/rotation = Quaternion(-0.00577465, 0.018074, -0.128857, 0.991482)
+bones/24/rotation = Quaternion(0.000857644, -0.0167126, -0.199571, 0.979741)
+bones/25/rotation = Quaternion(0.0176838, -0.00521438, -0.0508941, 0.998534)
+bones/27/rotation = Quaternion(-0.0102754, 0.0396274, -0.21211, 0.976388)
+bones/28/rotation = Quaternion(-0.00239626, -0.0101082, -0.130803, 0.991354)
+bones/29/rotation = Quaternion(0.0206653, -0.00691964, -0.0722995, 0.997145)
+bones/32/rotation = Quaternion(-0.0590356, 0.273285, -0.237254, 0.930345)
+bones/33/rotation = Quaternion(0.00257698, -0.0108869, -0.125671, 0.992009)
+bones/34/rotation = Quaternion(0.000786936, -0.00559967, -0.062189, 0.998048)
+bones/36/rotation = Quaternion(0.677867, -0.726231, -0.108224, 0.0370582)
+bones/37/rotation = Quaternion(-0.100498, 0.0769213, -0.605183, 0.785963)
+bones/38/rotation = Quaternion(-0.00030846, 0.267986, 0.000313078, 0.963423)
+bones/39/rotation = Quaternion(-0.12565, -0.178604, -0.0873844, 0.971945)
+bones/41/rotation = Quaternion(0.635002, -0.264205, -0.0577763, -0.723623)
+bones/42/rotation = Quaternion(0.0610856, 0.00259391, -0.132578, 0.989285)
+bones/43/rotation = Quaternion(-0.0399451, -0.025474, -0.0147659, 0.998768)
+bones/46/rotation = Quaternion(-0.00700549, -0.1803, -0.163065, 0.969976)
+bones/47/rotation = Quaternion(9.43984e-05, -0.0167855, -0.218554, 0.97568)
+bones/48/rotation = Quaternion(0.00623571, -0.00423511, -0.0507598, 0.998682)
+bones/50/rotation = Quaternion(-0.00635663, 0.0565739, -0.244202, 0.968052)
+bones/51/rotation = Quaternion(0.000868274, -0.0103682, -0.125494, 0.99204)
+bones/52/rotation = Quaternion(0.000923474, -0.0103598, -0.12269, 0.992391)
+bones/54/rotation = Quaternion(-0.00665728, 0.065906, -0.28711, 0.955604)
+bones/55/rotation = Quaternion(-0.0024034, -0.00755594, -0.0992356, 0.995032)
+bones/56/rotation = Quaternion(0.00173895, -0.00703209, -0.0929726, 0.995642)
+bones/59/rotation = Quaternion(-0.0627961, 0.28027, -0.254324, 0.923485)
+bones/60/rotation = Quaternion(-0.00144226, 0.0256726, -0.115469, 0.992978)
+bones/61/rotation = Quaternion(0.000786667, -0.00595976, -0.0670685, 0.99773)
+bones/63/rotation = Quaternion(-0.468236, 0.615736, 0.418006, 0.476335)
+bones/64/rotation = Quaternion(0.0418432, -0.196763, -0.00754289, 0.979529)
+bones/65/rotation = Quaternion(-0.522813, 0.45032, 0.450327, 0.566642)
+bones/66/rotation = Quaternion(-6.33786e-06, -2.04312e-06, 0.0588402, 0.998267)
+bones/68/rotation = Quaternion(-0.479222, 0.456102, -0.578358, -0.477305)
+bones/69/rotation = Quaternion(0.0721096, -0.164504, 0.00269243, 0.983733)
+bones/70/rotation = Quaternion(-0.523176, 0.472573, 0.422836, 0.569361)
+bones/71/rotation = Quaternion(-5.8368e-05, -1.87739e-05, 0.0632357, 0.997999)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -575,292 +850,20 @@ transform = Transform3D(-2.91409e-08, 0, 0.666667, 0, 0.666667, 0, -0.666667, 0,
 [node name="Room2" parent="Environment/BigRooms" instance=ExtResource("3_060d7")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 3.43571, 0.0444064, -30.0456)
 
-[node name="Player" parent="." instance=ExtResource("1_yuldt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7078, 1, 0.708426)
-
-[node name="Skeleton3D" parent="Player/Mesh/Player/RootNode/master/Reference" index="0"]
-bones/0/position = Vector3(0.0554074, 0.924627, -0.0665329)
-bones/0/rotation = Quaternion(-0.682381, -0.249142, -0.270785, 0.631633)
-bones/1/rotation = Quaternion(0.456633, 0.491048, 0.500332, -0.547746)
-bones/2/rotation = Quaternion(0.0819974, 0.0316758, 0.0128402, 0.996046)
-bones/3/rotation = Quaternion(0.0824444, 0.129434, 0.00955807, 0.988109)
-bones/4/rotation = Quaternion(-0.0106679, 0.18967, -0.00371934, 0.981783)
-bones/5/rotation = Quaternion(0.171226, -0.236708, 0.0455822, 0.955287)
-bones/9/rotation = Quaternion(0.000706516, 0.0921282, -0.808846, 0.580759)
-bones/10/rotation = Quaternion(0.105707, -0.172742, -0.428134, 0.880731)
-bones/11/rotation = Quaternion(0.0292985, 0.359656, -0.0449382, 0.931542)
-bones/12/rotation = Quaternion(-0.104509, 0.0412726, -0.104956, 0.988109)
-bones/14/rotation = Quaternion(0.036221, 0.294428, -0.189154, 0.936067)
-bones/15/rotation = Quaternion(0.0394607, -0.183477, -0.000258963, 0.982232)
-bones/16/rotation = Quaternion(0.0203425, -0.0551319, -0.0821203, 0.994888)
-bones/19/rotation = Quaternion(-0.0215904, -0.172721, 0.00837246, 0.984699)
-bones/20/rotation = Quaternion(-0.000537863, -0.000554761, -0.147438, 0.989071)
-bones/21/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/23/rotation = Quaternion(0.0115234, 0.0445691, -0.104663, 0.993442)
-bones/24/rotation = Quaternion(0.00212171, 0.0288168, -0.262242, 0.964569)
-bones/25/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/27/rotation = Quaternion(-0.0119676, 0.00543502, -0.181627, 0.98328)
-bones/28/rotation = Quaternion(-0.00423608, 0.0504088, -0.317997, 0.946741)
-bones/29/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
-bones/32/rotation = Quaternion(-0.0322059, 0.221323, -0.126438, 0.966433)
-bones/33/rotation = Quaternion(-0.00827478, 0.0841816, -0.345662, 0.934539)
-bones/34/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/36/rotation = Quaternion(0.799056, -0.598905, -0.0431672, 0.0309722)
-bones/37/rotation = Quaternion(0.107962, 0.0621125, -0.460037, 0.87912)
-bones/38/rotation = Quaternion(-0.0570921, 0.405218, 0.0125333, 0.91235)
-bones/39/rotation = Quaternion(-0.162093, -0.053064, 0.164971, 0.97144)
-bones/41/rotation = Quaternion(-0.726228, 0.371108, -0.00207691, 0.578677)
-bones/42/rotation = Quaternion(0.037876, -0.00729909, -0.000464379, 0.999256)
-bones/43/rotation = Quaternion(0.0203425, 0.0821203, -0.0551319, 0.994888)
-bones/46/rotation = Quaternion(-0.0302736, -0.102737, 0.0149873, 0.994135)
-bones/47/rotation = Quaternion(-4.42612e-05, 0.0021431, -0.143438, 0.989657)
-bones/48/rotation = Quaternion(0.00448027, -0.0351255, 0.000662117, 0.999373)
-bones/50/rotation = Quaternion(-0.00370458, -0.0159645, -0.121247, 0.992487)
-bones/51/rotation = Quaternion(0.0020643, 0.0229544, -0.188878, 0.98173)
-bones/52/rotation = Quaternion(-0.0017656, 0.00884556, 0.0306743, 0.999489)
-bones/54/rotation = Quaternion(0.00501875, -0.0543592, -0.265055, 0.962687)
-bones/55/rotation = Quaternion(-0.0036611, 0.0383944, -0.274383, 0.960847)
-bones/56/rotation = Quaternion(0.0141726, -0.0499477, -0.0121731, 0.998577)
-bones/59/rotation = Quaternion(-0.0305093, 0.152885, -0.222014, 0.962499)
-bones/60/rotation = Quaternion(-0.00733812, 0.0645102, -0.333771, 0.940416)
-bones/61/rotation = Quaternion(0.0107329, -0.0595554, 0.0194228, 0.997978)
-bones/63/rotation = Quaternion(-0.375282, 0.638133, 0.48221, 0.468427)
-bones/64/rotation = Quaternion(0.074477, -0.324602, -0.00472362, 0.942902)
-bones/65/rotation = Quaternion(-0.439087, 0.584037, 0.425867, 0.533611)
-bones/66/rotation = Quaternion(0.00361983, -0.00203922, 0.0786054, 0.996897)
-bones/68/rotation = Quaternion(0.352977, -0.391054, 0.692432, 0.492973)
-bones/69/rotation = Quaternion(-0.11889, -0.325147, -0.0626547, 0.936066)
-bones/70/rotation = Quaternion(-0.540038, 0.466318, 0.403776, 0.572601)
-bones/71/rotation = Quaternion(-0.0169781, 0.0236328, 0.0830996, 0.996116)
-
-[node name="PC2" parent="." instance=ExtResource("8_73htx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.501, 1.408, 2.20676)
-text = "Email:
-From: kenneth76@incognita.com to: neilgarmen@incognita.com
-Hey Neil,
-I am messaging you to ask to check in with John. He has been very anxious lately. I feel he may want to do something rash. PLEASE talk to him before reporting ANYTHING. I hope he calms down in the next few days but please do speak to him QUICK.
-Regards,
-Kenneth"
-
-[node name="pCube14" parent="PC2/Computer/Computer/RootNode/kEYBOARD_aND_MOUSE" index="0"]
-surface_material_override/0 = null
-
-[node name="pCube12" parent="PC2/Computer/Computer/RootNode/kEYBOARD_aND_MOUSE" index="1"]
-surface_material_override/0 = null
-
-[node name="Sprite3D" parent="PC2/Computer/Computer/RootNode/PC" index="5"]
-texture = SubResource("ViewportTexture_ua7r0")
-
-[node name="PassWordViewport" parent="PC2" index="3"]
-password = "iluvclaudia"
-
-[node name="Neil" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("9_r0hax")]
-transform = Transform3D(-0.999445, 0, -0.0333123, 0, 1, 0, 0.0333123, 0, -0.999445, -4.9727, 3.02315e-05, 0.676882)
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("10_71wio")
-
-[node name="Claudia" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("12_tf4r3")]
-transform = Transform3D(0.0363995, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0363995, -8.99152, 0.160101, -6.96174)
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("13_bo7eb")
-voiceID = 6
-
-[node name="John" parent="." instance=ExtResource("16_bcpjj")]
-transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, 12.1455, 3.02124e-05, 7.2283)
-voiceID = 5
-lookatPos = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91588, 0.231991),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
-
-dialogue_json = ExtResource("17_qcalm")
-textbox = Object(MarginContainer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-18.0,"offset_top":78.0,"offset_right":18.0,"offset_bottom":114.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","script":Resource("res://TextBox.gd"),"audioclips":Array[Array]([Array[AudioStreamWAV]([Resource("res://Sound/vocales_javs/javs_a.wav"), Resource("res://Sound/vocales_javs/javs_e.wav"), Resource("res://Sound/vocales_javs/javs_i.wav"), Resource("res://Sound/vocales_javs/javs_o.wav"), Resource("res://Sound/vocales_javs/javs_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_ale_ogro/ogro_a.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_e.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_i.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_o.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_ma/ma_a.wav"), Resource("res://Sound/vocales_ma/ma_e.wav"), Resource("res://Sound/vocales_ma/ma_i.wav"), Resource("res://Sound/vocales_ma/ma_o.wav"), Resource("res://Sound/vocales_ma/ma_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_ale/ale_a.wav"), Resource("res://Sound/vocales_ale/ale_e.wav"), Resource("res://Sound/vocales_ale/ale_i.wav"), Resource("res://Sound/vocales_ale/ale_o.wav"), Resource("res://Sound/vocales_ale/ale_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_pa/pa_a.wav"), Resource("res://Sound/vocales_pa/pa_e.wav"), Resource("res://Sound/vocales_pa/pa_i.wav"), Resource("res://Sound/vocales_pa/pa_o.wav"), Resource("res://Sound/vocales_pa/pa_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_gabo/gabo_a.wav"), Resource("res://Sound/vocales_gabo/gabo_e.wav"), Resource("res://Sound/vocales_gabo/gabo_i.wav"), Resource("res://Sound/vocales_gabo/gabo_o.wav"), Resource("res://Sound/vocales_gabo/gabo_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_maria/maria_a.wav"), Resource("res://Sound/vocales_maria/maria_e.wav"), Resource("res://Sound/vocales_maria/maria_i.wav"), Resource("res://Sound/vocales_maria/maria_o.wav"), Resource("res://Sound/vocales_maria/maria_u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_kojiEnojao/a.wav"), Resource("res://Sound/vocales_kojiEnojao/e.wav"), Resource("res://Sound/vocales_kojiEnojao/i.wav"), Resource("res://Sound/vocales_kojiEnojao/O.wav"), Resource("res://Sound/vocales_kojiEnojao/u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_koji/a.wav"), Resource("res://Sound/vocales_koji/e.wav"), Resource("res://Sound/vocales_koji/i.wav"), Resource("res://Sound/vocales_koji/o.wav"), Resource("res://Sound/vocales_koji/u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_kojiRasposo/a.wav"), Resource("res://Sound/vocales_kojiRasposo/e.wav"), Resource("res://Sound/vocales_kojiRasposo/i.wav"), Resource("res://Sound/vocales_kojiRasposo/o.wav"), Resource("res://Sound/vocales_kojiRasposo/u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_Alexa/a.wav"), Resource("res://Sound/vocales_Alexa/e.wav"), Resource("res://Sound/vocales_Alexa/i.wav"), Resource("res://Sound/vocales_Alexa/o.wav"), Resource("res://Sound/vocales_Alexa/u.wav")]), Array[AudioStreamWAV]([Resource("res://Sound/vocales_lalo/a.wav"), Resource("res://Sound/vocales_lalo/e.wav"), Resource("res://Sound/vocales_lalo/i.wav"), Resource("res://Sound/vocales_lalo/o.wav"), Resource("res://Sound/vocales_lalo/u.wav")])]),"audioclipsjavs":Array[AudioStreamWAV]([Resource("res://Sound/vocales_lalo/a.wav"), Resource("res://Sound/vocales_lalo/e.wav"), Resource("res://Sound/vocales_lalo/i.wav"), Resource("res://Sound/vocales_lalo/o.wav"), Resource("res://Sound/vocales_lalo/u.wav")]),"audioclipsogro":Array[AudioStreamWAV]([Resource("res://Sound/vocales_ale_ogro/ogro_a.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_e.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_i.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_o.wav"), Resource("res://Sound/vocales_ale_ogro/ogro_u.wav")]),"audioclipsma":Array[AudioStreamWAV]([Resource("res://Sound/vocales_ma/ma_a.wav"), Resource("res://Sound/vocales_ma/ma_e.wav"), Resource("res://Sound/vocales_ma/ma_i.wav"), Resource("res://Sound/vocales_ma/ma_o.wav"), Resource("res://Sound/vocales_ma/ma_u.wav")]),"audioclipsaletonota":Array[AudioStreamWAV]([Resource("res://Sound/vocales_ale/ale_a.wav"), Resource("res://Sound/vocales_ale/ale_e.wav"), Resource("res://Sound/vocales_ale/ale_i.wav"), Resource("res://Sound/vocales_ale/ale_o.wav"), Resource("res://Sound/vocales_ale/ale_u.wav")]),"audioclipspa":Array[AudioStreamWAV]([Resource("res://Sound/vocales_pa/pa_a.wav"), Resource("res://Sound/vocales_pa/pa_e.wav"), Resource("res://Sound/vocales_pa/pa_i.wav"), Resource("res://Sound/vocales_pa/pa_o.wav"), Resource("res://Sound/vocales_pa/pa_u.wav")]),"audioclipsgabo":Array[AudioStreamWAV]([Resource("res://Sound/vocales_gabo/gabo_a.wav"), Resource("res://Sound/vocales_gabo/gabo_e.wav"), Resource("res://Sound/vocales_gabo/gabo_i.wav"), Resource("res://Sound/vocales_gabo/gabo_o.wav"), Resource("res://Sound/vocales_gabo/gabo_u.wav")]),"audioclipsmaria":Array[AudioStreamWAV]([Resource("res://Sound/vocales_maria/maria_a.wav"), Resource("res://Sound/vocales_maria/maria_e.wav"), Resource("res://Sound/vocales_maria/maria_i.wav"), Resource("res://Sound/vocales_maria/maria_o.wav"), Resource("res://Sound/vocales_maria/maria_u.wav")]),"moveTextbox":true)
-
-
-[node name="PostIt" parent="." instance=ExtResource("15_rbt6d")]
-transform = Transform3D(0.25, 0, 0, 0, 0.034996, -0.0017917, 0, 0.000531433, 0.117986, -4.92051, 1.25435, -9.16038)
-PickUpDialogue = "A post-it that says:
-    psswd: iluvclaudia"
-
-[node name="CollisionShape3D" parent="PostIt" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0, 7.40235, -0.0313568)
-
-[node name="MeshInstance3D" parent="PostIt" index="1"]
-transform = Transform3D(0.584358, 0, 0, 0, 0.374507, 0, 0, 6.98492e-10, 1.36499, 0, -1.7547, -1.50489)
-
-[node name="Building" type="Node3D" parent="."]
-
-[node name="building_01_1" parent="Building" instance=ExtResource("25_2fapa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2999, -81.49, 0)
-
-[node name="building_02_2" parent="Building" instance=ExtResource("27_kbk06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4843, -81.49, -55)
-
-[node name="building_03_1" parent="Building" instance=ExtResource("28_70ipc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.484, -81.49, -55)
-
-[node name="building_04_2" parent="Building" instance=ExtResource("25_xsvuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.015, -81.49, 0)
-
-[node name="building_05_2" parent="Building" instance=ExtResource("26_5v0h1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.015, -81.49, 0)
-
-[node name="building_06_2" parent="Building" instance=ExtResource("27_pa51l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.015, -81.49, -136)
-
-[node name="building_08_2" parent="Building" instance=ExtResource("28_4p0f8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9173, -81.49, -136)
-
-[node name="building_01_2" parent="Building" instance=ExtResource("25_2fapa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.7, -81.49, 0)
-
-[node name="building_02_3" parent="Building" instance=ExtResource("27_kbk06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.516, -81.49, -55)
-
-[node name="building_03_2" parent="Building" instance=ExtResource("28_70ipc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.516, -81.49, -55)
-
-[node name="building_04_3" parent="Building" instance=ExtResource("25_xsvuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.985, -81.49, 0)
-
-[node name="building_05_3" parent="Building" instance=ExtResource("26_5v0h1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.985, -81.49, 0)
-
-[node name="building_06_3" parent="Building" instance=ExtResource("27_pa51l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.985, -81.49, -136)
-
-[node name="building_08_3" parent="Building" instance=ExtResource("28_4p0f8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.083, -81.49, -136)
-
-[node name="building_07_2" parent="Building" instance=ExtResource("30_q4x63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.083, -81.49, 55.1875)
-
-[node name="building_07_1" parent="Building" instance=ExtResource("30_q4x63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9173, -81.49, 55.1875)
-
-[node name="AnniversaryGift" parent="." instance=ExtResource("14_mxh22")]
-transform = Transform3D(-0.217171, -7.7647e-23, -8.67465e-09, 0, 0.217171, 0, 1.89856e-08, -8.88178e-16, -0.0992264, -9.54797, 0.894247, -16.8001)
-stateString = ""
-prompt_message = "Pickup"
-
-[node name="CollisionShape3D" parent="AnniversaryGift" index="0"]
-transform = Transform3D(3.72608, 0, 0, 0, 3.72608, 0, 0, 0, 3.72608, 0, 0.805835, 0)
-
-[node name="TeleportHallway" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.9811)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportHallway"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33871, 0, 0)
-shape = SubResource("BoxShape3D_s8ehr")
-
-[node name="hallwaymarker" type="Marker3D" parent="TeleportHallway"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.1159)
-
-[node name="jumpscareTrigger" parent="." node_paths=PackedStringArray("npc") instance=ExtResource("34_ps261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.14527, -0.491047)
-npc = NodePath("../Kenneth")
-
-[node name="CollisionShape3D" parent="jumpscareTrigger" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935411, 0, 0)
-
-[node name="Camera3D" parent="jumpscareTrigger" index="1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.370526, 0.344429, 0.140175)
-
-[node name="Marker3D" parent="jumpscareTrigger" index="2"]
-transform = Transform3D(-0.055595, 0, 0.998453, 0, 1, 0, -0.998453, 0, -0.055595, 0, -1.5, 0.14)
-
-[node name="Kenneth" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("35_y76t7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.3486, 0.000999928, 12.4441)
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("36_n0ikk")
-voiceID = 7
-
-[node name="Layla" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("37_d3iy8")]
-transform = Transform3D(0.480836, 0, -0.876811, 0, 1, 0, 0.876811, 0, 0.480836, -7.76859, 0.000999808, 5.92618)
-textbox = NodePath("../Player/Head/TextBox")
-
-[node name="LooseTimer" type="Timer" parent="."]
-wait_time = 18.0
-script = ExtResource("38_lf5e1")
-
-[node name="Gaucho" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("40_l575m")]
-transform = Transform3D(-0.952252, 0, 0.305313, 0, 1, 0, -0.305313, 0, -0.952252, -3.84675, 0.000999928, -28.1345)
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("43_wyryu")
-addMaskComment = true
-MaskComment = "...."
-
-[node name="HideJohnMarker" type="Marker3D" parent="."]
-transform = Transform3D(0.591352, 0, -0.806414, 0, 1, 0, 0.806414, 0, 0.591352, 12.1512, -0.109103, 68.7501)
-
-[node name="OfficeNPC" parent="." node_paths=PackedStringArray("textbox") instance=ExtResource("44_w4mpy")]
-transform = Transform3D(-0.533954, 0, 0.845514, 0, 1, 0, -0.845514, 0, -0.533954, -6.73891, 0.00100017, -23.2604)
-sitting = true
-textbox = NodePath("../Player/Head/TextBox")
-dialogue_json = ExtResource("45_t8ujh")
-voiceID = 5
-lookatplayerindialogue = false
-
-[node name="RootNode" parent="OfficeNPC" index="0"]
-transform = Transform3D(0.669831, 0, -0.742514, 0, 1, 0, 0.742514, 0, 0.669831, -0.0853748, 0.0228505, -0.131001)
-
-[node name="Skeleton3D" parent="OfficeNPC/RootNode/master/Reference" index="0"]
-bones/0/position = Vector3(0.014801, 1.02193, -0.0351991)
-bones/0/rotation = Quaternion(-0.720623, 0.0136595, -0.0137463, 0.693056)
-bones/1/rotation = Quaternion(0.494747, 0.493495, 0.504384, -0.507233)
-bones/2/rotation = Quaternion(-0.0190536, -0.0292015, 0.0052126, 0.999378)
-bones/3/rotation = Quaternion(-0.0182306, -0.0506002, 0.00671364, 0.99853)
-bones/4/rotation = Quaternion(0.00505199, 0.239736, 0.00379648, 0.970818)
-bones/5/rotation = Quaternion(-0.0102509, -0.0737313, -0.0316714, 0.996722)
-bones/9/rotation = Quaternion(-0.0365672, 0.150104, -0.728172, 0.667755)
-bones/10/rotation = Quaternion(-0.126613, 0.173933, -0.534962, 0.817026)
-bones/11/rotation = Quaternion(-0.000308502, 0.255995, 0.000306669, 0.966678)
-bones/12/rotation = Quaternion(0.00753242, -0.189837, -0.0236546, 0.981502)
-bones/14/rotation = Quaternion(-0.0687337, 0.122753, -0.171725, 0.975048)
-bones/15/rotation = Quaternion(0.029303, -0.0222503, -0.0244577, 0.999024)
-bones/16/rotation = Quaternion(-0.0408285, 0.00706738, 0.0301244, 0.998687)
-bones/19/rotation = Quaternion(-0.0359829, -0.209691, -0.0158596, 0.976977)
-bones/20/rotation = Quaternion(8.8562e-05, -0.0290352, -0.372634, 0.927524)
-bones/21/rotation = Quaternion(0.00621024, -0.00799789, -0.0948813, 0.995437)
-bones/23/rotation = Quaternion(-0.000956153, 0.0170233, -0.0810176, 0.996567)
-bones/24/rotation = Quaternion(0.00082689, -0.0273865, -0.327029, 0.944617)
-bones/25/rotation = Quaternion(0.00557765, -0.00767947, -0.0850757, 0.996329)
-bones/27/rotation = Quaternion(-0.00992039, 0.0345639, -0.191083, 0.980915)
-bones/28/rotation = Quaternion(-0.00232641, -0.0209148, -0.270645, 0.962449)
-bones/29/rotation = Quaternion(0.00773075, -0.00798298, -0.0965745, 0.995264)
-bones/32/rotation = Quaternion(-0.0485851, 0.269099, -0.204117, 0.93998)
-bones/33/rotation = Quaternion(0.00254263, -0.0176849, -0.204141, 0.978779)
-bones/34/rotation = Quaternion(0.000783689, -0.00986655, -0.109576, 0.993929)
-bones/36/rotation = Quaternion(0.720052, -0.685079, -0.0838026, 0.0719002)
-bones/37/rotation = Quaternion(-0.127174, 0.12158, -0.562348, 0.807967)
-bones/38/rotation = Quaternion(-0.000310202, 0.246269, 0.00028712, 0.969202)
-bones/39/rotation = Quaternion(-0.0915125, -0.186362, -0.103356, 0.972735)
-bones/41/rotation = Quaternion(0.639869, -0.248304, -0.0437724, -0.725946)
-bones/42/rotation = Quaternion(0.0993277, 0.00206666, -0.0908764, 0.990894)
-bones/43/rotation = Quaternion(-0.0403353, -0.0268535, -0.000529408, 0.998825)
-bones/46/rotation = Quaternion(-0.0107835, -0.177626, -0.143146, 0.973572)
-bones/47/rotation = Quaternion(9.26913e-05, -0.0234316, -0.305092, 0.952035)
-bones/48/rotation = Quaternion(0.00617126, -0.0125626, -0.150878, 0.988453)
-bones/50/rotation = Quaternion(-0.00555761, 0.0552954, -0.217709, 0.97443)
-bones/51/rotation = Quaternion(0.000855908, -0.0171519, -0.207586, 0.978066)
-bones/52/rotation = Quaternion(0.000922606, -0.0109418, -0.129581, 0.991508)
-bones/54/rotation = Quaternion(-0.0081362, 0.0587002, -0.264433, 0.962582)
-bones/55/rotation = Quaternion(-0.00238723, -0.0114874, -0.150856, 0.988486)
-bones/56/rotation = Quaternion(0.00173818, -0.00734625, -0.0971344, 0.995243)
-bones/59/rotation = Quaternion(-0.0767581, 0.263258, -0.280208, 0.919939)
-bones/60/rotation = Quaternion(-0.00399562, 0.0192635, -0.185973, 0.982358)
-bones/61/rotation = Quaternion(0.000786667, -0.00595976, -0.0670685, 0.99773)
-bones/63/rotation = Quaternion(-0.453959, 0.632393, 0.405373, 0.479242)
-bones/64/rotation = Quaternion(0.0354612, -0.239008, 0.00912519, 0.970327)
-bones/65/rotation = Quaternion(-0.500507, 0.486544, 0.428574, 0.573665)
-bones/66/rotation = Quaternion(-1.61804e-06, -4.98772e-07, 0.0584436, 0.998291)
-bones/68/rotation = Quaternion(-0.441516, 0.4464, -0.581506, -0.517341)
-bones/69/rotation = Quaternion(0.0797734, -0.283101, 0.00698781, 0.955741)
-bones/70/rotation = Quaternion(-0.493775, 0.495179, 0.48002, 0.529684)
-bones/71/rotation = Quaternion(-3.89299e-05, -1.24849e-05, 0.0615911, 0.998101)
-
 [connection signal="custom_signal_received" from="Player/Head/TextBox/EzDialogue" to="." method="_on_ez_dialogue_custom_signal_received"]
 [connection signal="correctpass" from="PC2/PassWordViewport" to="." method="_on_pass_word_viewport_correctpass"]
 [connection signal="body_entered" from="TeleportHallway" to="." method="_on_teleport_hallway_body_entered"]
 [connection signal="timeout" from="LooseTimer" to="LooseTimer" method="_on_timeout"]
 
+[editable path="Player"]
+[editable path="Player/Head/TextBox"]
+[editable path="Player/CanvasLayer/pager"]
+[editable path="PC2"]
+[editable path="PC2/TextSubViewport"]
+[editable path="PostIt"]
+[editable path="AnniversaryGift"]
+[editable path="jumpscareTrigger"]
+[editable path="OfficeNPC"]
 [editable path="Environment/Room"]
 [editable path="Environment/Room/Mirror"]
 [editable path="Environment/Room2"]
@@ -887,11 +890,3 @@ bones/71/rotation = Quaternion(-3.89299e-05, -1.24849e-05, 0.0615911, 0.998101)
 [editable path="Environment/Room12/Mirror"]
 [editable path="Environment/EmptyRooms/EmptyRoom"]
 [editable path="Environment/BigRooms/MessHall"]
-[editable path="Player"]
-[editable path="Player/Head/TextBox"]
-[editable path="PC2"]
-[editable path="PC2/TextSubViewport"]
-[editable path="PostIt"]
-[editable path="AnniversaryGift"]
-[editable path="jumpscareTrigger"]
-[editable path="OfficeNPC"]

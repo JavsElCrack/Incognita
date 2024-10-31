@@ -21,6 +21,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var maskui = $MaskUi
 @onready var crosshair = $Head/Crosshair
 @onready var anim_tree = $AnimationTree
+@onready var pager = $CanvasLayer/pager/SubViewport
+@onready var chromatic_chaos = $"CanvasLayer/chromatic chaos"
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -107,3 +110,15 @@ func _on_text_box_dialogue_ended():
 	isinDialogue = false
 	#$Head/Camera3D.rotation = initialHeadRot
 	raycast.isInDialogue = false
+
+
+#Pager Message
+
+
+func pagerMessage(message : String):
+	pager.updatePagerText(message)
+	pager.slidein()
+	chromatic_chaos.visible = true
+	await get_tree().create_timer(5).timeout
+	pager.slideout()
+	chromatic_chaos.visible = false

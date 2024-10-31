@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4omq57tqe343"]
+
+[ext_resource type="PackedScene" uid="uid://3nq7sdqfkpyk" path="res://UI/job_progress.tscn" id="1_03qvo"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(1.5, 1.5)
+
+[node name="SubViewport" parent="." instance=ExtResource("1_03qvo")]
+handle_input_locally = false
+render_target_update_mode = 4

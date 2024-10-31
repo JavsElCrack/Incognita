@@ -14,6 +14,8 @@ var playerInArea = false
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	maskDialogueInitial()
+	await get_tree().create_timer(5).timeout
+	GameState.pagerMessage("BOSS: Get back to work!")
 
 
 
