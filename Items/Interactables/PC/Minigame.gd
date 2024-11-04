@@ -109,5 +109,8 @@ func play_pickup_sound():
 func trigger_event():
 	GameState.mask_dialogue("Better get back to work!")
 
+
+func pagerMessages():
+	pass
 func _unhandled_input(event):
 	pass

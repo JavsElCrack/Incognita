@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://3nq7sdqfkpyk"]
+[gd_scene load_steps=15 format=3 uid="uid://3nq7sdqfkpyk"]
 
 [ext_resource type="Script" path="res://UI/job_progress.gd" id="1_y1htj"]
 [ext_resource type="Texture2D" uid="uid://b05yio6wu5vkc" path="res://Models/pager/Gold Apollo AR924-c7f15a29f5a3e3963cdf5ed2b379619c_pager_luminance.png" id="2_64vwi"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_5vokc"]
+[ext_resource type="AudioStream" uid="uid://cv7abq251fg38" path="res://Sound/SingleSoundEffects/Motorola Pager.wav" id="4_5n3td"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuiif"]
 albedo_texture = ExtResource("2_64vwi")
@@ -63,10 +64,34 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.0674602, 0, -0.919392)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.35116, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_n2j2a"]
 resource_name = "slidein"
-length = 0.2
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,7 +102,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-2.91902, 0, -0.919392), Vector3(0.0674602, 0, -0.919392)]
+"values": [Vector3(-1.40934, 0, -0.919392), Vector3(0.0674602, 0, -0.919392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0743135, -1.46487, 0.609594), Vector3(0, 0.35116, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_j5c0s"]
@@ -152,3 +201,6 @@ autowrap_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_whvkd")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5n3td")

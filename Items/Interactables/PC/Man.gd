@@ -11,10 +11,10 @@ func _ready():
 func _on_body_entered(body):
 	# Check if the body is the player
 	if body.is_in_group("2dplayer"):
-		if GameState.state["MinigameProgress"]+10 >= 100:
+		if GameState.state["MinigameProgress"]+20 >= 100:
 			GameState.state["MinigameProgress"]= 100
 		else:
-			GameState.state["MinigameProgress"]+=10
+			GameState.state["MinigameProgress"]+=20
 		
 		pickup.emit()
 		queue_free()
