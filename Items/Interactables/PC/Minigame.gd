@@ -9,22 +9,19 @@ extends SubViewport
 @export var audioclips : Array[AudioStreamWAV]
 @onready var audiosource = $AudioStreamPlayer
 @onready var pickup = $Pickup
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-var cooldown = 0.0  # Variable to track cooldown time
-const COOLDOWN_TIME = 5.0  # 5 seconds cooldown
-
+@onready var pager_timer = $PagerTimer
+@export_multiline var pager_messages : Array[String]
+var cooldown = 0.0  
+const COOLDOWN_TIME = 5.0  
 const MIN_PITCH = 0.2
 const MAX_PITCH = 3
 
 var enableminigame = false
-		# Get the viewport size
 var viewport_size 
 
 var player_size = Vector2(64, 64)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	# Get the viewport size
 	viewport_size = get_visible_rect().size
 	viewport_size.x -= 10
 	viewport_size.y -= 10
@@ -40,13 +37,15 @@ func _ready():
 func _physics_process(delta):
 	if GameState.state["MinigameProgress"] > 0:
 		GameState.state["MinigameProgress"] -= 0.2 * get_physics_process_delta_time()
-	# Decrease cooldown over time
+		if GameState.state["MinigameProgress"] <= 35 && pager_timer.is_stopped():
+			pagerMessages()
+		elif GameState.state["MinigameProgress"] > 35:
+			if pager_timer.is_stopped() == false:
+				pager_timer.stop()
 	if cooldown > 0:
 		cooldown -= delta
 	else:
-		# Check if the MinigameProgress is 0.3 and cooldown has elapsed
 		if GameState.state["MinigameProgress"] == 30:
-			# Call your custom function and reset the cooldown
 			trigger_event()
 			cooldown = COOLDOWN_TIME
 	
@@ -62,24 +61,16 @@ func _physics_process(delta):
 			velocity.x -= 1
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
-
 		if Input.is_action_just_pressed("move_down") || Input.is_action_just_pressed("move_left") || Input.is_action_just_pressed("move_right") || Input.is_action_just_pressed("move_up"):
 			play_keyboard()
-
 		if velocity != Vector2.ZERO:
 			velocity = velocity.normalized() * SPEED
-
-		# Update player position
 		player.position += velocity * delta
-
-		# Assuming the player has a defined size (e.g., 64x64 pixels)
 		var player_size = Vector2(64, 64)
-
-		# Clamp the player position to stay within the viewport boundaries
 		player.position.x = clamp(player.position.x, 0, viewport_size.x - player_size.x)
 		player.position.y = clamp(player.position.y, 0, viewport_size.y - player_size.y)
 
-# Called every time the timer times out
+
 func _on_Timer_timeout():
 	if enableminigame:
 		spawn_object()
@@ -92,17 +83,18 @@ func play_keyboard():
 	audiosource.play()
 
 
-# Function to spawn an object
+
 func spawn_object():
 	if object_to_spawn:
 		var instance = object_to_spawn.instantiate()
 		canvas_layer.add_child(instance)
 
-		# Set a random position within the viewport
 		var position_x = randf_range(0, viewport_size.x)
 		var position_y = randf_range(0, viewport_size.y)
 		instance.position = Vector2(position_x, position_y)
 		instance.connect("pickup",play_pickup_sound)
+
+
 func play_pickup_sound():
 	pickup.play()
 
@@ -111,6 +103,11 @@ func trigger_event():
 
 
 func pagerMessages():
-	pass
+	if pager_timer.is_stopped() == true:
+		pager_timer.start()
 func _unhandled_input(event):
 	pass
+
+
+func _on_pager_timer_timeout():
+	GameState.pagerMessage(pager_messages.pick_random())

@@ -10,8 +10,6 @@ var t_bob = 0.0
 var initialHeadRot
 var lockmovement = false
 var isinDialogue = false
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var mesh = $Mesh
@@ -34,16 +32,14 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-70),deg_to_rad(70))
 
 func _physics_process(delta):
-	# Add the gravity.
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	# Handle jump.
+
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() && !lockmovement:
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction && !lockmovement:
@@ -53,11 +49,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	#Head bob
+
 	t_bob += delta*velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
-	#Animation
+
 	mesh.look_at(Vector3(lookat.global_position.x,global_position.y,lookat.global_position.z))
 	
 	anim_tree.set("parameters/conditions/idle",input_dir == Vector2.ZERO && is_on_floor() && !Input.is_action_pressed("emote"))

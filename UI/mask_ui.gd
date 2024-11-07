@@ -23,7 +23,6 @@ func mask_dialogue(text: String):
 
 
 func _on_text_box_dialogue_ended():
-	print("sexoooooo")
 	isPlaying = false
 	if remove != null:
 		playqueue.erase(remove)
@@ -32,6 +31,5 @@ func _on_text_box_dialogue_ended():
 		remove = playqueue[0]
 
 func _on_text_box_dialogue_started():
-	print("coito")
 	isPlaying = true
 	

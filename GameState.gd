@@ -6,7 +6,7 @@ func _ready():
 var state := {
 	"null" : null,
 	"enableMinigame": false,
-	"MinigameProgress": 70,
+	"MinigameProgress": 30,
 	"TestPickup": 0,
 	"TestPickupFlag": true, 
 	"flags": {
@@ -25,7 +25,8 @@ var state := {
 			"firsttime": true,
 		},
 		"John": {
-			"readNeilEmail": false
+			"readNeilEmail": false,
+			"cutsceneJohn": true,
 		},
 		"Kenneth": {
 			"jumpscare": false

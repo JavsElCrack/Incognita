@@ -104,6 +104,7 @@ render_target_update_mode = 4
 script = ExtResource("1_ocx0v")
 object_to_spawn = ExtResource("2_pnean")
 audioclips = Array[AudioStreamWAV]([ExtResource("3_mg3is"), ExtResource("4_vin6i"), ExtResource("5_bdpcy"), ExtResource("6_7cxmp"), ExtResource("7_4buju"), ExtResource("8_p13ux"), ExtResource("9_d88xt"), ExtResource("10_gcpb3"), ExtResource("11_uya1b"), ExtResource("12_jih0v")])
+pager_messages = Array[String](["BOSS: GET BACK TO WORK!", "BOSS: YOU WILL BE REPORTED!", "BOSS: WORK WORK WORK!", "BOSS: WHAT ARE YOU DOING!", "BOSS: STOP WANDERING ABOUT!", "BOSS: STOP SLACKING!", "BOSS:  STOP SOCIALIZING!", "BOSS: ARE YOU ALLERGIC TO YOUR DESK.", "BOSS: WHAT ARE YOU DOING?!", "BOSS: STOP FLIRTING WITH YOUR COWORKERS", "BOSS: I HOPE YOU LIKE YOUR NEXT PAYCHECK", "BOSS: I'M NOT PAYING FOR YOU  TO STAND AROUND!"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -185,3 +186,8 @@ text = "Inc[o]gnita Inc. 0s v.1.0.15 "
 
 [node name="Pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_py1x6")
+
+[node name="PagerTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="PagerTimer" to="." method="_on_pager_timer_timeout"]

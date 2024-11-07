@@ -9,13 +9,9 @@ extends Interactable
 var doorOpen = false
 
 func _ready():
-	print("Label reference for doorNumber:", doorNumber, label.text)
-#	label.text = doorNumber
 	_set_viewport_mat(mesh_instance_3d, sub_viewport)
-	print("Label reference for doorNumber:", doorNumber, label.text)
 
 func _on_interacted(_body):
-#	label.text = doorNumber
 	if checkFlag:
 		if GameState.state["flags"]["Door"][flagString] == true:
 			toggleDoor()

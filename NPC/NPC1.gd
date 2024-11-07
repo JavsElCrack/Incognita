@@ -90,3 +90,7 @@ func updateVoiceID(ID :int):
 func _on_navigation_agent_3d_target_reached():
 	follow_target = false
 	npc.velocity = Vector3.ZERO
+
+
+func hanging():
+	statemachine.set("parameters/conditions/hanging",true)
