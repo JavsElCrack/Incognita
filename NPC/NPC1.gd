@@ -94,3 +94,6 @@ func _on_navigation_agent_3d_target_reached():
 
 func hanging():
 	statemachine.set("parameters/conditions/hanging",true)
+
+func falling():
+	statemachine.set("parameters/conditions/falling",true)

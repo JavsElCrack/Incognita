@@ -6,11 +6,13 @@ var playerInArea = false
 var gamePlayTimer = 7
 @export var kennethdDiag : JSON
 @export var newJohnDiag : JSON
+@onready var gunshot = $johnjumpscareTrigger2/Gunshot
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
 @onready var kenneth: NPC = $Kenneth 
 @onready var hide_john_marker = $HideJohnMarker
 @onready var john = $John
+@onready var johnJupscare = $johnjumpscareTrigger2
 
 
 func _ready():
@@ -76,3 +78,12 @@ func maskDialogueInitial():
 	GameState.state["flags"]["Door"]["playerDoor"] = true
 func openSmokeLounge():
 	GameState.state["flags"]["Door"]["smokeLounge"] = true
+
+
+func triggerJohnEnd():
+	gunshot.play()
+	await get_tree().create_timer(0.05).timeout
+	player.toggleBlackScreen()
+	await get_tree().create_timer(1).timeout
+	player.toggleBlackScreen()
+	johnJupscare.bloodsplatter()

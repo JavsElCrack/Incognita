@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://chhqyqqpxvhbd"]
+
+[ext_resource type="Script" path="res://Objects/bloodsplatter.gd" id="1_ml0tl"]
+[ext_resource type="Shader" path="res://Shaders/chroma_key2.gdshader" id="2_k61ho"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jw84b"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpmwl"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("ViewportTexture_jw84b")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bx8yq"]
+material = SubResource("StandardMaterial3D_hpmwl")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lr2at"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk2pg"]
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_lr2at")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l382j"]
+shader = ExtResource("2_k61ho")
+shader_parameter/key_color = Color(0.121569, 0.796078, 0.117647, 1)
+shader_parameter/similarity = 0.33
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_gon0d"]
+file = "res://video/bloodsplater.ogv"
+
+[node name="blood splatter" type="MeshInstance3D"]
+transform = Transform3D(3.39529e-15, 7.30144e-30, 1, -7.76751e-08, 1, 1.59578e-37, -1.777, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+mesh = SubResource("QuadMesh_bx8yq")
+surface_material_override/0 = SubResource("StandardMaterial3D_wk2pg")
+script = ExtResource("1_ml0tl")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+position = Vector2(965, 539)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/Camera2D"]
+material = SubResource("ShaderMaterial_l382j")
+offset_left = -965.0
+offset_top = -559.0
+offset_right = 955.0
+offset_bottom = 529.0
+stream = SubResource("VideoStreamTheora_gon0d")
+
+[connection signal="finished" from="SubViewport/Camera2D/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

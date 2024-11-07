@@ -9,6 +9,7 @@ var state := {
 	"MinigameProgress": 30,
 	"TestPickup": 0,
 	"TestPickupFlag": true, 
+	"doJob" : true,
 	"flags": {
 		"Neil": {
 			"firsttime": true,
@@ -35,6 +36,7 @@ var state := {
 	}
 }
 
+
 var dialgpos = Vector2(1262, 747.8)
 func mask_dialogue(text:String):
 	player = get_tree().get_nodes_in_group("player")
@@ -44,3 +46,8 @@ func mask_dialogue(text:String):
 func pagerMessage(message : String):
 	player = get_tree().get_nodes_in_group("player")
 	(player[0] as Player).pagerMessage(message)
+
+
+func stopJob():
+	GameState.state["doJob"] = false
+	GameState.state["MinigameProgress"] = 100

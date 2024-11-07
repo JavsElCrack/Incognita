@@ -36,7 +36,8 @@ func _ready():
 
 func _physics_process(delta):
 	if GameState.state["MinigameProgress"] > 0:
-		GameState.state["MinigameProgress"] -= 0.2 * get_physics_process_delta_time()
+		if GameState.state["doJob"]:
+			GameState.state["MinigameProgress"] -= 0.2 * get_physics_process_delta_time()
 		if GameState.state["MinigameProgress"] <= 35 && pager_timer.is_stopped():
 			pagerMessages()
 		elif GameState.state["MinigameProgress"] > 35:
@@ -111,3 +112,4 @@ func _unhandled_input(event):
 
 func _on_pager_timer_timeout():
 	GameState.pagerMessage(pager_messages.pick_random())
+	print("JobProgress%: ",GameState.state["MinigameProgress"] )

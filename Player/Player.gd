@@ -10,6 +10,7 @@ var t_bob = 0.0
 var initialHeadRot
 var lockmovement = false
 var isinDialogue = false
+var blackScreenToggle = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var mesh = $Mesh
@@ -107,6 +108,14 @@ func _on_text_box_dialogue_ended():
 	#$Head/Camera3D.rotation = initialHeadRot
 	raycast.isInDialogue = false
 
+
+func toggleBlackScreen():
+	if blackScreenToggle:
+		$CanvasLayer/Black.visible = true
+		blackScreenToggle = false
+	else:
+		$CanvasLayer/Black.visible = false
+		blackScreenToggle = true
 
 #Pager Message
 
