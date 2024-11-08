@@ -1,0 +1,62 @@
+[
+	{
+		"commands_raw": "Did you talk to Gaucho?\n?> Yes -> Diag Node",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			600,
+			260
+		]
+	},
+	{
+		"commands_raw": "Any info on John?\nI hope Gaucho knows something\n?> He talked to Guacho -> Diag Node_1",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			860,
+			280
+		]
+	},
+	{
+		"commands_raw": "Is that it?\n?> Yes -> Diag Node_2\n?> No -> Diag Node_3",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			1060,
+			280
+		]
+	},
+	{
+		"commands_raw": "I looked at Gaucho's computer.\nI don't want to say too much.\nThere is a text file you NEED to read.\nI left the door unlocked.\n?> What is Gaucho psswd? -> Diag Node_4",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			1580,
+			140
+		]
+	},
+	{
+		"commands_raw": "What else?\n?> He said John is leaving -> Diag Node_2",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			1340,
+			340
+		]
+	},
+	{
+		"commands_raw": "trustnoone\nsignal(unlockGauchoDoor)",
+		"gnode_name": "diag node_4",
+		"id": 5,
+		"name": "Diag Node_4",
+		"position": [
+			1820,
+			220
+		]
+	}
+]

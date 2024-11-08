@@ -5,6 +5,7 @@ var playercam
 @onready var text_sub_viewport = $TextSubViewport
 @onready var sub_viewport_pass = $PassWordViewport
 @export_multiline var text
+
 var player
 var toggle = false
 var checkTransition = false
@@ -54,5 +55,5 @@ func _set_viewport_mat(_display_mesh : MeshInstance3D, _sub_viewport : SubViewpo
 
 
 
-func _on_pass_word_viewport_correctpass():
+func _on_pass_word_viewport_correctpass(pcText):
 	_set_viewport_mat(screen,text_sub_viewport)

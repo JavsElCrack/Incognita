@@ -6,7 +6,7 @@ func _ready():
 var state := {
 	"null" : null,
 	"enableMinigame": false,
-	"MinigameProgress": 30,
+	"MinigameProgress": 100,
 	"TestPickup": 0,
 	"TestPickupFlag": true, 
 	"doJob" : true,
@@ -21,6 +21,12 @@ var state := {
 			"playerDoor": false,
 			"laylaDoor": false,
 			"smokeLounge": false,
+			"gauchoDoor" :  false,
+		},
+		"ComputerRead": {
+			"default": false,
+			"Neil": false,
+			"Gaucho":false,
 		},
 		"Claudia": {
 			"firsttime": true,
@@ -34,6 +40,9 @@ var state := {
 		},
 		"Layla": {
 			"jumpscare": false
+		},
+		"Guacho": {
+			"computer": false
 		},
 		"firsttimedialog" : true
 	}

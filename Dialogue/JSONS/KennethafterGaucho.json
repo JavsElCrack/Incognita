@@ -1,1 +1,32 @@
-[{"commands_raw":"You smell like cigarettes. What did Gaucho say?\n?>  Cryptic Stuff -> Diag Node\n?> We don't have much time -> Diag Node","gnode_name":"start","id":0,"name":"start","position":[0,0]},{"commands_raw":"Anything about where John is?\n\n?> Gaucho talked to John -> Diag Node_1","gnode_name":"diag node","id":1,"name":"Diag Node","position":[1020,160]},{"commands_raw":"Look I know John's computer password.\nIt's layla1977\nI hope we are not too late.\n","gnode_name":"diag node_1","id":2,"name":"Diag Node_1","position":[1340,140]}]
+[
+	{
+		"commands_raw": "You smell like cigarettes. What did Gaucho say?\n?>  Cryptic Stuff -> Diag Node\n?> We don't have much time -> Diag Node",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "Anything about where John is?\n\n?> Gaucho talked to John -> Diag Node_1",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			1020,
+			160
+		]
+	},
+	{
+		"commands_raw": "Look I know John's computer password.\nIt's layla1977\nI hope we are not too late.\n",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			1340,
+			140
+		]
+	}
+]

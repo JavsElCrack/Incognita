@@ -1,0 +1,32 @@
+[
+	{
+		"commands_raw": "Leave me and Look for John\n$if flags[\"ComputerRead\"][\"Gaucho\"]{\n?> I went into your computer -> Diag Node_1\n}",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			100,
+			-40
+		]
+	},
+	{
+		"commands_raw": "Then you understand why John left\nYou should ",
+		"gnode_name": "diag node_1",
+		"id": 1,
+		"name": "Diag Node_1",
+		"position": [
+			640,
+			-60
+		]
+	},
+	{
+		"commands_raw": "Did you read my computer",
+		"gnode_name": "diag node",
+		"id": 2,
+		"name": "Diag Node",
+		"position": [
+			0,
+			0
+		]
+	}
+]

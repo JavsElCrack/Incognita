@@ -5,10 +5,11 @@ extends SubViewport
 @export var audioclips: Array[AudioStreamWAV]
 @onready var audiosource = $AudioStreamPlayer
 @onready var progress_bar = $CanvasLayer/ProgressBar
+@export var pcFlag : String = "default"
 var typed_text: String = ""
 const MIN_PITCH = 0.2
 const MAX_PITCH = 3
-signal correctpass
+signal correctpass(pcFlag)
 var keys_pressed: Dictionary = {}
 
 func _ready():
@@ -18,7 +19,7 @@ func _physics_process(delta):
 	progress_bar.value = GameState.state["MinigameProgress"]
 	$CanvasLayer/PasswordLabel.text = "Password: " + typed_text
 	if typed_text == password:
-		emit_signal("correctpass")
+		emit_signal("correctpass",pcFlag)
 	if is_typing:
 		handle_typing()
 

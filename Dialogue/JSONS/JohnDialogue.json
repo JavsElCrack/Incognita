@@ -1,6 +1,6 @@
 [
 	{
-		"commands_raw": "Hey new guy, I’m John\n?>  Ask about Job. -> Diag Node\n$if flags[\"John\"][\"readNeilEmail\"]{\n    ?>Ask about Kenneth-> Diag Node_1\n}\n",
+		"commands_raw": "Hey new guy, I’m John\n?>  Ask about Job. -> Diag Node\n$if flags[\"ComputerRead\"][\"Neil\"]{\n    ?>Ask about Kenneth-> Diag Node_1\n}\n",
 		"gnode_name": "start",
 		"id": 0,
 		"name": "start",

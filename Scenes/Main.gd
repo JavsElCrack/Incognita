@@ -36,8 +36,8 @@ func _on_ez_dialogue_custom_signal_received(value):
 
 
 
-func _on_pass_word_viewport_correctpass():
-	GameState.state["flags"]["John"]["readNeilEmail"] = true
+func _on_pass_word_viewport_correctpass(pcFlag):
+	GameState.state["flags"]["ComputerRead"][pcFlag] = true
 
 
 func _on_area_3d_body_entered(body):
@@ -105,6 +105,14 @@ func johnWindowMask1():
 
 func johnWindowMask2():
 	GameState.mask_dialogue("That's not a smart move.")
+
+
+func unlockGauchoDoor():
+	GameState.state["flags"]["Door"]["gauchoDoor"] = true
+
+func triggerJohnCutscene():
+	GameState.state["flags"]["John"]["cutsceneJohn"] = true
+
 
 
 func endGauchoIntro():

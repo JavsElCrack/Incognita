@@ -46,6 +46,9 @@ func _on_interacted(body):
 			GameState.state["enableMinigame"] = false
 			sub_viewport.enableminigame = false
 			toggle = false
+
+
+
 func _set_viewport_mat(_display_mesh : MeshInstance3D, _sub_viewport : SubViewport, _surface_id : int = 0):
 	var _mat : StandardMaterial3D = StandardMaterial3D.new()
 	_mat.albedo_texture = _sub_viewport.get_texture()
@@ -54,6 +57,6 @@ func _set_viewport_mat(_display_mesh : MeshInstance3D, _sub_viewport : SubViewpo
 
 
 
-func _on_pass_word_viewport_correctpass():
+func _on_pass_word_viewport_correctpass(pcFlag):
 	GameState.state["enableMinigame"] = true
 	_set_viewport_mat(screen,sub_viewport)
