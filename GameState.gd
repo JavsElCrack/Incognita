@@ -32,6 +32,9 @@ var state := {
 		"Kenneth": {
 			"jumpscare": false
 		},
+		"Layla": {
+			"jumpscare": false
+		},
 		"firsttimedialog" : true
 	}
 }

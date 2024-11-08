@@ -19,6 +19,7 @@ func _process(delta):
 
 func changeCamera(body):
 		if body.is_in_group("player"):
+			GameState.state["doJob"] =  false
 			npc.global_transform = marker_3d.global_transform
 			playercam = (body as Player).camera
 			player = body
@@ -30,7 +31,7 @@ func changeCamera(body):
 				(body as Player).crosshair.visible = false
 				toggle = true
 				npc.startDialogue(player)
-			else:
+			else:	
 				print("PC to Player")
 				CameraTransition.transition_camera(jumpCam,playercam,timeJ)
 				(body as Player).raycast.showPrompt = true
@@ -43,6 +44,7 @@ func changeCamera(body):
 				npc.textbox.clear_dialogue_box()
 				npc.textbox.dialogue_ended.emit()
 				GameState.state["flags"]["Kenneth"]["jumpscare"] = false
+				GameState.state["doJob"] =  true
 
 func rotateNPC():
 	var initialrot = npc.rotation

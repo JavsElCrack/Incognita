@@ -7,8 +7,11 @@ var timeJ  = 0.05
 @export var npc : NPC
 @export var bloodsplatterO : BloodSplatter
 @export var PlayerStartMarker : Marker3D
+@export var newDialogue : JSON
 @onready var jumpCam = $Camera3D
 @onready var marker_3d = $Marker3D
+@onready var gunshot = $Gunshot
+
 #https://www.youtube.com/watch?v=WCQol0VmA24 blood effects 0:32
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +24,7 @@ func _process(delta):
 
 func changeCamera(body):
 		if body.is_in_group("player"):
+			npc.dialogue_json = newDialogue
 			GameState.stopJob()
 			print("Stopping Job")
 			npc.position = marker_3d.position
@@ -71,8 +75,10 @@ func _on_body_entered(body):
 
 
 func _on_blood_splatter_bloodsplatter_end():
+	gunshot.stop()
 	player = player as Player
 	player.toggleBlackScreen()
+	player.posterization.visible = false
 	changeCamera(player)
 	npc.visible = false
 	player.transform = PlayerStartMarker.transform

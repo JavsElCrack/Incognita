@@ -60,7 +60,7 @@
 		]
 	},
 	{
-		"commands_raw": "He came here recently, \nhe asked me questions I didn't know the answers of. \nHe is planning on leaving this place very soon. \nIf you want to see him you should hurry up.",
+		"commands_raw": "He came here recently, \nhe asked me questions I didn't know the answers of. \nHe is planning on leaving this place very soon. \nIf you want to see him you should hurry up.\nsignal(endGauchoIntro)",
 		"gnode_name": "diag node_5",
 		"id": 6,
 		"name": "Diag Node_5",

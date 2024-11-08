@@ -1,1 +1,52 @@
-[{"commands_raw":"Hey new guy!\n?> I've been looking for you -> Diag Node","gnode_name":"start","id":0,"name":"start","position":[0,0]},{"commands_raw":"Get out of here, ok?\n?> Stop Talking -> Diag Node_1","gnode_name":"diag node","id":1,"name":"Diag Node","position":[660,360]},{"commands_raw":"signal(triggerJohnEnd)","gnode_name":"diag node_1","id":2,"name":"Diag Node_1","position":[1000,300]}]
+[
+	{
+		"commands_raw": "Please take care of Layla.\n?> I've been looking for you -> Diag Node_2",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			360,
+			220
+		]
+	},
+	{
+		"commands_raw": "signal(johnWindowMask2)\nLeaving, you should do the same.\n?> Stay Safe -> Diag Node_1\n?> Good Luck -> Diag Node_1",
+		"gnode_name": "diag node",
+		"id": 1,
+		"name": "Diag Node",
+		"position": [
+			860,
+			340
+		]
+	},
+	{
+		"commands_raw": "signal(triggerJohnEnd)",
+		"gnode_name": "diag node_1",
+		"id": 2,
+		"name": "Diag Node_1",
+		"position": [
+			1140,
+			320
+		]
+	},
+	{
+		"commands_raw": "signal(johnWindowMask1)\nTell her I'll be fine\n?> Where are you going? -> Diag Node",
+		"gnode_name": "diag node_2",
+		"id": 3,
+		"name": "Diag Node_2",
+		"position": [
+			560,
+			320
+		]
+	},
+	{
+		"commands_raw": "",
+		"gnode_name": "diag node_3",
+		"id": 4,
+		"name": "Diag Node_3",
+		"position": [
+			880,
+			140
+		]
+	}
+]

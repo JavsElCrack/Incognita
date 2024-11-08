@@ -6,6 +6,7 @@ extends Interactable
 @export var checkFlag = false
 @export var flagString : String
 @export var doorNumber : String
+@export var autoCloseDoor = true
 var doorOpen = false
 
 func _ready():
@@ -34,7 +35,14 @@ func toggleDoor():
 		animation_tree.set("parameters/conditions/open",false)
 		animation_tree.set("parameters/conditions/closed",true)
 		doorOpen = false
+		$Timer.stop()
 	else:
 		animation_tree.set("parameters/conditions/open",true)
 		animation_tree.set("parameters/conditions/closed",false)
 		doorOpen = true
+		$Timer.start()
+
+
+func _on_timer_timeout():
+	if autoCloseDoor:
+		toggleDoor()

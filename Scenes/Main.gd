@@ -4,8 +4,15 @@ var flag1 = true
 var flag2 = true
 var playerInArea = false
 var gamePlayTimer = 7
+@export_category("Dialogues")
 @export var kennethdDiag : JSON
+@export var kennethdDiagGaucho : JSON
 @export var newJohnDiag : JSON
+@export var newLaylaDiag : JSON
+@export var newGauchoDiag : JSON
+@export_category("NPCs")
+@export var gaucho : NPC
+@export var layla : NPC
 @onready var gunshot = $johnjumpscareTrigger2/Gunshot
 @onready var hallwaymarker = $TeleportHallway/hallwaymarker
 @onready var jumpscare_trigger = $jumpscareTrigger
@@ -74,7 +81,7 @@ func maskDialogueInitial():
 	GameState.mask_dialogue("This is your computer
 	The password is password
 	DON'T FORGET TO WORK")
-	await get_tree().create_timer(0).timeout
+	#await get_tree().create_timer(gamePlayTimer).timeout
 	GameState.state["flags"]["Door"]["playerDoor"] = true
 func openSmokeLounge():
 	GameState.state["flags"]["Door"]["smokeLounge"] = true
@@ -87,3 +94,20 @@ func triggerJohnEnd():
 	await get_tree().create_timer(1).timeout
 	player.toggleBlackScreen()
 	johnJupscare.bloodsplatter()
+	await get_tree().create_timer(4).timeout
+	player = player as Player
+	player.tween_effect_strength(4)
+
+
+
+func johnWindowMask1():
+	GameState.mask_dialogue("I don't think talking to him is a good idea")
+
+func johnWindowMask2():
+	GameState.mask_dialogue("That's not a smart move.")
+
+
+func endGauchoIntro():
+	kenneth.dialogue_json = kennethdDiagGaucho
+	gaucho.dialogue_json = newGauchoDiag
+	layla.dialogue_json = newLaylaDiag

@@ -22,6 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var anim_tree = $AnimationTree
 @onready var pager = $CanvasLayer/pager/SubViewport
 @onready var chromatic_chaos = $"CanvasLayer/chromatic chaos"
+@onready var posterization = $CanvasLayer/Posterization
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -127,3 +128,11 @@ func pagerMessage(message : String):
 	await get_tree().create_timer(5).timeout
 	pager.slideout()
 	chromatic_chaos.visible = false
+
+func tween_effect_strength(duration: float) -> void:
+	posterization.visible = true
+	posterization.material.set_shader_parameter("effect_strength", 0.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(posterization.material, "shader_parameter/effect_strength",1 , duration)
+	
+

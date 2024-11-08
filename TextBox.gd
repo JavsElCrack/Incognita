@@ -28,7 +28,8 @@ var voiceid = 0
 var islastdialogue = false
 var letter_index = 0
 var choice_buttons: Array[Button] = []
-
+var counter = 0
+var frequency = 3
 var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
@@ -46,7 +47,7 @@ func display_text(text_to_display: String):
 	if GameState.state["flags"]["firsttimedialog"]:
 		GameState.dialgpos = self.position
 		GameState.state["flags"]["firsttimedialog"] = false
-		
+	counter = 0
 	if moveTextbox:
 		self.position = GameState.dialgpos
 		self.size = Vector2(0,0)
@@ -80,7 +81,10 @@ func on_choice_selected(choice_index: int):
 func _display_letter():
 	if letter_index < text.length():
 		label.text += text[letter_index]
-		play_sound_hash(text[letter_index], audioclips[voiceid])
+		if counter == frequency:
+			counter = 0
+		if counter == 0:
+			play_sound_hash(text[letter_index], audioclips[voiceid])
 		
 		letter_index += 1
 		if letter_index >= text.length():
@@ -97,6 +101,7 @@ func _display_letter():
 				timer.start(letter_time)
 	else:
 		finished_displaying.emit()
+	counter +=1
 
 func play_sound_random( audioclips):
 	if audiosource.playing == true and StopAudioSource == true:
