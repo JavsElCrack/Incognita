@@ -6,10 +6,15 @@ func _ready():
 var state := {
 	"null" : null,
 	"enableMinigame": false,
-	"MinigameProgress": 100,
+	"MinigameProgress": 30,
 	"TestPickup": 0,
 	"TestPickupFlag": true, 
+	"minigameFirstTime" : true,
 	"doJob" : true,
+	"settings": {
+			"sensitivity" : 0.003,
+			"ps1filter" : false,
+		},
 	"flags": {
 		"Neil": {
 			"firsttime": true,
@@ -22,6 +27,10 @@ var state := {
 			"laylaDoor": false,
 			"smokeLounge": false,
 			"gauchoDoor" :  false,
+			"claudiaDoor" :  true,
+			"neilDoor" :  true,
+			"johnDoor" : true,
+			"general" : true,
 		},
 		"ComputerRead": {
 			"default": false,

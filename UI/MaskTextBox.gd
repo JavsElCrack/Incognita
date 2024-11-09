@@ -18,7 +18,7 @@ var voiceid = 0
 var islastdialogue = false
 var letter_index = 0
 var choice_buttons: Array[Button] = []
-
+var textSize
 var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
@@ -41,6 +41,7 @@ func _process(delta):
 
 
 func display_text(text_to_display: String):
+	textSize = text_to_display.length()
 	dialogue_started.emit()
 	position = initialPos
 	clear_dialogue_box()
@@ -105,6 +106,11 @@ func _on_letter_display_timer_timeout():
 
 
 func _on_finished_displaying():
-	await get_tree().create_timer(2.0).timeout
+	var timerLength = textSize / 10
+	if timerLength < 2:
+		await get_tree().create_timer(2.0).timeout
+	else:
+		await get_tree().create_timer(timerLength).timeout
+	
 	clear_dialogue_box()
 	dialogue_ended.emit()

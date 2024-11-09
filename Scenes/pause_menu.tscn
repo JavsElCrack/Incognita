@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpns5jok3vin6"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_mh0jf"]
+[ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_ogyjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lqof"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdut2"]
+bg_color = Color(0.529412, 0.6, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u6yf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2f5f"]
+bg_color = Color(0.529412, 0.6, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[node name="Pause Menu" type="CanvasLayer"]
+script = ExtResource("1_mh0jf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1152.0
+offset_top = 60.0
+offset_right = 1797.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 100
+text = "Game Paused"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1201.0
+offset_top = 160.0
+offset_right = 1846.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0.415686, 0.745098, 0.188235, 1)
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 50
+text = "press esc to unpause"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 1217.0
+offset_top = 320.0
+offset_right = 1499.0
+offset_bottom = 682.0
+theme_override_constants/separation = 50
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lqof")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qdut2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0lqof")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0lqof")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0lqof")
+text = "settings
+"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lqof")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qdut2")
+text = "quit"
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 30.0
+offset_top = 384.0
+offset_right = 593.0
+offset_bottom = 746.0
+theme_override_constants/separation = 50
+
+[node name="ps1 filter" type="Button" parent="Settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_2u6yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d2f5f")
+text = "ps1 filter [off]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogyjv")
+theme_override_font_sizes/font_size = 60
+text = "sensitivity"
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer"]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.015
+step = 0.001
+value = 0.003
+
+[connection signal="button_down" from="VBoxContainer/settings" to="." method="_on_settings_button_down"]
+[connection signal="button_down" from="VBoxContainer/quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="Settings/ps1 filter" to="." method="_on_ps_1_filter_button_down"]
+[connection signal="value_changed" from="Settings/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

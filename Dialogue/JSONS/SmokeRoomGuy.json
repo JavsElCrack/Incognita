@@ -1,0 +1,92 @@
+[
+	{
+		"commands_raw": "I haven't seen your face before\n?> I'm looking for Gaucho -> 2\n?> I recently started smoking -> 1",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	},
+	{
+		"commands_raw": "Was it hard to get the Smoker's Pass?\nThey get stricter every time with the requirements\n?> Yes -> 3\n?> No -> 4",
+		"gnode_name": "1",
+		"id": 1,
+		"name": "1",
+		"position": [
+			620,
+			380
+		]
+	},
+	{
+		"commands_raw": "Leave this lounge\nYou shouldn' say things so casually",
+		"gnode_name": "2",
+		"id": 2,
+		"name": "2",
+		"position": [
+			600,
+			500
+		]
+	},
+	{
+		"commands_raw": "Well enojoy the lounge!",
+		"gnode_name": "3",
+		"id": 3,
+		"name": "3",
+		"position": [
+			880,
+			380
+		]
+	},
+	{
+		"commands_raw": "What do you mean?\n?> It was given to me  -> 5",
+		"gnode_name": "4",
+		"id": 4,
+		"name": "4",
+		"position": [
+			980,
+			500
+		]
+	},
+	{
+		"commands_raw": "By who?\n?> Layla -> 6",
+		"gnode_name": "5",
+		"id": 5,
+		"name": "5",
+		"position": [
+			1280,
+			480
+		]
+	},
+	{
+		"commands_raw": "Why did she do that?\n?> Look its an emergency -> 7",
+		"gnode_name": "6",
+		"id": 6,
+		"name": "6",
+		"position": [
+			1500,
+			480
+		]
+	},
+	{
+		"commands_raw": "What is happening? Do you need help?\n?> I need to talk to Gaucho -> 8",
+		"gnode_name": "7",
+		"id": 7,
+		"name": "7",
+		"position": [
+			1740,
+			460
+		]
+	},
+	{
+		"commands_raw": "Go ahead he is the dude smoking over there",
+		"gnode_name": "8",
+		"id": 8,
+		"name": "8",
+		"position": [
+			2100,
+			400
+		]
+	}
+]

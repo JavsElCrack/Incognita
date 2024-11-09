@@ -30,7 +30,7 @@
 		]
 	},
 	{
-		"commands_raw": "I looked at Gaucho's computer.\nI don't want to say too much.\nThere is a text file you NEED to read.\nI left the door unlocked.\n?> What is Gaucho psswd? -> Diag Node_4",
+		"commands_raw": "I looked at Gaucho's computer.\nI don't want to say too much.\nThere is a text file you NEED to read.\nI left the door unlocked.\n?> Where is Gaucho's room? -> Diag Node_4",
 		"gnode_name": "diag node_2",
 		"id": 3,
 		"name": "Diag Node_2",
@@ -50,7 +50,7 @@
 		]
 	},
 	{
-		"commands_raw": "trustnoone\nsignal(unlockGauchoDoor)",
+		"commands_raw": "The room next door.\nhis password is\ntrustnoone\nsignal(unlockGauchoDoor)",
 		"gnode_name": "diag node_4",
 		"id": 5,
 		"name": "Diag Node_4",

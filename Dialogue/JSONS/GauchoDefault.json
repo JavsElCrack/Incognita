@@ -10,7 +10,7 @@
 		]
 	},
 	{
-		"commands_raw": "Then you understand why John left\nYou should ",
+		"commands_raw": "Then you understand why John left\nWill you still look for him?\n?> Yes -> Diag Node\n?> No -> Diag Node",
 		"gnode_name": "diag node_1",
 		"id": 1,
 		"name": "Diag Node_1",
@@ -20,13 +20,13 @@
 		]
 	},
 	{
-		"commands_raw": "Did you read my computer",
+		"commands_raw": "If Layla seeks closure\nyou should go into John's room\nsignal(triggerJohnCutscene)",
 		"gnode_name": "diag node",
 		"id": 2,
 		"name": "Diag Node",
 		"position": [
-			0,
-			0
+			960,
+			-60
 		]
 	}
 ]

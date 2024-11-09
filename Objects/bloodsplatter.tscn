@@ -15,12 +15,12 @@ albedo_texture = SubResource("ViewportTexture_jw84b")
 [sub_resource type="QuadMesh" id="QuadMesh_bx8yq"]
 material = SubResource("StandardMaterial3D_hpmwl")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3smi6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uupbk"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k1qa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meik0"]
 transparency = 1
-albedo_texture = SubResource("ViewportTexture_3smi6")
+albedo_texture = SubResource("ViewportTexture_uupbk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l382j"]
 shader = ExtResource("2_k61ho")
@@ -35,7 +35,7 @@ file = "res://video/bloodsplater.ogv"
 [node name="blood splatter" type="MeshInstance3D"]
 transform = Transform3D(3.39529e-15, 7.30144e-30, 1, -7.76751e-08, 1, 1.59578e-37, -1.777, -4.37114e-08, 1.91069e-15, 0, 0, 0)
 mesh = SubResource("QuadMesh_bx8yq")
-surface_material_override/0 = SubResource("StandardMaterial3D_1k1qa")
+surface_material_override/0 = SubResource("StandardMaterial3D_meik0")
 script = ExtResource("1_ml0tl")
 
 [node name="SubViewport" type="SubViewport" parent="."]

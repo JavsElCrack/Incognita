@@ -4,6 +4,7 @@ var player
 var toggle = false
 var checkTransition = false
 var timeJ  = 0.05
+
 @export var npc : NPC
 @export var bloodsplatterO : BloodSplatter
 @export var PlayerStartMarker : Marker3D
@@ -82,8 +83,11 @@ func _on_blood_splatter_bloodsplatter_end():
 	changeCamera(player)
 	npc.visible = false
 	player.transform = PlayerStartMarker.transform
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(1).timeout
 	player.toggleBlackScreen()
+	await get_tree().create_timer(2).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameState.mask_dialogue("I still can't believe John is dead")
+	await get_tree().create_timer(5).timeout
+	GameState.mask_dialogue("Layla said to meet her in the smoke lounge")
 	

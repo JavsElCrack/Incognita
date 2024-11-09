@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://rgak22gmhj5o"]
+[gd_scene load_steps=21 format=3 uid="uid://rgak22gmhj5o"]
 
+[ext_resource type="Script" path="res://Objects/prefabs/dorm_room.gd" id="1_11k2j"]
 [ext_resource type="Texture2D" uid="uid://cq2me5pdk72mk" path="res://Models/itch/Models pack psx/Texture/Concrete.png" id="1_ei0ki"]
 [ext_resource type="Shader" path="res://Shaders/psx.gdshader" id="2_2f3ov"]
 [ext_resource type="PackedScene" uid="uid://s108iq6sc5sg" path="res://Objects/desk.tscn" id="3_gll57"]
@@ -114,6 +115,7 @@ size = Vector3(5.48951, 1.96587, 0.138639)
 
 [node name="Room" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.92468, 0, 0.00619888)
+script = ExtResource("1_11k2j")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.25242e-07, -1.99255, 0, 2.8652, -8.70974e-08, 0, 4.23516e-22, 7.10543e-15, 0.123773, 1.8149, 1.39752, 0.871853)

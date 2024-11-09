@@ -1,0 +1,32 @@
+[
+	{
+		"commands_raw": "Close the Door\n?> No -> 2\n?> Ok -> 1\n",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			200,
+			120
+		]
+	},
+	{
+		"commands_raw": "Thank You",
+		"gnode_name": "1",
+		"id": 1,
+		"name": "1",
+		"position": [
+			540,
+			320
+		]
+	},
+	{
+		"commands_raw": "Please leave me alone",
+		"gnode_name": "2",
+		"id": 2,
+		"name": "2",
+		"position": [
+			660,
+			-80
+		]
+	}
+]

@@ -101,5 +101,16 @@ material = SubResource("StandardMaterial3D_rmn3f")
 [node name="Door" parent="." instance=ExtResource("5_wfr6k")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.716033, 0, 0.910242)
 
+[node name="door" parent="Door" index="0"]
+checkFlag = true
+flagString = "general"
+
 [node name="Door2" parent="." instance=ExtResource("5_wfr6k")]
 transform = Transform3D(-0.75, 0, -1.13247e-07, 0, 0.75, 0, 1.13247e-07, 0, -0.75, 0.705066, 0, 0.910242)
+
+[node name="door" parent="Door2" index="0"]
+checkFlag = true
+flagString = "general"
+
+[editable path="Door"]
+[editable path="Door2"]

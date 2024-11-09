@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2prtugoh0y0x"]
+[gd_scene load_steps=24 format=3 uid="uid://b2prtugoh0y0x"]
 
 [ext_resource type="Texture2D" uid="uid://c2ob4mh4r7lsn" path="res://Models/itch/Models pack psx/Texture/Door.jpg" id="1_dg4om"]
 [ext_resource type="Script" path="res://Objects/door.gd" id="1_oqnjt"]
+[ext_resource type="Script" path="res://Objects/doorMain.gd" id="1_sci1p"]
 [ext_resource type="FontFile" uid="uid://byovmckfvhrlj" path="res://Fonts/VCR_OSD_MONO.ttf" id="3_o62ni"]
 [ext_resource type="Material" uid="uid://2je4b7g4elbi" path="res://Materials/door.tres" id="3_qdikk"]
 
@@ -154,6 +155,7 @@ material = ExtResource("3_qdikk")
 size = Vector2(0.2, 0.2)
 
 [node name="Door" type="Node3D"]
+script = ExtResource("1_sci1p")
 
 [node name="door" type="StaticBody3D" parent="." groups=["door"]]
 script = ExtResource("1_oqnjt")
