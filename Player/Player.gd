@@ -28,7 +28,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var posterization = $CanvasLayer/Posterization
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var pause_menu = $"CanvasLayer/Pause Menu"
-
 @onready var ps_1_post_processing = $CanvasLayer/PS1PostProcessing
 @export_category("Sound")
 @export var footsteps : Array[Array]
