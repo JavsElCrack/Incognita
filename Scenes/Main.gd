@@ -11,6 +11,7 @@ var gamePlayTimer = 7
 @export var newLaylaDiag : JSON
 @export var newGauchoDiag : JSON
 @export var finalLaylaDiag : JSON
+@export var endScene : PackedScene
 @export_category("NPCs")
 @export var gaucho : NPC
 @export var layla : NPC
@@ -39,7 +40,7 @@ var lockedDoors  := {
 
 func _ready():
 	#TODO comment line
-	debugMode()
+#	debugMode()
 	player = get_tree().get_first_node_in_group("player")
 	maskDialogueInitial()
 
@@ -72,7 +73,7 @@ func _on_teleport_hallway_body_entered(body):
 	if body.is_in_group("player"):
 		body.global_position.z = hallwaymarker.global_position.z
 func removeGift():
-	GameState.mask_dialogue("What a problematic couuple")
+	GameState.mask_dialogue("What a problematic couple")
 	GameState.state["flags"]["Neil"]["gift"] = false
 func neilFirstTime():
 	GameState.state["flags"]["Neil"]["firsttime"] = false
@@ -149,10 +150,14 @@ func endGauchoIntro():
 	layla.dialogue_json = newLaylaDiag
 
 func endActOne():
-	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
+	get_tree().change_scene_to_packed(endScene)
 
 func debugMode():
 	GameState.state["flags"]["Door"]["playerDoor"] = true
 	GameState.state["MinigameProgress"] = 100
 	GameState.state["doJob"] = false
 
+
+
+func _on_johnjumpscare_trigger_2_stop_music():
+	$Music.stop()

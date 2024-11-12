@@ -60,7 +60,7 @@
 		]
 	},
 	{
-		"commands_raw": "Ok, you need to talk to Layla. \nIf someone knows where he is, it's her. \nShe is in room the room accross from John's.\nHurry!\n?> Stop Talking -> END",
+		"commands_raw": "Ok, you need to talk to Layla. \nIf someone knows where he is, it's her. \nShe is in the room accross from John's.\nHurry!\n?> Stop Talking -> END",
 		"gnode_name": "diag node_4",
 		"id": 6,
 		"name": "Diag Node_4",

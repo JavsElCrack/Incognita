@@ -4,7 +4,7 @@ var player
 var toggle = false
 var checkTransition = false
 var timeJ  = 0.05
-
+signal stopMusic
 @export var npc : NPC
 @export var bloodsplatterO : BloodSplatter
 @export var PlayerStartMarker : Marker3D
@@ -25,6 +25,7 @@ func _process(delta):
 
 func changeCamera(body):
 		if body.is_in_group("player"):
+			stopMusic.emit()
 			npc.dialogue_json = newDialogue
 			GameState.stopJob()
 			print("Stopping Job")
