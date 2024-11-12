@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
+@export var hasFlashlight = false
 var t_bob = 0.0
 var initialHeadRot
 var lockmovement = false
@@ -29,6 +30,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var pause_menu = $"CanvasLayer/Pause Menu"
 @onready var ps_1_post_processing = $CanvasLayer/PS1PostProcessing
+@onready var flashlight = $Head/Camera3D/Flashlight
+
 @export_category("Sound")
 @export var footsteps : Array[Array]
 func _ready():
@@ -50,6 +53,8 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() && !lockmovement:
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("flashlight") and hasFlashlight:
+		toggleFlashlight()
 
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
@@ -113,6 +118,12 @@ func unlockmovementP():
 	lockmovement = false
 	isinDialogue = false
 	raycast.isInDialogue = false
+
+func toggleFlashlight():
+	if flashlight.visible == true:
+		flashlight.visible = false
+	else:
+		flashlight.visible = true
 
 
 func _on_text_box_dialogue_started():
